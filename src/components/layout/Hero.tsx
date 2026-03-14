@@ -1,96 +1,114 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 export const Hero = () => {
-  const textRef = useRef<HTMLDivElement>(null);
-  const searchRef = useRef<HTMLDivElement>(null);
+    const textRef = useRef<HTMLDivElement>(null);
+    const searchRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    // Simple entry animation
-    const tl = gsap.timeline();
+    useEffect(() => {
+        const tl = gsap.timeline();
 
-    tl.fromTo(textRef.current, {
-      opacity: 0,
-      y: 30,
-      filter: 'blur(10px)'
-    }, {
-      opacity: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      duration: 1.5,
-      ease: "power3.out"
-    })
-    .fromTo(searchRef.current, {
-      opacity: 0,
-      y: 20
-    }, {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: "power2.out"
-    }, "-=0.8");
+        tl.fromTo(
+            textRef.current,
+            {
+                opacity: 0,
+                y: 10,
+            },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                ease: "power2.out",
+            },
+        ).fromTo(
+            searchRef.current,
+            {
+                opacity: 0,
+                scale: 0.98,
+            },
+            {
+                opacity: 1,
+                scale: 1,
+                duration: 1,
+                ease: "power2.out",
+            },
+            "-=0.6",
+        );
 
-    return () => {
-      tl.kill();
-    };
-  }, []);
+        return () => {
+            tl.kill();
+        };
+    }, []);
 
-  return (
-    <header className="relative h-screen w-full bg-[#030303] overflow-hidden flex flex-col justify-between p-8 md:p-12 border-b border-[#ffffff1a] cursor-crosshair">
+    return (
+        <header className="relative h-screen w-full bg-[#030303] overflow-hidden flex flex-col justify-center items-center p-8 border-b border-white/5 cursor-crosshair">
+            {/* Center - Minimalist Statement & Shader Space */}
+            <div className="relative w-full max-w-3xl flex flex-col items-start justify-center z-10">
+                {/* Abstract Shader Placeholder - Kept extremely subtle */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
+                    <div className="font-mono text-[8px] tracking-[1em]">
+                        [ SHADER_CANVAS_RESERVED ]
+                    </div>
+                </div>
 
-      {/* Grid Background overlay for tech feel. Center remains empty for future shader. */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none opacity-50 z-0"></div>
+                <div ref={textRef} className="w-full mb-16 pointer-events-none">
+                    <h1 className="font-mono text-2xl md:text-3xl font-normal leading-snug text-[#E4E4E6] tracking-tight mb-4">
+                        An archive of sonic decay.
+                    </h1>
+                    <p className="font-mono text-xs md:text-sm text-[#88888D] tracking-wide leading-relaxed max-w-xl">
+                        Documenting the structural remnants of experimental
+                        electronic music. Brutalism, underground subcultures,
+                        and the architecture of noise.
+                    </p>
+                </div>
 
-      {/* Top Bar - Pushed to edges */}
-      <div className="relative z-10 w-full flex justify-between items-start">
-        <div className="flex flex-col gap-1">
-          <span className="font-mono text-[10px] text-[#88888D] tracking-[0.3em] uppercase">SYS.OP</span>
-          <span className="font-sans text-sm font-bold tracking-widest text-white">THE HARMONIC</span>
-        </div>
-        <div className="flex flex-col items-end gap-1 text-right">
-          <span className="font-mono text-[10px] text-[#88888D] tracking-[0.3em] uppercase">STATUS</span>
-          <span className="font-mono text-[10px] text-[#7b61ff] tracking-[0.2em] font-bold animate-pulse">ONLINE</span>
-        </div>
-      </div>
-
-      {/* Center - Magazine Manifesto & Shader Space */}
-      <div className="flex-grow relative w-full flex flex-col items-center justify-center z-10 pointer-events-none">
-
-        {/* Abstract Shader Placeholder */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-10">
-          <div className="font-mono text-xs tracking-[0.5em]">[ SHADER_CANVAS_RESERVED ]</div>
-        </div>
-
-        <div ref={textRef} className="text-center max-w-4xl px-4 mix-blend-screen drop-shadow-[0_0_20px_rgba(255,255,255,0.15)] pointer-events-auto">
-          <h1 className="font-sans text-[clamp(2.5rem,6vw,6rem)] font-black leading-[0.9] text-white tracking-tighter uppercase mb-6">
-            An Archive of<br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-[#4a4d58]">Sonic Decay</span>
-          </h1>
-          <p className="font-sans font-light text-[#88888D] text-[clamp(1rem,2vw,1.25rem)] max-w-2xl mx-auto leading-relaxed">
-            Documenting the deeper structures of sound. Exploring experimental electronic music, brutalist aesthetics, and the underground scenes that shape modern sonic culture.
-          </p>
-        </div>
-
-      </div>
-
-      {/* Bottom Bar - Search Interface */}
-      <div className="relative z-10 w-full flex flex-col items-center justify-end pb-8">
-        <div ref={searchRef} className="w-full max-w-2xl relative group">
-          <div className="absolute inset-0 bg-[#7b61ff] blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-700"></div>
-          <div className="relative flex items-center border border-[#ffffff33] bg-black/40 backdrop-blur-md transition-colors duration-300 group-hover:border-[#7b61ff]/50">
-            <span className="pl-6 text-[#7b61ff] font-mono text-sm">{'>'}</span>
-            <input
-              type="text"
-              placeholder="SEARCH DATABASE (ARTISTS, RELEASES, SCENES)..."
-              className="w-full bg-transparent border-none outline-none text-white font-mono text-xs tracking-widest px-4 py-6 placeholder:text-[#4a4d58] placeholder:transition-colors focus:placeholder:text-[#88888D]"
-            />
-            <div className="pr-6 font-mono text-[10px] text-[#4a4d58] tracking-widest uppercase hidden md:block">
-              INDEX: [0-999]
+                {/* Minimal Search Interface */}
+                <div
+                    ref={searchRef}
+                    className="w-full relative group pointer-events-auto"
+                >
+                    <div className="flex items-center bg-[#0a0a0c] border border-white/10 transition-colors duration-300 hover:border-white/30 focus-within:border-white/50 focus-within:bg-[#0d0d12]">
+                        <input
+                            type="text"
+                            placeholder="Search index..."
+                            className="w-full bg-transparent border-none outline-none text-[#E4E4E6] font-mono text-sm px-6 py-5 placeholder:text-[#4a4d58] transition-colors"
+                        />
+                        <div className="pr-6 flex items-center gap-2">
+                            <span className="font-mono text-[9px] text-[#4a4d58] tracking-widest uppercase">
+                                CTRL+K
+                            </span>
+                            <button
+                                className="w-6 h-6 flex items-center justify-center border border-white/10 hover:border-white/40 hover:text-white text-[#88888D] transition-colors rounded-sm"
+                                aria-label="Submit Search"
+                            >
+                                <svg
+                                    width="10"
+                                    height="10"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="square"
+                                    strokeLinejoin="miter"
+                                >
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-    </header>
-  );
+            {/* Global Bottom Frame - Absolute positioned for framing */}
+            <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end pointer-events-none mix-blend-difference">
+                <div className="font-mono text-[9px] text-[#88888D] tracking-widest uppercase">
+                    INDEX: 001—999
+                </div>
+                <div className="font-mono text-[9px] text-[#88888D] tracking-widest uppercase text-right">
+                    TOKYO // BERLIN
+                </div>
+            </div>
+        </header>
+    );
 };
