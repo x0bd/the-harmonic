@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;700;900&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -25,7 +25,7 @@
     --muted: #0a0a0c;
     --muted-foreground: #88888d;
 
-    --accent: #7b61ff; /* Spectral violet from hard-2 */
+    --accent: #7b61ff;
     --accent-foreground: #ffffff;
 
     --destructive: oklch(0.396 0.141 25.723);
@@ -58,10 +58,9 @@
 }
 
 @theme inline {
-    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
     --font-mono: "JetBrains Mono Variable", monospace;
-    /* Aliasing serif to sans since we are strictly using Inter/JetBrains */
-    --font-serif: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-serif: "Geist", ui-sans-serif, system-ui, sans-serif;
 
     --color-ring: var(--ring);
     --color-input: var(--input);
