@@ -46,7 +46,7 @@ import { WaveformSection } from "../components/audio/WaveformSection";
                 <div
                     class="absolute bottom-4 right-4 font-mono text-[10px] text-[#7b61ff] tracking-[0.3em] uppercase bg-[#030303] px-4 py-2 border border-white/10"
                 >
-                    [ INDEX / 001 - 004 ]
+                    [ INDEX / 001 - 006 ]
                 </div>
             </div>
 
@@ -202,6 +202,86 @@ import { WaveformSection } from "../components/audio/WaveformSection";
                                 { label: "FOCUS", value: "INDUSTRIAL" },
                                 { label: "ALBUM", value: "1994" },
                                 { label: "SYS.ID", value: "PROPHET-5" },
+                            ]}
+                        />
+                    </ArticleCard>
+                </div>
+
+                {/* Item 5 - Tresor / Berlin Club */}
+                <div class="md:col-start-1 md:col-end-7 md:mt-[16rem] relative">
+                    <ArticleCard indexStr="05">
+                        <CardImage
+                            aspectRatio="aspect-[16/9]"
+                            src="https://images.unsplash.com/photo-1574342267675-27a92fb02b21?q=80&w=2000&auto=format&fit=crop"
+                            alt="Dark warehouse club"
+                        />
+                        <CardMeta>
+                            <span
+                                class="text-[#7b61ff] font-bold tracking-widest"
+                                >SCENE REPORT</span
+                            >
+                            <span class="text-white bg-white/10 px-2 py-1"
+                                >VOL.05</span
+                            >
+                        </CardMeta>
+                        <CardTitle
+                            className="text-4xl md:text-6xl font-black uppercase tracking-tighter mt-2"
+                            >TRESOR:<br />The Vault</CardTitle
+                        >
+                        <CardExcerpt
+                            className="mt-4 text-base md:text-lg max-w-md"
+                        >
+                            Exploring the acoustic properties of a
+                            decommissioned bank vault. How the physical
+                            constraints of Tresor birthed the relentless, dense
+                            sound of early 90s Berlin techno.
+                        </CardExcerpt>
+                        <CardDataPoints
+                            data={[
+                                { label: "LOC", value: "BERLIN, DE" },
+                                { label: "BPM", value: "135+" },
+                            ]}
+                        />
+                    </ArticleCard>
+                </div>
+
+                {/* Item 6 - Korg MS-20 Case Study */}
+                <div
+                    class="md:col-start-8 md:col-end-12 md:mt-[48rem] relative"
+                >
+                    <ArticleCard indexStr="06">
+                        <CardMeta>
+                            <span
+                                class="text-[#7b61ff] font-bold tracking-widest"
+                                >HARDWARE ANALYSIS</span
+                            >
+                            <span class="text-white bg-white/10 px-2 py-1"
+                                >SYS.01</span
+                            >
+                        </CardMeta>
+                        <CardTitle
+                            className="text-4xl md:text-6xl font-black uppercase tracking-tighter mt-2 text-[#7b61ff]"
+                            >KORG MS-20</CardTitle
+                        >
+                        <h3
+                            class="font-mono text-xl text-white uppercase tracking-widest mb-6"
+                        >
+                            The Screaming Filter
+                        </h3>
+                        <CardImage
+                            aspectRatio="aspect-[4/5]"
+                            src="https://images.unsplash.com/photo-1598387846148-18d451a37c95?q=80&w=2000&auto=format&fit=crop"
+                            alt="Analog Synthesizer Patch Cables"
+                        />
+                        <CardExcerpt className="mt-6 text-base md:text-lg">
+                            Why the MS-20's notoriously aggressive high-pass and
+                            low-pass filter combination remains the gold
+                            standard for tearing through industrial mixes.
+                        </CardExcerpt>
+                        <CardDataPoints
+                            data={[
+                                { label: "TYPE", value: "SEMI-MODULAR" },
+                                { label: "RELEASE", value: "1978" },
                             ]}
                         />
                     </ArticleCard>
