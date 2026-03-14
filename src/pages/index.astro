@@ -14,30 +14,38 @@ import { WaveformSection } from "../components/audio/WaveformSection";
 
 <BaseLayout>
     <div class="p-4 min-h-screen flex flex-col pt-16 font-sans">
-        {/* Monolith Hero Section */}
+        {/* Monolith Hero Section - Harder Vibe */}
         <header
-            class="relative h-[calc(100vh-2rem)] w-full bg-[#030303] overflow-hidden flex flex-col items-center justify-center"
+            class="relative h-[calc(100vh-2rem)] w-full bg-[#030303] overflow-hidden flex flex-col items-center justify-center border-b border-[#ffffff1a]"
         >
-            <div class="relative z-10 flex flex-col items-center">
+            {/* Grid Background overlay for tech feel */}
+            <div
+                class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none opacity-50 z-0"
+            >
+            </div>
+
+            <div class="relative z-10 flex flex-col items-center w-full">
                 {/* Vertical Credits */}
-                <div class="absolute flex flex-col items-center gap-8 -top-32">
-                    <div class="flex flex-col items-center gap-1.5">
+                <div
+                    class="absolute flex flex-col items-center gap-12 -top-40 hidden md:flex"
+                >
+                    <div class="flex flex-col items-center gap-2">
                         <span
-                            class="font-mono text-[9px] text-[#88888D] tracking-[0.2em] uppercase"
+                            class="font-mono text-[10px] text-[#88888D] tracking-[0.3em] uppercase"
                             >Visual by</span
                         >
                         <span
-                            class="font-sans text-[10px] tracking-[0.1em] text-white"
+                            class="font-mono text-[11px] font-bold tracking-[0.2em] text-white"
                             >SYS.OP</span
                         >
                     </div>
-                    <div class="flex flex-col items-center gap-1.5">
+                    <div class="flex flex-col items-center gap-2">
                         <span
-                            class="font-mono text-[9px] text-[#88888D] tracking-[0.2em] uppercase"
+                            class="font-mono text-[10px] text-[#88888D] tracking-[0.3em] uppercase"
                             >Audio by</span
                         >
                         <span
-                            class="font-sans text-[10px] tracking-[0.1em] text-white"
+                            class="font-mono text-[11px] font-bold tracking-[0.2em] text-[#7b61ff]"
                             >RESONATOR</span
                         >
                     </div>
@@ -45,15 +53,37 @@ import { WaveformSection } from "../components/audio/WaveformSection";
 
                 {/* Monolith Container */}
                 <div
-                    class="relative w-[80vw] lg:w-[40vw] max-w-[500px] aspect-square flex items-center justify-center bg-black/20 backdrop-blur-sm border-2 border-white/90 z-[2] transition-shadow duration-1000 shadow-[0_0_15px_rgba(255,255,255,0.6),_0_0_30px_rgba(255,255,255,0.3),_inset_0_0_10px_rgba(255,255,255,0.2)] hover:shadow-[0_0_20px_rgba(255,255,255,0.9),_0_0_50px_rgba(255,255,255,0.5),_inset_0_0_15px_rgba(255,255,255,0.4)] group cursor-crosshair"
+                    class="relative w-[90vw] md:w-[60vw] lg:w-[45vw] max-w-[600px] aspect-square flex items-center justify-center bg-black/60 backdrop-blur-md border border-white/20 z-[2] transition-all duration-700 shadow-[0_0_40px_rgba(0,0,0,1),_inset_0_0_20px_rgba(123,97,255,0.15)] hover:shadow-[0_0_50px_rgba(123,97,255,0.5),_inset_0_0_30px_rgba(255,255,255,0.1)] hover:border-white/50 group cursor-crosshair"
                 >
-                    <h1
-                        class="font-sans text-[clamp(3rem,6vw,6rem)] font-light leading-none text-center mix-blend-screen flex flex-col items-center text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+                    {/* Corner accents */}
+                    <div
+                        class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#7b61ff]/50 transition-all group-hover:border-white group-hover:w-8 group-hover:h-8"
                     >
-                        <span class="font-bold tracking-tight">ECHOES</span>
+                    </div>
+                    <div
+                        class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#7b61ff]/50 transition-all group-hover:border-white group-hover:w-8 group-hover:h-8"
+                    >
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#7b61ff]/50 transition-all group-hover:border-white group-hover:w-8 group-hover:h-8"
+                    >
+                    </div>
+                    <div
+                        class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#7b61ff]/50 transition-all group-hover:border-white group-hover:w-8 group-hover:h-8"
+                    >
+                    </div>
+
+                    <h1
+                        class="font-sans text-[clamp(3.5rem,9vw,8rem)] font-black leading-[0.85] text-center mix-blend-screen flex flex-col items-center text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.4)] tracking-tighter uppercase"
+                    >
+                        <span>SONIC</span>
                         <span
-                            class="italic font-light text-3xl md:text-5xl mt-2 text-[#E4E4E6]"
-                            >of the Void</span
+                            class="text-transparent bg-clip-text bg-gradient-to-b from-white to-[#4a4d58]"
+                            >DECAY</span
+                        >
+                        <span
+                            class="font-mono text-xs md:text-sm mt-8 text-[#7b61ff] tracking-[0.5em] font-bold"
+                            >INDUSTRIAL ARCHIVES</span
                         >
                     </h1>
                 </div>
@@ -61,15 +91,15 @@ import { WaveformSection } from "../components/audio/WaveformSection";
 
             {/* Simulated Water Plane / Reflection Area */}
             <div
-                class="absolute bottom-0 left-0 w-full h-[30vh] bg-gradient-to-t from-[#030303] to-transparent z-[1] overflow-hidden flex justify-center opacity-40 blur-md"
+                class="absolute bottom-0 left-0 w-full h-[35vh] bg-gradient-to-t from-[#030303] via-[#050505] to-transparent z-[1] overflow-hidden flex justify-center opacity-70 blur-2xl mix-blend-screen"
             >
                 <div
-                    class="relative top-[-30vh] w-[80vw] lg:w-[40vw] max-w-[500px] aspect-square border-2 border-white shadow-[0_0_15px_rgba(255,255,255,0.6)] origin-bottom scale-y-[-1] blur-[8px]"
+                    class="relative top-[-35vh] w-[90vw] md:w-[60vw] lg:w-[45vw] max-w-[600px] aspect-square bg-[#7b61ff] origin-bottom scale-y-[-1] blur-[25px] opacity-30"
                     style={{
                         maskImage:
-                            "linear-gradient(to bottom, transparent 20%, black 100%)",
+                            "linear-gradient(to bottom, transparent 10%, black 100%)",
                         WebkitMaskImage:
-                            "linear-gradient(to bottom, transparent 20%, black 100%)",
+                            "linear-gradient(to bottom, transparent 10%, black 100%)",
                     }}
                 >
                 </div>
@@ -81,122 +111,156 @@ import { WaveformSection } from "../components/audio/WaveformSection";
             class="relative z-10 bg-[#030303] max-w-7xl mx-auto w-full px-4 md:px-16 pt-32 pb-64"
         >
             <div
-                class="flex items-center justify-between mb-16 border-b border-[#ffffff1a] pb-6"
+                class="flex flex-col md:flex-row md:items-end justify-between mb-24 border-b-2 border-white/20 pb-8 gap-4"
             >
                 <h2
-                    class="font-sans text-2xl md:text-3xl font-light text-white"
+                    class="font-sans text-4xl md:text-6xl font-black text-white tracking-tighter uppercase"
                 >
-                    Latest Transmissions
+                    Distorted<br /><span class="text-[#88888D]">Signals</span>
                 </h2>
                 <div
-                    class="font-mono text-[0.65rem] text-[#88888D] uppercase tracking-[0.1em]"
+                    class="font-mono text-xs text-[#7b61ff] uppercase tracking-[0.2em] font-bold"
                 >
-                    INDEX / 001 - 004
+                    [ RECORDING.001 - 004 ]
                 </div>
             </div>
 
             <div
-                class="grid grid-cols-1 md:grid-cols-12 gap-x-8 gap-y-24 md:gap-y-0"
+                class="grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-32 md:gap-y-0"
             >
-                {/* Item 1 */}
-                <div class="md:col-start-2 md:col-end-8">
+                {/* Item 1 - Boy Harsher */}
+                <div class="md:col-start-1 md:col-end-8">
                     <ArticleCard>
                         <CardImage
                             aspectRatio="aspect-[16/9]"
-                            src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=2000&auto=format&fit=crop"
-                            alt="Synthesizer setup in dark studio"
+                            src="https://images.unsplash.com/photo-1574169208507-84376144848b?q=80&w=2000&auto=format&fit=crop"
+                            alt="Harsh lighting in a concrete room"
                         />
                         <CardMeta>
-                            <span>Interview / Tokyo</span>
-                            <span class="text-white">08.24</span>
+                            <span
+                                class="text-[#7b61ff] font-bold tracking-widest"
+                                >ARTIST PROFILE</span
+                            >
+                            <span class="text-white">VOL.01</span>
                         </CardMeta>
-                        <CardTitle>The Architecture of Noise</CardTitle>
-                        <CardExcerpt>
-                            Exploring the brutalist sonic landscapes constructed
-                            by algorithmic composers utilizing extreme
-                            frequencies.
+                        <CardTitle
+                            className="text-5xl font-black uppercase tracking-tighter mt-2"
+                            >Boy Harsher</CardTitle
+                        >
+                        <CardExcerpt className="mt-4 text-base">
+                            The relentless pulse of modern darkwave. Exploring
+                            the sweaty, desperate synthesis of 'Careful' and how
+                            they weaponize the Roland SH-101 to build cinematic
+                            dread in the club.
                         </CardExcerpt>
                         <CardDataPoints
                             data={[
-                                { label: "BPM RANGE", value: "0 - 240" },
-                                { label: "DURATION", value: "14 MIN" },
-                                { label: "SYS.ID", value: "TX-81Z" },
+                                { label: "GENRE", value: "DARKWAVE" },
+                                { label: "LOC", value: "SAVANNAH, GA" },
+                                { label: "SYS.ID", value: "SH-101 / TR-505" },
                             ]}
                         />
                     </ArticleCard>
                 </div>
 
-                {/* Item 2 */}
-                <div class="md:col-start-9 md:col-end-13 md:mt-32">
+                {/* Item 2 - Yeah Yeah Yeahs */}
+                <div class="md:col-start-9 md:col-end-13 md:mt-48">
                     <ArticleCard>
                         <CardImage
-                            aspectRatio="aspect-[4/5]"
-                            src="https://images.unsplash.com/photo-1510212351786-bb2d7cc0b5bb?q=80&w=2000&auto=format&fit=crop"
-                            alt="Abstract dark geometric interior"
+                            aspectRatio="aspect-[3/4]"
+                            src="https://images.unsplash.com/photo-1520166986518-18e3ab039324?q=80&w=2000&auto=format&fit=crop"
+                            alt="Distorted amplifier"
                         />
                         <CardMeta>
-                            <span>Exhibition / Berlin</span>
-                            <span class="text-white">07.24</span>
+                            <span
+                                class="text-[#7b61ff] font-bold tracking-widest"
+                                >RETROSPECTIVE</span
+                            >
+                            <span class="text-white">VOL.02</span>
                         </CardMeta>
-                        <CardTitle>Negative Space as Instrumentation</CardTitle>
-                        <CardExcerpt>
-                            How silence and sub-bass create physical tension in
-                            warehouse environments. A study of acoustic shadows.
+                        <CardTitle
+                            className="text-4xl font-black uppercase tracking-tighter mt-2"
+                            >Yeah Yeah Yeahs</CardTitle
+                        >
+                        <CardExcerpt className="mt-4 text-base">
+                            Fever to Tell. The raw, unpolished energy of early
+                            2000s New York post-punk revival. Deconstructing the
+                            jagged guitar tones and Karen O's visceral vocal
+                            delivery that defined an era of grit.
                         </CardExcerpt>
                         <CardDataPoints
                             data={[
-                                { label: "FOCUS", value: "Acoustics" },
-                                { label: "SYS.ID", value: "SP-1200" },
+                                { label: "ERA", value: "2003" },
+                                { label: "STYLE", value: "POST-PUNK" },
                             ]}
                         />
                     </ArticleCard>
                 </div>
 
-                {/* Item 3 */}
-                <div class="md:col-start-1 md:col-end-6 md:mt-64">
+                {/* Item 3 - Lebanon Hanover */}
+                <div class="md:col-start-2 md:col-end-7 md:mt-80">
                     <ArticleCard>
                         <CardImage
-                            aspectRatio="aspect-[16/9]"
-                            src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2000&auto=format&fit=crop"
-                            alt="Circuit board macro"
+                            aspectRatio="aspect-[4/5]"
+                            src="https://images.unsplash.com/photo-1508608226992-069a19c36829?q=80&w=2000&auto=format&fit=crop"
+                            alt="Desolate urban landscape"
                         />
                         <CardMeta>
-                            <span>Hardware / Review</span>
-                            <span class="text-white">06.24</span>
+                            <span
+                                class="text-[#7b61ff] font-bold tracking-widest"
+                                >SCENE REPORT</span
+                            >
+                            <span class="text-white">VOL.03</span>
                         </CardMeta>
-                        <CardTitle>Crystalline Synthesis</CardTitle>
-                        <CardExcerpt>
-                            Deconstructing the spectral oscillators and
-                            wavetable manipulation of the latest modular rigs.
+                        <CardTitle
+                            className="text-4xl font-black uppercase tracking-tighter mt-2"
+                            >Lebanon Hanover</CardTitle
+                        >
+                        <CardExcerpt className="mt-4 text-base">
+                            Minimalist coldwave and the aesthetics of isolation.
+                            Analyzing the stark, algorithmic basslines and
+                            deadpan dual vocals that soundtrack the modern
+                            romanticized decay.
                         </CardExcerpt>
                         <CardDataPoints
-                            data={[{ label: "TECH", value: "Eurorack" }]}
+                            data={[
+                                { label: "VIBE", value: "COLDWAVE" },
+                                { label: "BPM", value: "115" },
+                            ]}
                         />
                     </ArticleCard>
                 </div>
 
-                {/* Item 4 */}
-                <div class="md:col-start-7 md:col-end-12 md:mt-16">
+                {/* Item 4 - Nine Inch Nails */}
+                <div class="md:col-start-8 md:col-end-13 md:mt-24">
                     <ArticleCard>
                         <CardImage
-                            aspectRatio="aspect-[4/5]"
-                            src="https://images.unsplash.com/photo-1493225457124-a1a2a5fafe3f?q=80&w=2000&auto=format&fit=crop"
-                            alt="Person standing in dark smoke"
+                            aspectRatio="aspect-[16/9]"
+                            src="https://images.unsplash.com/photo-1598387181032-a3103a2db5b3?q=80&w=2000&auto=format&fit=crop"
+                            alt="Rack mounted hardware gear"
                         />
                         <CardMeta>
-                            <span>Culture / Underground</span>
-                            <span class="text-white">05.24</span>
+                            <span
+                                class="text-[#7b61ff] font-bold tracking-widest"
+                                >DEEP DIVE</span
+                            >
+                            <span class="text-white">VOL.04</span>
                         </CardMeta>
-                        <CardTitle>The Wabi-Sabi of Tape Hiss</CardTitle>
-                        <CardExcerpt>
-                            Finding perfection in degradation. Why ambient
-                            artists are returning to magnetic tape to humanize
-                            digital clinicality.
+                        <CardTitle
+                            className="text-5xl font-black uppercase tracking-tighter mt-2"
+                            >Nine Inch Nails</CardTitle
+                        >
+                        <CardExcerpt className="mt-4 text-base">
+                            The Downward Spiral and the mechanization of angst.
+                            How Trent Reznor merged the agonizing brutality of
+                            industrial metal with pop sensibilities, reshaping
+                            the landscape of heavy electronic music forever.
                         </CardExcerpt>
                         <CardDataPoints
                             data={[
-                                { label: "MEDIUM", value: "Cassette" },
-                                { label: "SYS.ID", value: "RE-201" },
+                                { label: "FOCUS", value: "INDUSTRIAL" },
+                                { label: "ALBUM", value: "1994" },
+                                { label: "SYS.ID", value: "PROPHET-5" },
                             ]}
                         />
                     </ArticleCard>
