@@ -13,18 +13,13 @@ import { Crosshair } from "../components/ui/Crosshair";
 ---
 
 <BaseLayout>
-    <div className="p-4 min-h-screen flex flex-col pt-16">
+    <div class="p-4 min-h-screen flex flex-col pt-16">
         <header
-            className="relative h-[calc(100vh-2rem)] w-full bg-[#030303] overflow-hidden grid grid-cols-3 grid-rows-[auto_1fr_auto] py-32 px-16"
+            class="relative h-[calc(100vh-2rem)] w-full bg-[#030303] overflow-hidden grid grid-cols-3 grid-rows-[auto_1fr_auto] py-32 px-16"
         >
-            <img
-                src="https://images.unsplash.com/photo-1604871000636-074fa5117945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
-                alt="Abstract Dark Form"
-                className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity z-0"
-                style={{ filter: "contrast(1.2) brightness(0.8)" }}
-            />
+            {/* Shader will go here later */}
             <div
-                className="absolute inset-0 z-[1]"
+                class="absolute inset-0 z-[1]"
                 style={{
                     background:
                         "radial-gradient(circle at 50% 50%, transparent 0%, #030303 80%)",
@@ -33,23 +28,23 @@ import { Crosshair } from "../components/ui/Crosshair";
             </div>
 
             <div
-                className="relative z-10 col-span-full row-span-full grid grid-cols-12 gap-4 h-full"
+                class="relative z-10 col-span-full row-span-full grid grid-cols-12 gap-4 h-full"
             >
-                <div className="col-start-2 col-end-5 row-start-1 pt-16">
+                <div class="col-start-2 col-end-5 row-start-1 pt-16">
                     <h2
-                        className="text-[clamp(4rem,10vw,8rem)] leading-[0.8] text-white tracking-[-0.05em] font-sans font-bold"
+                        class="text-[clamp(4rem,10vw,8rem)] leading-[0.8] text-white tracking-[-0.05em] font-sans font-bold"
                     >
                         2501
                     </h2>
                     <p
-                        className="mt-2 font-sans font-medium text-[1.1rem] text-white max-w-[200px] leading-[1.2]"
+                        class="mt-2 font-sans font-medium text-[1.1rem] text-white max-w-[200px] leading-[1.2]"
                     >
                         The spectrum is vast and infinite.
                     </p>
                 </div>
 
                 <div
-                    className="col-start-6 col-end-8 row-span-full justify-self-center self-center text-2xl z-15 text-white tracking-[1rem] opacity-30"
+                    class="col-start-6 col-end-8 row-span-full justify-self-center self-center text-2xl z-15 text-white tracking-[1rem] opacity-30"
                     style={{
                         writingMode: "vertical-rl",
                         textOrientation: "upright",
@@ -59,60 +54,60 @@ import { Crosshair } from "../components/ui/Crosshair";
                 </div>
 
                 <div
-                    className="col-start-3 col-end-11 row-start-2 self-center text-center mix-blend-difference"
+                    class="col-start-3 col-end-11 row-start-2 self-center text-center mix-blend-difference"
                 >
                     <h1
-                        className="font-serif text-[clamp(3rem,8vw,7rem)] text-white leading-none italic font-normal tracking-[-0.02em]"
+                        class="font-serif text-[clamp(3rem,8vw,7rem)] text-white leading-none italic font-normal tracking-[-0.02em]"
                     >
                         Spectral<br />Resonance
                     </h1>
                 </div>
 
                 <div
-                    className="col-span-full row-start-3 flex justify-between items-end pb-8"
+                    class="col-span-full row-start-3 flex justify-between items-end pb-8"
                 >
                     <div
-                        className="font-mono text-[0.65rem] text-[#88888D] uppercase tracking-[0.1em]"
+                        class="font-mono text-[0.65rem] text-[#88888D] uppercase tracking-[0.1em]"
                     >
                         <span>H.R.M.N.C.</span>
                     </div>
-                    <div className="text-center flex-grow">
+                    <div class="text-center flex-grow">
                         <span
-                            className="block text-[0.65rem] uppercase tracking-[0.1em] text-[#88888D]"
+                            class="block text-[0.65rem] uppercase tracking-[0.1em] text-[#88888D]"
                             >EDITION</span
                         >
                         <span
-                            className="block font-mono text-[0.85rem] mt-1 text-white"
+                            class="block font-mono text-[0.85rem] mt-1 text-white"
                             >4 / 4</span
                         >
                     </div>
                     <div
-                        className="font-mono text-[0.65rem] text-[#88888D] uppercase tracking-[0.1em]"
+                        class="font-mono text-[0.65rem] text-[#88888D] uppercase tracking-[0.1em]"
                     >
-                        <span className="text-white font-bold">04.XX.24</span>
+                        <span class="text-white font-bold">04.XX.24</span>
                     </div>
                 </div>
             </div>
         </header>
 
-        <main className="p-4 relative z-10 bg-[#030303]">
+        <main class="p-4 relative z-10 bg-[#030303]">
             <div
-                className="flex justify-between items-end border-b border-[#ffffff1a] pb-4 mb-8 mx-4"
+                class="flex justify-between items-end border-b border-[#ffffff1a] pb-4 mb-8 mx-4"
             >
                 <h3
-                    className="font-sans text-xl font-bold text-white uppercase tracking-wider"
+                    class="font-sans text-xl font-bold text-white uppercase tracking-wider"
                 >
                     Current Frequencies
                 </h3>
                 <div
-                    className="font-mono text-[0.65rem] text-[#88888D] uppercase tracking-[0.1em]"
+                    class="font-mono text-[0.65rem] text-[#88888D] uppercase tracking-[0.1em]"
                 >
                     SORT: CHRONOLOGICAL_
                 </div>
             </div>
 
             <div
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-[#030303] border-t border-b border-[#ffffff1a]"
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-[#030303] border-t border-b border-[#ffffff1a]"
             >
                 <ArticleCard className="lg:col-span-2">
                     <Crosshair position="tl" />
@@ -166,9 +161,9 @@ import { Crosshair } from "../components/ui/Crosshair";
                         space in contemporary minimalist techno sequencing.
                     </CardExcerpt>
                     <div
-                        className="mt-16 font-mono text-[0.65rem] text-[#88888D] uppercase tracking-[0.1em]"
+                        class="mt-16 font-mono text-[0.65rem] text-[#88888D] uppercase tracking-[0.1em]"
                     >
-                        <span className="text-white font-bold"
+                        <span class="text-white font-bold"
                             >AUTHOR: RYUICHI_M.</span
                         >
                     </div>
