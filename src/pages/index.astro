@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { HeroPlayer } from "../components/layout/HeroPlayer";
+import { Hero } from "../components/layout/Hero";
 import {
     ArticleCard,
     CardMeta,
@@ -15,8 +15,8 @@ import { WaveformSection } from "../components/audio/WaveformSection";
 
 <BaseLayout>
     <div class="min-h-screen flex flex-col font-sans">
-        {/* Negative Space GSAP ScrollTrigger Player Hero */}
-        <HeroPlayer client:load />
+        {/* Negative Space Hero */}
+        <Hero client:load />
 
         {/* Editorial Section - Staggered Grid */}
         <main
