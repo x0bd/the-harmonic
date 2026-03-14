@@ -1,21 +1,198 @@
 ---
-import '../styles/global.css';
-import Test from '../components/Test';
-import { Button } from '@/components/ui/button';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import {
+    ArticleCard,
+    CardMeta,
+    CardTag,
+    CardImage,
+    CardTitle,
+    CardExcerpt,
+} from "../components/article/ArticleCard";
+import { WaveformSection } from "../components/audio/WaveformSection";
+import { Crosshair } from "../components/ui/Crosshair";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body class="bg-background flex flex-col items-center justify-center min-h-screen gap-6">
-		<h1 class="text-4xl font-bold text-foreground">Tailwind + shadcn/ui ✅</h1>
-		<Test client:load />
-		<Button client:load>shadcn Button</Button>
-	</body>
-</html>
+<BaseLayout>
+    <div className="p-4 min-h-screen flex flex-col pt-16">
+        <header
+            className="relative h-[calc(100vh-2rem)] w-full bg-[#030303] overflow-hidden grid grid-cols-3 grid-rows-[auto_1fr_auto] py-32 px-16"
+        >
+            <img
+                src="https://images.unsplash.com/photo-1604871000636-074fa5117945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+                alt="Abstract Dark Form"
+                className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity z-0"
+                style={{ filter: "contrast(1.2) brightness(0.8)" }}
+            />
+            <div
+                className="absolute inset-0 z-[1]"
+                style={{
+                    background:
+                        "radial-gradient(circle at 50% 50%, transparent 0%, #030303 80%)",
+                }}
+            >
+            </div>
+
+            <div
+                className="relative z-10 col-span-full row-span-full grid grid-cols-12 gap-4 h-full"
+            >
+                <div className="col-start-2 col-end-5 row-start-1 pt-16">
+                    <h2
+                        className="text-[clamp(4rem,10vw,8rem)] leading-[0.8] text-white tracking-[-0.05em] font-sans font-bold"
+                    >
+                        2501
+                    </h2>
+                    <p
+                        className="mt-2 font-sans font-medium text-[1.1rem] text-white max-w-[200px] leading-[1.2]"
+                    >
+                        The spectrum is vast and infinite.
+                    </p>
+                </div>
+
+                <div
+                    className="col-start-6 col-end-8 row-span-full justify-self-center self-center text-2xl z-15 text-white tracking-[1rem] opacity-30"
+                    style={{
+                        writingMode: "vertical-rl",
+                        textOrientation: "upright",
+                    }}
+                >
+                    共鳴する周波数
+                </div>
+
+                <div
+                    className="col-start-3 col-end-11 row-start-2 self-center text-center mix-blend-difference"
+                >
+                    <h1
+                        className="font-serif text-[clamp(3rem,8vw,7rem)] text-white leading-none italic font-normal tracking-[-0.02em]"
+                    >
+                        Spectral<br />Resonance
+                    </h1>
+                </div>
+
+                <div
+                    className="col-span-full row-start-3 flex justify-between items-end pb-8"
+                >
+                    <div
+                        className="font-mono text-[0.65rem] text-[#88888D] uppercase tracking-[0.1em]"
+                    >
+                        <span>H.R.M.N.C.</span>
+                    </div>
+                    <div className="text-center flex-grow">
+                        <span
+                            className="block text-[0.65rem] uppercase tracking-[0.1em] text-[#88888D]"
+                            >EDITION</span
+                        >
+                        <span
+                            className="block font-mono text-[0.85rem] mt-1 text-white"
+                            >4 / 4</span
+                        >
+                    </div>
+                    <div
+                        className="font-mono text-[0.65rem] text-[#88888D] uppercase tracking-[0.1em]"
+                    >
+                        <span className="text-white font-bold">04.XX.24</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main className="p-4 relative z-10 bg-[#030303]">
+            <div
+                className="flex justify-between items-end border-b border-[#ffffff1a] pb-4 mb-8 mx-4"
+            >
+                <h3
+                    className="font-sans text-xl font-bold text-white uppercase tracking-wider"
+                >
+                    Current Frequencies
+                </h3>
+                <div
+                    className="font-mono text-[0.65rem] text-[#88888D] uppercase tracking-[0.1em]"
+                >
+                    SORT: CHRONOLOGICAL_
+                </div>
+            </div>
+
+            <div
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-[#030303] border-t border-b border-[#ffffff1a]"
+            >
+                <ArticleCard className="lg:col-span-2">
+                    <Crosshair position="tl" />
+                    <CardMeta>
+                        <CardTag>INTERVIEW</CardTag>
+                        <span>[REQ-089-A]</span>
+                        <span>READ: 12 MIN</span>
+                    </CardMeta>
+                    <CardImage
+                        src="https://images.unsplash.com/photo-1598387181032-a3103a2db5b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                        alt="Studio Equipment"
+                    />
+                    <CardTitle>
+                        The Architecture<br />of Sub-Bass
+                    </CardTitle>
+                    <CardExcerpt>
+                        Exploring the physical impact of low-frequency
+                        oscillation in brutalist performance spaces. An
+                        interview with multi-disciplinary artist KODE909.
+                    </CardExcerpt>
+                </ArticleCard>
+
+                <ArticleCard>
+                    <CardMeta>
+                        <CardTag>REVIEW</CardTag>
+                        <span>[LP-VOID]</span>
+                    </CardMeta>
+                    <CardImage
+                        src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Abstract Mesh"
+                    />
+                    <CardTitle>Synthesis &amp; Decay</CardTitle>
+                    <CardExcerpt>
+                        A critical look at the resurgence of tape degradation
+                        and granular synthesis in modern ambient works.
+                    </CardExcerpt>
+                </ArticleCard>
+
+                <ArticleCard
+                    className="justify-center bg-[#050505] border-t border-[#ffffff1a]"
+                >
+                    <CardMeta>
+                        <CardTag>ESSAY</CardTag>
+                        <span>[TXT-011]</span>
+                    </CardMeta>
+                    <CardTitle className="text-4xl italic mb-6">
+                        Silence as a<br />Structural<br />Element.
+                    </CardTitle>
+                    <CardExcerpt>
+                        How Japanese Wabi-Sabi philosophy informs the negative
+                        space in contemporary minimalist techno sequencing.
+                    </CardExcerpt>
+                    <div
+                        className="mt-16 font-mono text-[0.65rem] text-[#88888D] uppercase tracking-[0.1em]"
+                    >
+                        <span className="text-white font-bold"
+                            >AUTHOR: RYUICHI_M.</span
+                        >
+                    </div>
+                </ArticleCard>
+
+                <ArticleCard className="border-t border-[#ffffff1a]">
+                    <CardMeta>
+                        <CardTag>GEAR</CardTag>
+                        <span>[HW-MOD]</span>
+                    </CardMeta>
+                    <CardImage
+                        src="https://images.unsplash.com/photo-1621360841013-c76831f12282?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Modular Synth"
+                        square
+                    />
+                    <CardTitle>Patch Notes: 04</CardTitle>
+                    <CardExcerpt>
+                        Eurorack system configurations for generative
+                        atmospheric soundscapes.
+                    </CardExcerpt>
+                </ArticleCard>
+
+                <WaveformSection client:load />
+            </div>
+        </main>
+    </div>
+</BaseLayout>

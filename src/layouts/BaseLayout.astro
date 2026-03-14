@@ -1,0 +1,27 @@
+---
+import '../styles/global.css';
+import ViewportFrame from '../components/layout/ViewportFrame';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { title = "The Harmonic", description = "Archivist × Curator × Signal Analyst" } = Astro.props;
+---
+
+<html lang="en" class="dark">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+	</head>
+	<body class="bg-background text-foreground min-h-screen flex flex-col">
+		<ViewportFrame client:load />
+		<slot />
+	</body>
+</html>
