@@ -2,17 +2,7 @@ import React from "react";
 
 const ViewportFrame = () => {
     return (
-        <div className="fixed inset-0 pointer-events-none z-[90] p-6 flex flex-col justify-between mix-blend-difference hidden md:flex">
-            {/* Top Corners (Meta Data) */}
-            <div className="flex justify-between items-start">
-                <div className="font-mono text-[0.6rem] text-[#88888D] uppercase tracking-[0.2em] opacity-50">
-                    <span>SYS.OP.01</span>
-                </div>
-                <div className="font-mono text-[0.6rem] text-[#88888D] uppercase tracking-[0.2em] opacity-50">
-                    <span>FREQ: 432HZ</span>
-                </div>
-            </div>
-
+        <div className="fixed inset-0 pointer-events-none z-[90] p-6 flex flex-col justify-end mix-blend-difference hidden md:flex">
             {/* Bottom Corners */}
             <div className="flex justify-between items-end">
                 <div className="pointer-events-auto font-mono text-[0.6rem] text-[#88888D] uppercase tracking-[0.2em] flex gap-6">
