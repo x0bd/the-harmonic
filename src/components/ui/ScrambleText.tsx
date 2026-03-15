@@ -21,7 +21,7 @@ export const ScrambleText: React.FC<ScrambleTextProps> = ({
     trigger === "load" ? "" : text,
   );
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$*&_%";
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const startScramble = () => {
     let iteration = 0;
