@@ -99,16 +99,6 @@ export const Hero = () => {
                     </div>
                 </div>
             </div>
-
-            {/* Global Bottom Frame - Absolute positioned for framing */}
-            <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end pointer-events-none mix-blend-difference">
-                <div className="font-mono text-[9px] text-[#88888D] tracking-widest uppercase">
-                    INDEX: 001—999
-                </div>
-                <div className="font-mono text-[9px] text-[#88888D] tracking-widest uppercase text-right">
-                    TOKYO // BERLIN
-                </div>
-            </div>
         </header>
     );
 };
