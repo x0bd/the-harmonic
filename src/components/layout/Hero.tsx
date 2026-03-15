@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { NeuroNoise } from "@paper-design/shaders-react";
+import { GrainGradient } from "@paper-design/shaders-react";
 
 export const Hero = () => {
   const textRef = useRef<HTMLDivElement>(null);
@@ -42,15 +42,18 @@ export const Hero = () => {
   }, []);
 
   return (
-    <header className="relative h-screen w-full bg-[#030303] overflow-hidden flex flex-col justify-center items-center p-8 border-b border-white/5 cursor-crosshair">
+    <header className="relative h-screen w-full overflow-hidden flex flex-col justify-center items-center p-8 border-b border-white/5 cursor-crosshair">
       {/* Shader Background */}
-      <div className="absolute inset-0 z-0 opacity-40 mix-blend-screen pointer-events-none">
-        <NeuroNoise
-          colorFront="#7b61ff"
-          colorMid="#111111"
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <GrainGradient
           colorBack="#030303"
-          brightness={0.8}
+          colors={["#121212", "#1a1a24", "#7b61ff", "#2b1a4a"]}
+          shape="wave"
+          softness={0.8}
+          intensity={0.5}
+          noise={0.6}
           speed={0.2}
+          style={{ width: "100%", height: "100%" }}
         />
       </div>
 
