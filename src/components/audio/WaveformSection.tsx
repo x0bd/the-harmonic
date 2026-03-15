@@ -29,21 +29,24 @@ export const WaveformSection = () => {
     const width = 1000;
     const segmentWidth = width / segments;
 
+    // Add a time offset if it's the glow path so they move out of phase
+    const effectiveTime = isGlow ? time - 0.8 : time;
+
     for (let i = 1; i <= segments; i++) {
       const x = i * segmentWidth;
 
-      // Base sine waves for organic movement
-      let yOffset = Math.sin(time + i * 0.5) * 15;
-      yOffset += Math.cos(time * 1.5 + i * 0.8) * 10;
+      // Base sine waves for organic movement using effectiveTime
+      let yOffset = Math.sin(effectiveTime + i * 0.5) * 15;
+      yOffset += Math.cos(effectiveTime * 1.5 + i * 0.8) * 10;
 
       // Add "noise" spikes
-      if (i % 3 === 0) yOffset += Math.sin(time * 3) * 20;
-      if (i % 5 === 0) yOffset -= Math.cos(time * 4) * 25;
+      if (i % 3 === 0) yOffset += Math.sin(effectiveTime * 3) * 20;
+      if (i % 5 === 0) yOffset -= Math.cos(effectiveTime * 4) * 25;
 
       // Dampen the ends
       if (i < 3 || i > segments - 3) yOffset *= 0.2;
 
-      // Glow path is slightly more exaggerated
+      // Glow path is slightly more exaggerated in scale
       if (isGlow) {
         yOffset *= 1.2;
       }
@@ -51,9 +54,6 @@ export const WaveformSection = () => {
       const y = 50 + yOffset;
       const prevX = (i - 1) * segmentWidth;
       const cpX = prevX + segmentWidth / 2;
-
-      // Previous Y (rough estimation for smooth curve)
-      const prevY = i === 1 ? 50 : 50 + Math.sin(time + (i - 1) * 0.5) * 15;
 
       path += `S ${cpX},${y} ${x},${y} `;
     }
