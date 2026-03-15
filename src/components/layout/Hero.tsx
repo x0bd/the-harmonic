@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { NeuroNoise } from "@paper-design/shaders-react";
 
 export const Hero = () => {
     const textRef = useRef<HTMLDivElement>(null);
@@ -42,16 +43,24 @@ export const Hero = () => {
 
     return (
         <header className="relative h-screen w-full bg-[#030303] overflow-hidden flex flex-col justify-center items-center p-8 border-b border-white/5 cursor-crosshair">
-            {/* Center - Minimalist Statement & Shader Space */}
-            <div className="relative w-full max-w-3xl flex flex-col items-start justify-center z-10">
-                {/* Abstract Shader Placeholder - Kept extremely subtle */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
-                    <div className="font-mono text-[8px] tracking-[1em]">
-                        [ SHADER_CANVAS_RESERVED ]
-                    </div>
-                </div>
+            {/* Shader Background */}
+            <div className="absolute inset-0 z-0 opacity-40 mix-blend-screen pointer-events-none">
+                <NeuroNoise
+                    color1="#030303"
+                    color2="#111111"
+                    color3="#7b61ff"
+                    color4="#000000"
+                    brightness={0.8}
+                    speed={0.2}
+                />
+            </div>
 
-                <div ref={textRef} className="w-full mb-16 pointer-events-none">
+            {/* Center - Minimalist Statement */}
+            <div className="relative w-full max-w-3xl flex flex-col items-start justify-center z-10">
+                <div
+                    ref={textRef}
+                    className="w-full mb-16 pointer-events-none drop-shadow-lg"
+                >
                     <h1 className="font-mono text-2xl md:text-3xl font-normal leading-snug text-[#E4E4E6] tracking-tight mb-4">
                         An archive of sonic decay.
                     </h1>
@@ -67,7 +76,7 @@ export const Hero = () => {
                     ref={searchRef}
                     className="w-full relative group pointer-events-auto"
                 >
-                    <div className="flex items-center bg-[#0a0a0c] border border-white/10 transition-colors duration-300 hover:border-white/30 focus-within:border-white/50 focus-within:bg-[#0d0d12]">
+                    <div className="flex items-center bg-[#0a0a0c]/80 backdrop-blur-sm border border-white/10 transition-colors duration-300 hover:border-white/30 focus-within:border-white/50 focus-within:bg-[#0d0d12]/90">
                         <input
                             type="text"
                             placeholder="Search index..."
