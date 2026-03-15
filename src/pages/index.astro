@@ -20,26 +20,34 @@ import { WaveformSection } from "../components/audio/WaveformSection";
 
         {/* Editorial Section - Brutalist Staggered Grid */}
         <main
-            class="relative z-10 bg-[#030303] max-w-[1400px] mx-auto w-full px-4 md:px-16 pt-32 pb-64 overflow-hidden"
+            class="relative z-10 bg-[#030303] max-w-[1600px] mx-auto w-full px-6 md:px-12 lg:px-24 pt-32 pb-64 overflow-hidden"
         >
             {/* Massive Structural Guide Lines */}
             <div
-                class="absolute top-0 bottom-0 left-1/2 w-[1px] bg-white/[0.03] pointer-events-none z-0"
+                class="absolute top-0 bottom-0 left-1/2 w-[1px] bg-white/[0.03] pointer-events-none z-0 hidden lg:block"
+            >
+            </div>
+            <div
+                class="absolute top-0 bottom-0 left-1/4 w-[1px] bg-white/[0.03] pointer-events-none z-0 hidden lg:block"
+            >
+            </div>
+            <div
+                class="absolute top-0 bottom-0 right-1/4 w-[1px] bg-white/[0.03] pointer-events-none z-0 hidden lg:block"
             >
             </div>
 
             {/* Brutalist Section Header */}
             <div
-                class="relative w-full mb-48 pt-16 flex flex-col items-center justify-center border-b border-dashed border-white/20 pb-24"
+                class="relative w-full mb-40 pt-16 flex flex-col items-center justify-center border-b border-dashed border-white/20 pb-24"
             >
                 <h2
-                    class="font-sans text-[clamp(4rem,15vw,14rem)] font-black leading-[0.75] tracking-tighter uppercase text-white/[0.03] absolute top-8 left-0 w-full text-center select-none pointer-events-none"
+                    class="font-sans text-[clamp(4rem,12vw,12rem)] font-black leading-[0.75] tracking-tighter uppercase text-white/[0.03] absolute top-8 left-0 w-full text-center select-none pointer-events-none"
                 >
                     DISTORTED
                 </h2>
                 <h2
-                    class="font-sans text-[clamp(4rem,15vw,14rem)] font-black leading-[0.75] tracking-tighter uppercase text-transparent select-none z-10"
-                    style={{ WebkitTextStroke: "1px rgba(255,255,255,0.8)" }}
+                    class="font-sans text-[clamp(4rem,12vw,12rem)] font-black leading-[0.75] tracking-tighter uppercase text-transparent select-none z-10"
+                    style={{ WebkitTextStroke: "1.5px rgba(255,255,255,0.9)" }}
                 >
                     SIGNALS
                 </h2>
@@ -51,13 +59,13 @@ import { WaveformSection } from "../components/audio/WaveformSection";
             </div>
 
             <div
-                class="grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-48 md:gap-y-0 relative z-10"
+                class="grid grid-cols-1 md:grid-cols-12 gap-x-8 lg:gap-x-16 gap-y-32 relative z-10"
             >
-                {/* Item 1 - Boy Harsher */}
-                <div class="md:col-start-1 md:col-end-8 relative">
+                {/* Item 1 - Boy Harsher (Hero Feature) */}
+                <div class="md:col-span-12 lg:col-span-8 relative">
                     <ArticleCard indexStr="01">
                         <CardImage
-                            aspectRatio="aspect-[16/9]"
+                            aspectRatio="aspect-[16/7]"
                             src="https://images.unsplash.com/photo-1574169208507-84376144848b?q=80&w=2000&auto=format&fit=crop"
                             alt="Harsh lighting in a concrete room"
                         />
@@ -71,11 +79,11 @@ import { WaveformSection } from "../components/audio/WaveformSection";
                             >
                         </CardMeta>
                         <CardTitle
-                            className="text-5xl md:text-7xl font-black uppercase tracking-tighter mt-2"
+                            className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter mt-4"
                             >Boy Harsher</CardTitle
                         >
                         <CardExcerpt
-                            className="mt-4 text-base md:text-lg max-w-xl"
+                            className="mt-6 text-base md:text-lg lg:text-xl max-w-2xl text-[#88888d]"
                         >
                             The relentless pulse of modern darkwave. Exploring
                             the sweaty, desperate synthesis of 'Careful' and how
@@ -92,12 +100,12 @@ import { WaveformSection } from "../components/audio/WaveformSection";
                     </ArticleCard>
                 </div>
 
-                {/* Item 2 - Yeah Yeah Yeahs */}
-                <div class="md:col-start-8 md:col-end-13 md:mt-64 relative">
+                {/* Item 2 - Yeah Yeah Yeahs (Sidebar Feature) */}
+                <div class="md:col-span-12 lg:col-span-4 lg:mt-32 relative">
                     <ArticleCard indexStr="02">
                         <CardImage
                             aspectRatio="aspect-[3/4]"
-                            src="https://images.unsplash.com/photo-1520166986518-18e3ab039324?q=80&w=2000&auto=format&fit=crop"
+                            src="https://images.unsplash.com/photo-1520166986518-18e3ab039324?q=80&w=1200&auto=format&fit=crop"
                             alt="Distorted amplifier"
                         />
                         <CardMeta>
@@ -110,16 +118,15 @@ import { WaveformSection } from "../components/audio/WaveformSection";
                             >
                         </CardMeta>
                         <CardTitle
-                            className="text-4xl md:text-6xl font-black uppercase tracking-tighter mt-2"
+                            className="text-4xl md:text-5xl font-black uppercase tracking-tighter mt-4"
                             >Yeah Yeah<br />Yeahs</CardTitle
                         >
                         <CardExcerpt
-                            className="mt-4 text-base md:text-lg max-w-sm"
+                            className="mt-4 text-sm md:text-base text-[#88888d]"
                         >
                             Fever to Tell. The raw, unpolished energy of early
                             2000s New York post-punk revival. Deconstructing the
-                            jagged guitar tones and visceral vocal delivery that
-                            defined an era of grit.
+                            jagged guitar tones and visceral vocal delivery.
                         </CardExcerpt>
                         <CardDataPoints
                             data={[
@@ -131,11 +138,11 @@ import { WaveformSection } from "../components/audio/WaveformSection";
                 </div>
 
                 {/* Item 3 - Lebanon Hanover */}
-                <div class="md:col-start-2 md:col-end-7 md:mt-[32rem] relative">
+                <div class="md:col-span-12 lg:col-span-5 lg:mt-16 relative">
                     <ArticleCard indexStr="03">
                         <CardImage
                             aspectRatio="aspect-[4/5]"
-                            src="https://images.unsplash.com/photo-1508608226992-069a19c36829?q=80&w=2000&auto=format&fit=crop"
+                            src="https://images.unsplash.com/photo-1508608226992-069a19c36829?q=80&w=1600&auto=format&fit=crop"
                             alt="Desolate urban landscape"
                         />
                         <CardMeta>
@@ -148,11 +155,11 @@ import { WaveformSection } from "../components/audio/WaveformSection";
                             >
                         </CardMeta>
                         <CardTitle
-                            className="text-4xl md:text-6xl font-black uppercase tracking-tighter mt-2"
+                            className="text-4xl md:text-6xl font-black uppercase tracking-tighter mt-4"
                             >Lebanon<br />Hanover</CardTitle
                         >
                         <CardExcerpt
-                            className="mt-4 text-base md:text-lg max-w-md"
+                            className="mt-4 text-base md:text-lg text-[#88888d]"
                         >
                             Minimalist coldwave and the aesthetics of isolation.
                             Analyzing the stark, algorithmic basslines and
@@ -168,8 +175,8 @@ import { WaveformSection } from "../components/audio/WaveformSection";
                     </ArticleCard>
                 </div>
 
-                {/* Item 4 - Nine Inch Nails */}
-                <div class="md:col-start-6 md:col-end-13 md:mt-32 relative">
+                {/* Item 4 - Nine Inch Nails (Offset Wide) */}
+                <div class="md:col-span-12 lg:col-span-7 lg:-mt-24 relative">
                     <ArticleCard indexStr="04">
                         <CardImage
                             aspectRatio="aspect-[16/9]"
@@ -186,11 +193,11 @@ import { WaveformSection } from "../components/audio/WaveformSection";
                             >
                         </CardMeta>
                         <CardTitle
-                            className="text-5xl md:text-8xl font-black uppercase tracking-tighter mt-2"
+                            className="text-5xl md:text-7xl font-black uppercase tracking-tighter mt-4"
                             >Nine Inch<br />Nails</CardTitle
                         >
                         <CardExcerpt
-                            className="mt-4 text-base md:text-lg max-w-2xl"
+                            className="mt-4 text-base md:text-lg text-[#88888d]"
                         >
                             The Downward Spiral and the mechanization of angst.
                             How Trent Reznor merged the agonizing brutality of
@@ -208,10 +215,10 @@ import { WaveformSection } from "../components/audio/WaveformSection";
                 </div>
 
                 {/* Item 5 - Tresor / Berlin Club */}
-                <div class="md:col-start-1 md:col-end-7 md:mt-[16rem] relative">
+                <div class="md:col-span-12 lg:col-span-6 relative">
                     <ArticleCard indexStr="05">
                         <CardImage
-                            aspectRatio="aspect-[16/9]"
+                            aspectRatio="aspect-[3/2]"
                             src="https://images.unsplash.com/photo-1574342267675-27a92fb02b21?q=80&w=2000&auto=format&fit=crop"
                             alt="Dark warehouse club"
                         />
@@ -225,11 +232,11 @@ import { WaveformSection } from "../components/audio/WaveformSection";
                             >
                         </CardMeta>
                         <CardTitle
-                            className="text-4xl md:text-6xl font-black uppercase tracking-tighter mt-2"
+                            className="text-4xl md:text-6xl font-black uppercase tracking-tighter mt-4"
                             >TRESOR:<br />The Vault</CardTitle
                         >
                         <CardExcerpt
-                            className="mt-4 text-base md:text-lg max-w-md"
+                            className="mt-4 text-base md:text-lg text-[#88888d]"
                         >
                             Exploring the acoustic properties of a
                             decommissioned bank vault. How the physical
@@ -247,7 +254,7 @@ import { WaveformSection } from "../components/audio/WaveformSection";
 
                 {/* Item 6 - Korg MS-20 Case Study */}
                 <div
-                    class="md:col-start-8 md:col-end-12 md:mt-[48rem] relative"
+                    class="md:col-span-12 lg:col-span-6 lg:mt-32 relative"
                 >
                     <ArticleCard indexStr="06">
                         <CardMeta>
@@ -260,20 +267,20 @@ import { WaveformSection } from "../components/audio/WaveformSection";
                             >
                         </CardMeta>
                         <CardTitle
-                            className="text-4xl md:text-6xl font-black uppercase tracking-tighter mt-2 text-[#7b61ff]"
+                            className="text-4xl md:text-6xl font-black uppercase tracking-tighter mt-4 text-[#7b61ff]"
                             >KORG MS-20</CardTitle
                         >
                         <h3
-                            class="font-mono text-xl text-white uppercase tracking-widest mb-6"
+                            class="font-mono text-lg md:text-xl text-white uppercase tracking-widest mb-6"
                         >
                             The Screaming Filter
                         </h3>
                         <CardImage
-                            aspectRatio="aspect-[4/5]"
+                            aspectRatio="aspect-[4/3]"
                             src="https://images.unsplash.com/photo-1598387846148-18d451a37c95?q=80&w=2000&auto=format&fit=crop"
                             alt="Analog Synthesizer Patch Cables"
                         />
-                        <CardExcerpt className="mt-6 text-base md:text-lg">
+                        <CardExcerpt className="mt-6 text-base md:text-lg text-[#88888d]">
                             Why the MS-20's notoriously aggressive high-pass and
                             low-pass filter combination remains the gold
                             standard for tearing through industrial mixes.
