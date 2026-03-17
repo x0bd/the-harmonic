@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { MagnifyingGlass, Headphones } from "@phosphor-icons/react";
+import { MagnifyingGlass, User } from "@phosphor-icons/react";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -78,12 +78,12 @@ export const Navbar = () => {
             >
               <span>{link}</span>
 
-              {/* Animated dot indicator instead of full underline for a sharper look */}
+              {/* Animated purple underline growing from left to right */}
               <span
-                className={`absolute -bottom-1 w-1 h-1 bg-[#7b61ff] rounded-full transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                className={`absolute bottom-0 left-0 h-[2px] bg-[#7b61ff] transform origin-left transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                   hoveredLink === link
-                    ? "opacity-100 translate-y-0 scale-100"
-                    : "opacity-0 -translate-y-2 scale-0"
+                    ? "scale-x-100 w-full"
+                    : "scale-x-0 w-full"
                 }`}
               />
             </a>
@@ -99,7 +99,7 @@ export const Navbar = () => {
           <button className="flex items-center gap-3 hover:text-white transition-colors group">
             <span className="hidden md:inline relative overflow-hidden">
               Search
-              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#7b61ff] -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
             </span>
             <MagnifyingGlass
               size={16}
@@ -112,10 +112,10 @@ export const Navbar = () => {
 
           <button className="hidden md:flex items-center gap-3 hover:text-white transition-colors group">
             <span className="relative overflow-hidden">
-              Listen
-              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+              Account
+              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#7b61ff] -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
             </span>
-            <Headphones
+            <User
               size={16}
               weight="bold"
               className="text-[#7b61ff] group-hover:text-white group-hover:scale-110 transition-all duration-300"
