@@ -1,0 +1,182 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+    ArticleCard,
+    CardMeta,
+    CardImage,
+    CardTitle,
+    CardExcerpt,
+    CardDataPoints,
+} from "../../components/article/ArticleCard";
+import { ScrambleText } from "../../components/ui/ScrambleText";
+---
+
+<BaseLayout>
+    <div class="min-h-screen flex flex-col font-sans bg-[#030303]">
+        <main
+            class="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-24 pt-48 pb-64 overflow-hidden"
+        >
+            {/* Massive Structural Guide Lines */}
+            <div class="absolute top-0 bottom-0 left-[10%] w-[1px] bg-white/[0.03] pointer-events-none z-0 hidden lg:block"></div>
+            <div class="absolute top-0 bottom-0 right-[10%] w-[1px] bg-white/[0.03] pointer-events-none z-0 hidden lg:block"></div>
+
+            {/* Page Header */}
+            <header class="relative w-full mb-24 border-b border-white/10 pb-16 flex flex-col md:flex-row md:items-end justify-between gap-8 z-10">
+                <div class="flex flex-col group cursor-crosshair">
+                    <h1 class="font-sans text-[clamp(3rem,8vw,8rem)] font-black leading-[0.8] tracking-tighter uppercase text-white relative z-10">
+                        <ScrambleText client:visible text="ESSAYS" trigger="load" speed={30} delay={100} />
+                    </h1>
+                    <p class="font-mono text-sm md:text-base text-[#88888D] uppercase tracking-[0.2em] mt-6 max-w-xl">
+                        Critical theory, sonic analysis, and cultural observation. The architecture of noise.
+                    </p>
+                </div>
+
+                {/* Visual Data Block */}
+                <div class="hidden md:flex flex-col text-right items-end">
+                    <span class="font-mono text-[10px] text-[#7b61ff] tracking-[0.3em] uppercase mb-2">DATABASE CONNECTION</span>
+                    <span class="font-mono text-xs text-white bg-white/5 px-3 py-1 border border-white/10">
+                        <ScrambleText client:visible text="SYS.READY // VOL.1" trigger="load" speed={20} delay={500} />
+                    </span>
+                </div>
+            </header>
+
+            {/* Brutalist Filters */}
+            <div class="flex flex-wrap gap-4 mb-24 z-10 relative font-mono text-xs md:text-sm tracking-widest uppercase">
+                <button class="px-6 py-3 border border-white/20 bg-white text-black font-bold hover:bg-transparent hover:text-white transition-colors duration-300">
+                    All Entries
+                </button>
+                <button class="px-6 py-3 border border-white/10 text-[#88888D] hover:text-white hover:border-white/30 transition-colors duration-300">
+                    Theory
+                </button>
+                <button class="px-6 py-3 border border-white/10 text-[#88888D] hover:text-white hover:border-white/30 transition-colors duration-300">
+                    Hardware
+                </button>
+                <button class="px-6 py-3 border border-white/10 text-[#88888D] hover:text-white hover:border-white/30 transition-colors duration-300">
+                    Culture
+                </button>
+            </div>
+
+            {/* Grid Layout - Mixed sizes for editorial feel */}
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-x-8 lg:gap-x-16 gap-y-32 relative z-10">
+
+                {/* Feature 1 - Large Wide */}
+                <div class="md:col-span-12 relative">
+                    <ArticleCard client:visible>
+                        <CardImage
+                            aspectRatio="aspect-[21/9]"
+                            src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2500&auto=format&fit=crop"
+                            alt="Abstract geometric monoliths"
+                        />
+                        <CardMeta>
+                            <span class="text-[#7b61ff] font-bold tracking-widest">
+                                <ScrambleText client:visible text="CRITICAL THEORY" trigger="hover" speed={15} />
+                            </span>
+                            <span class="text-white bg-white/10 px-2 py-1">2024.10.12</span>
+                        </CardMeta>
+                        <CardTitle className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter mt-4">
+                            The Architecture<br/>of Brutalism
+                        </CardTitle>
+                        <CardExcerpt className="mt-6 text-base md:text-xl max-w-3xl text-[#88888D]">
+                            How the post-war concrete movement shaped the sonic landscape of modern techno. We examine the spatial relationship between cold, uncompromising physical structures and the relentless kick drums of the Berlin underground.
+                        </CardExcerpt>
+                        <CardDataPoints
+                            data={[
+                                { label: "FOCUS", value: "ACOUSTICS" },
+                                { label: "ERA", value: "POST-WAR / 90S" },
+                                { label: "READ TIME", value: "12 MIN" },
+                            ]}
+                        />
+                    </ArticleCard>
+                </div>
+
+                {/* Grid Item 2 - Standard Portrait */}
+                <div class="md:col-span-12 lg:col-span-6 relative">
+                    <ArticleCard client:visible>
+                        <CardImage
+                            aspectRatio="aspect-[3/4]"
+                            src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1200&auto=format&fit=crop"
+                            alt="Microphone in studio"
+                        />
+                        <CardMeta>
+                            <span class="text-[#7b61ff] font-bold tracking-widest">
+                                <ScrambleText client:visible text="CULTURE" trigger="hover" speed={15} />
+                            </span>
+                            <span class="text-white bg-white/10 px-2 py-1">2024.09.28</span>
+                        </CardMeta>
+                        <CardTitle className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter mt-4">
+                            Ghosts in the<br/>Machine
+                        </CardTitle>
+                        <CardExcerpt className="mt-4 text-base lg:text-lg text-[#88888D]">
+                            Hauntology and the modern obsession with degrading formats. Why producers are spending thousands to make their digital tracks sound like forgotten cassette tapes from 1983.
+                        </CardExcerpt>
+                        <CardDataPoints
+                            data={[
+                                { label: "GENRE", value: "AMBIENT / LO-FI" },
+                                { label: "READ TIME", value: "8 MIN" },
+                            ]}
+                        />
+                    </ArticleCard>
+                </div>
+
+                {/* Grid Item 3 - Square / Boxy */}
+                <div class="md:col-span-12 lg:col-span-6 lg:mt-32 relative">
+                    <ArticleCard client:visible>
+                        <CardImage
+                            aspectRatio="aspect-square"
+                            src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1200&auto=format&fit=crop"
+                            alt="Synthesizer knobs and circuits"
+                        />
+                        <CardMeta>
+                            <span class="text-[#7b61ff] font-bold tracking-widest">
+                                <ScrambleText client:visible text="HARDWARE" trigger="hover" speed={15} />
+                            </span>
+                            <span class="text-white bg-white/10 px-2 py-1">2024.08.15</span>
+                        </CardMeta>
+                        <CardTitle className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter mt-4">
+                            Circuit Bending<br/>God
+                        </CardTitle>
+                        <CardExcerpt className="mt-4 text-base lg:text-lg text-[#88888D]">
+                            The chaotic beauty of breaking machines to find new sounds. An interview with the pioneers of intentional hardware destruction and the ethics of sonic noise.
+                        </CardExcerpt>
+                        <CardDataPoints
+                            data={[
+                                { label: "TECH", value: "MODULAR" },
+                                { label: "READ TIME", value: "15 MIN" },
+                            ]}
+                        />
+                    </ArticleCard>
+                </div>
+
+                {/* Grid Item 4 - Wide Landscape */}
+                <div class="md:col-span-12 relative">
+                    <ArticleCard client:visible>
+                        <CardImage
+                            aspectRatio="aspect-[16/6]"
+                            src="https://images.unsplash.com/photo-1615554851446-4dc113c4a22b?q=80&w=2000&auto=format&fit=crop"
+                            alt="Dark empty warehouse"
+                        />
+                        <CardMeta>
+                            <span class="text-[#7b61ff] font-bold tracking-widest">
+                                <ScrambleText client:visible text="SCENE REPORT" trigger="hover" speed={15} />
+                            </span>
+                            <span class="text-white bg-white/10 px-2 py-1">2024.07.03</span>
+                        </CardMeta>
+                        <CardTitle className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mt-4">
+                            The Empty Space
+                        </CardTitle>
+                        <CardExcerpt className="mt-6 text-base lg:text-xl max-w-2xl text-[#88888D]">
+                            Silence is not the absence of sound, but the canvas it demands. How contemporary ambient artists use massive reverb algorithms to construct cathedrals of nothingness.
+                        </CardExcerpt>
+                        <CardDataPoints
+                            data={[
+                                { label: "STYLE", value: "DRONE" },
+                                { label: "READ TIME", value: "6 MIN" },
+                            ]}
+                        />
+                    </ArticleCard>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</BaseLayout>
