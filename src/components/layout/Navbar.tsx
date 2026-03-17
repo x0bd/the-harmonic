@@ -50,13 +50,9 @@ export const Navbar = () => {
       <div className="flex-1 flex flex-col gap-1.5 pointer-events-auto group">
         <a
           href="/"
-          className="font-sans text-lg md:text-xl font-black tracking-widest uppercase flex items-center gap-3 relative overflow-hidden"
+          className="font-sans text-lg md:text-xl font-black tracking-widest uppercase flex items-center gap-3 transition-colors duration-300 group-hover:text-white"
         >
-          <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
-            The Harmonic
-          </span>
-          {/* Hover reveal block */}
-          <span className="absolute left-0 bottom-0 w-full h-[2px] bg-[#7b61ff] -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></span>
+          The Harmonic
         </a>
         <span
           className={`font-mono text-[9px] tracking-[0.2em] uppercase transition-colors duration-300 ${isScrolled ? "text-[#88888D]" : "text-white/60"}`}
@@ -111,10 +107,7 @@ export const Navbar = () => {
           <div className="w-[1px] h-3 bg-white/20 hidden md:block"></div>
 
           <button className="hidden md:flex items-center gap-3 hover:text-white transition-colors group">
-            <span className="relative overflow-hidden">
-              Account
-              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#7b61ff] -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
-            </span>
+            <span>Account</span>
             <User
               size={16}
               weight="bold"
