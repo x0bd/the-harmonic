@@ -1,12 +1,13 @@
 import { z, defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 const essaysCollection = defineCollection({
-  type: 'content', // v2.5+ allows 'content' | 'data'. We use 'content' for markdown/MDX
+  loader: glob({ pattern: '**/*.{md,mdx}', base: "./src/content/essays" }),
   schema: z.object({
     title: z.string(),
     subtitle: z.string().optional(),
     author: z.string(),
-    date: z.date(),
+    date: z.coerce.date(),
     readingTime: z.string(),
     category: z.string(),
     coverImage: z.string(),
