@@ -9,74 +9,141 @@ import {
     CardDataPoints,
 } from "../../components/article/ArticleCard";
 import { ScrambleText } from "../../components/ui/ScrambleText";
+import { WaveformSection } from "../../components/audio/WaveformSection";
 ---
 
-<BaseLayout>
-    <div class="min-h-screen flex flex-col font-sans bg-[#030303]">
-        <main
-            class="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-24 pt-48 pb-64 overflow-hidden"
-        >
-            {/* Massive Structural Guide Lines */}
-            <div class="absolute top-0 bottom-0 left-[10%] w-[1px] bg-white/[0.03] pointer-events-none z-0 hidden lg:block"></div>
-            <div class="absolute top-0 bottom-0 right-[10%] w-[1px] bg-white/[0.03] pointer-events-none z-0 hidden lg:block"></div>
+<BaseLayout title="Essays | The Harmonic">
+    <div class="min-h-screen flex flex-col font-sans bg-[#030303] selection:bg-[#7b61ff] selection:text-white">
 
-            {/* Page Header */}
-            <header class="relative w-full mb-24 border-b border-white/10 pb-16 flex flex-col md:flex-row md:items-end justify-between gap-8 z-10">
-                <div class="flex flex-col group cursor-crosshair">
-                    <h1 class="font-sans text-[clamp(3rem,8vw,8rem)] font-black leading-[0.8] tracking-tighter uppercase text-white relative z-10">
-                        <ScrambleText client:visible text="ESSAYS" trigger="load" speed={30} delay={100} />
-                    </h1>
-                    <p class="font-mono text-sm md:text-base text-[#88888D] uppercase tracking-[0.2em] mt-6 max-w-xl">
-                        Critical theory, sonic analysis, and cultural observation. The architecture of noise.
-                    </p>
-                </div>
+        {/* Grain/Noise Overlay */}
+        <div class="pointer-events-none fixed inset-0 z-50 opacity-[0.03] mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"></div>
 
-                {/* Visual Data Block */}
-                <div class="hidden md:flex flex-col text-right items-end">
-                    <span class="font-mono text-[10px] text-[#7b61ff] tracking-[0.3em] uppercase mb-2">DATABASE CONNECTION</span>
-                    <span class="font-mono text-xs text-white bg-white/5 px-3 py-1 border border-white/10">
-                        <ScrambleText client:visible text="SYS.READY // VOL.1" trigger="load" speed={20} delay={500} />
-                    </span>
-                </div>
-            </header>
-
-            {/* Brutalist Filters */}
-            <div class="flex flex-wrap gap-4 mb-24 z-10 relative font-mono text-xs md:text-sm tracking-widest uppercase">
-                <button class="px-6 py-3 border border-white/20 bg-white text-black font-bold hover:bg-transparent hover:text-white transition-colors duration-300">
-                    All Entries
-                </button>
-                <button class="px-6 py-3 border border-white/10 text-[#88888D] hover:text-white hover:border-white/30 transition-colors duration-300">
-                    Theory
-                </button>
-                <button class="px-6 py-3 border border-white/10 text-[#88888D] hover:text-white hover:border-white/30 transition-colors duration-300">
-                    Hardware
-                </button>
-                <button class="px-6 py-3 border border-white/10 text-[#88888D] hover:text-white hover:border-white/30 transition-colors duration-300">
-                    Culture
-                </button>
+        {/* Top Ticker Tape */}
+        <div class="relative w-full border-b border-white/10 bg-[#0a0a0a] overflow-hidden flex whitespace-nowrap mt-20 z-40 py-2">
+            <div class="animate-[marquee_20s_linear_infinite] inline-flex items-center font-mono text-[10px] text-[#88888D] uppercase tracking-widest gap-8 px-4">
+                <span>[SYS.STATUS: ONLINE]</span>
+                <span class="text-[#7b61ff]">///</span>
+                <span>PROCESSING AUDIO DATA</span>
+                <span class="text-[#7b61ff]">///</span>
+                <span>ESSAYS & ARCHIVES</span>
+                <span class="text-[#7b61ff]">///</span>
+                <span>VOL 004 / ISSUE 042</span>
+                <span class="text-[#7b61ff]">///</span>
+                <span>[SYS.STATUS: ONLINE]</span>
+                <span class="text-[#7b61ff]">///</span>
+                <span>PROCESSING AUDIO DATA</span>
+                <span class="text-[#7b61ff]">///</span>
+                <span>ESSAYS & ARCHIVES</span>
+                <span class="text-[#7b61ff]">///</span>
+                <span>VOL 004 / ISSUE 042</span>
+                <span class="text-[#7b61ff]">///</span>
             </div>
+            <div class="absolute top-0 animate-[marquee2_20s_linear_infinite] inline-flex items-center font-mono text-[10px] text-[#88888D] uppercase tracking-widest gap-8 px-4" aria-hidden="true">
+                <span>[SYS.STATUS: ONLINE]</span>
+                <span class="text-[#7b61ff]">///</span>
+                <span>PROCESSING AUDIO DATA</span>
+                <span class="text-[#7b61ff]">///</span>
+                <span>ESSAYS & ARCHIVES</span>
+                <span class="text-[#7b61ff]">///</span>
+                <span>VOL 004 / ISSUE 042</span>
+                <span class="text-[#7b61ff]">///</span>
+                <span>[SYS.STATUS: ONLINE]</span>
+                <span class="text-[#7b61ff]">///</span>
+                <span>PROCESSING AUDIO DATA</span>
+                <span class="text-[#7b61ff]">///</span>
+                <span>ESSAYS & ARCHIVES</span>
+                <span class="text-[#7b61ff]">///</span>
+                <span>VOL 004 / ISSUE 042</span>
+                <span class="text-[#7b61ff]">///</span>
+            </div>
+        </div>
 
-            {/* Grid Layout - Mixed sizes for editorial feel */}
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-x-8 lg:gap-x-16 gap-y-32 relative z-10">
+        <main class="relative z-10 w-full max-w-[1800px] mx-auto px-4 md:px-8 lg:px-16 pt-24 pb-64 overflow-hidden flex flex-col md:flex-row gap-12 lg:gap-24">
 
-                {/* Feature 1 - Large Wide */}
-                <div class="md:col-span-12 relative">
+            {/* Left Sidebar - Sticky Navigation / Metadata */}
+            <aside class="w-full md:w-64 lg:w-80 flex-shrink-0 flex flex-col pt-4">
+                <div class="sticky top-40 flex flex-col gap-16">
+                    <div class="flex flex-col group cursor-crosshair">
+                        <h1 class="font-sans text-6xl md:text-7xl lg:text-[8rem] font-black leading-[0.75] tracking-tighter uppercase text-white relative z-10 break-words">
+                            <ScrambleText client:visible text="ESS" trigger="load" speed={20} delay={100} /><br/>
+                            <span class="text-transparent" style={{ WebkitTextStroke: "1px rgba(255,255,255,0.9)" }}>
+                                <ScrambleText client:visible text="AYS" trigger="load" speed={20} delay={300} />
+                            </span>
+                        </h1>
+                        <p class="font-mono text-xs text-[#88888D] uppercase tracking-[0.15em] mt-8 leading-relaxed border-l-2 border-[#7b61ff] pl-4">
+                            Critical theory, sonic analysis, and cultural observation. The architecture of noise.
+                        </p>
+                    </div>
+
+                    {/* Technical Filters */}
+                    <div class="flex flex-col gap-1 border border-white/10 p-4 bg-[#0a0a0a] relative">
+                        {/* Decorative corners */}
+                        <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/50"></div>
+                        <div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/50"></div>
+                        <div class="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/50"></div>
+                        <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/50"></div>
+
+                        <div class="font-mono text-[9px] text-[#7b61ff] tracking-[0.3em] uppercase mb-4 flex justify-between items-center border-b border-white/10 pb-2">
+                            <span>Filter Stream</span>
+                            <span>[4]</span>
+                        </div>
+
+                        <button class="text-left font-mono text-xs md:text-sm tracking-widest uppercase px-4 py-3 bg-white text-black font-bold flex justify-between items-center group transition-all">
+                            <span>All Entries</span>
+                            <span class="opacity-100 group-hover:translate-x-1 transition-transform">→</span>
+                        </button>
+                        <button class="text-left font-mono text-xs md:text-sm tracking-widest uppercase px-4 py-3 text-[#88888D] hover:text-white hover:bg-white/5 flex justify-between items-center group transition-all border-l border-transparent hover:border-[#7b61ff]">
+                            <span>Theory</span>
+                            <span class="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-[#7b61ff]">+</span>
+                        </button>
+                        <button class="text-left font-mono text-xs md:text-sm tracking-widest uppercase px-4 py-3 text-[#88888D] hover:text-white hover:bg-white/5 flex justify-between items-center group transition-all border-l border-transparent hover:border-[#7b61ff]">
+                            <span>Hardware</span>
+                            <span class="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-[#7b61ff]">+</span>
+                        </button>
+                        <button class="text-left font-mono text-xs md:text-sm tracking-widest uppercase px-4 py-3 text-[#88888D] hover:text-white hover:bg-white/5 flex justify-between items-center group transition-all border-l border-transparent hover:border-[#7b61ff]">
+                            <span>Culture</span>
+                            <span class="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-[#7b61ff]">+</span>
+                        </button>
+                    </div>
+
+                    <div class="hidden md:flex flex-col text-left border-t border-white/10 pt-4">
+                        <span class="font-mono text-[10px] text-[#7b61ff] tracking-[0.3em] uppercase mb-2">DB.CONNECTION</span>
+                        <span class="font-mono text-xs text-white">
+                            <ScrambleText client:visible text="SYS.READY // L-CH: OK" trigger="load" speed={20} delay={500} />
+                        </span>
+                    </div>
+                </div>
+            </aside>
+
+            {/* Right Feed - Complex Grid Layout */}
+            <div class="flex-1 grid grid-cols-1 xl:grid-cols-2 gap-x-8 gap-y-24 relative z-10 w-full border-t md:border-t-0 border-white/10 pt-16 md:pt-0">
+
+                {/* Structural Background Lines for Feed */}
+                <div class="absolute top-0 bottom-0 left-1/2 w-[1px] bg-white/[0.03] pointer-events-none z-0 hidden xl:block"></div>
+
+                {/* Feature 1 - Full Width Spanning */}
+                <div class="xl:col-span-2 relative group">
+                    {/* Decorative Target crosshairs for massive elements */}
+                    <div class="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-[#7b61ff]/0 group-hover:border-[#7b61ff]/50 transition-all duration-700 z-20 pointer-events-none"></div>
+                    <div class="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-[#7b61ff]/0 group-hover:border-[#7b61ff]/50 transition-all duration-700 z-20 pointer-events-none"></div>
+
                     <ArticleCard client:visible>
                         <CardImage
-                            aspectRatio="aspect-[21/9]"
+                            aspectRatio="aspect-[16/9] lg:aspect-[21/9]"
                             src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2500&auto=format&fit=crop"
                             alt="Abstract geometric monoliths"
                         />
                         <CardMeta>
-                            <span class="text-[#7b61ff] font-bold tracking-widest">
+                            <span class="text-[#7b61ff] font-bold tracking-widest flex items-center gap-2">
+                                <span class="w-2 h-2 bg-[#7b61ff] inline-block animate-pulse"></span>
                                 <ScrambleText client:visible text="CRITICAL THEORY" trigger="hover" speed={15} />
                             </span>
-                            <span class="text-white bg-white/10 px-2 py-1">2024.10.12</span>
+                            <span class="text-white bg-white/10 px-2 py-1 font-mono">2024.10.12</span>
                         </CardMeta>
-                        <CardTitle className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter mt-4">
+                        <CardTitle className="text-5xl md:text-7xl lg:text-[6rem] font-black uppercase tracking-tighter mt-4 max-w-4xl">
                             The Architecture<br/>of Brutalism
                         </CardTitle>
-                        <CardExcerpt className="mt-6 text-base md:text-xl max-w-3xl text-[#88888D]">
+                        <CardExcerpt className="mt-6 text-base md:text-xl max-w-3xl text-[#88888D] border-l-2 border-white/20 pl-6">
                             How the post-war concrete movement shaped the sonic landscape of modern techno. We examine the spatial relationship between cold, uncompromising physical structures and the relentless kick drums of the Berlin underground.
                         </CardExcerpt>
                         <CardDataPoints
@@ -89,11 +156,11 @@ import { ScrambleText } from "../../components/ui/ScrambleText";
                     </ArticleCard>
                 </div>
 
-                {/* Grid Item 2 - Standard Portrait */}
-                <div class="md:col-span-12 lg:col-span-6 relative">
+                {/* Grid Item 2 - Offset left */}
+                <div class="relative xl:pr-8">
                     <ArticleCard client:visible>
                         <CardImage
-                            aspectRatio="aspect-[3/4]"
+                            aspectRatio="aspect-[4/5]"
                             src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1200&auto=format&fit=crop"
                             alt="Microphone in studio"
                         />
@@ -101,26 +168,27 @@ import { ScrambleText } from "../../components/ui/ScrambleText";
                             <span class="text-[#7b61ff] font-bold tracking-widest">
                                 <ScrambleText client:visible text="CULTURE" trigger="hover" speed={15} />
                             </span>
-                            <span class="text-white bg-white/10 px-2 py-1">2024.09.28</span>
+                            <span class="text-white bg-white/10 px-2 py-1 font-mono">2024.09.28</span>
                         </CardMeta>
-                        <CardTitle className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter mt-4">
+                        <CardTitle className="text-4xl md:text-5xl font-black uppercase tracking-tighter mt-4">
                             Ghosts in the<br/>Machine
                         </CardTitle>
-                        <CardExcerpt className="mt-4 text-base lg:text-lg text-[#88888D]">
+                        <CardExcerpt className="mt-4 text-base text-[#88888D]">
                             Hauntology and the modern obsession with degrading formats. Why producers are spending thousands to make their digital tracks sound like forgotten cassette tapes from 1983.
                         </CardExcerpt>
                         <CardDataPoints
                             data={[
-                                { label: "GENRE", value: "AMBIENT / LO-FI" },
+                                { label: "GENRE", value: "AMBIENT" },
                                 { label: "READ TIME", value: "8 MIN" },
                             ]}
                         />
                     </ArticleCard>
                 </div>
 
-                {/* Grid Item 3 - Square / Boxy */}
-                <div class="md:col-span-12 lg:col-span-6 lg:mt-32 relative">
+                {/* Grid Item 3 - Offset Right & Down */}
+                <div class="relative xl:pl-8 xl:mt-32">
                     <ArticleCard client:visible>
+                        <div class="absolute -left-4 top-1/4 bottom-1/4 w-[1px] bg-white/10 hidden xl:block"></div>
                         <CardImage
                             aspectRatio="aspect-square"
                             src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1200&auto=format&fit=crop"
@@ -130,12 +198,12 @@ import { ScrambleText } from "../../components/ui/ScrambleText";
                             <span class="text-[#7b61ff] font-bold tracking-widest">
                                 <ScrambleText client:visible text="HARDWARE" trigger="hover" speed={15} />
                             </span>
-                            <span class="text-white bg-white/10 px-2 py-1">2024.08.15</span>
+                            <span class="text-white bg-white/10 px-2 py-1 font-mono">2024.08.15</span>
                         </CardMeta>
-                        <CardTitle className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter mt-4">
+                        <CardTitle className="text-4xl md:text-5xl font-black uppercase tracking-tighter mt-4">
                             Circuit Bending<br/>God
                         </CardTitle>
-                        <CardExcerpt className="mt-4 text-base lg:text-lg text-[#88888D]">
+                        <CardExcerpt className="mt-4 text-base text-[#88888D]">
                             The chaotic beauty of breaking machines to find new sounds. An interview with the pioneers of intentional hardware destruction and the ethics of sonic noise.
                         </CardExcerpt>
                         <CardDataPoints
@@ -147,36 +215,61 @@ import { ScrambleText } from "../../components/ui/ScrambleText";
                     </ArticleCard>
                 </div>
 
-                {/* Grid Item 4 - Wide Landscape */}
-                <div class="md:col-span-12 relative">
+                {/* Grid Item 4 - Wide Span at Bottom */}
+                <div class="xl:col-span-2 relative mt-16 pt-16 border-t border-dashed border-white/20 group">
+                    <div class="absolute top-0 right-0 font-mono text-[9px] text-[#7b61ff] uppercase tracking-widest py-2">
+                        ARCHIVE // EXTRACT
+                    </div>
                     <ArticleCard client:visible>
-                        <CardImage
-                            aspectRatio="aspect-[16/6]"
-                            src="https://images.unsplash.com/photo-1615554851446-4dc113c4a22b?q=80&w=2000&auto=format&fit=crop"
-                            alt="Dark empty warehouse"
-                        />
-                        <CardMeta>
-                            <span class="text-[#7b61ff] font-bold tracking-widest">
-                                <ScrambleText client:visible text="SCENE REPORT" trigger="hover" speed={15} />
-                            </span>
-                            <span class="text-white bg-white/10 px-2 py-1">2024.07.03</span>
-                        </CardMeta>
-                        <CardTitle className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mt-4">
-                            The Empty Space
-                        </CardTitle>
-                        <CardExcerpt className="mt-6 text-base lg:text-xl max-w-2xl text-[#88888D]">
-                            Silence is not the absence of sound, but the canvas it demands. How contemporary ambient artists use massive reverb algorithms to construct cathedrals of nothingness.
-                        </CardExcerpt>
-                        <CardDataPoints
-                            data={[
-                                { label: "STYLE", value: "DRONE" },
-                                { label: "READ TIME", value: "6 MIN" },
-                            ]}
-                        />
+                        <div class="flex flex-col md:flex-row gap-8 lg:gap-16 items-center">
+                            <div class="w-full md:w-1/2 flex-shrink-0">
+                                <CardImage
+                                    aspectRatio="aspect-[16/10]"
+                                    src="https://images.unsplash.com/photo-1615554851446-4dc113c4a22b?q=80&w=2000&auto=format&fit=crop"
+                                    alt="Dark empty warehouse"
+                                />
+                            </div>
+                            <div class="w-full md:w-1/2 flex flex-col justify-center">
+                                <CardMeta>
+                                    <span class="text-[#7b61ff] font-bold tracking-widest">
+                                        <ScrambleText client:visible text="SCENE REPORT" trigger="hover" speed={15} />
+                                    </span>
+                                    <span class="text-white bg-white/10 px-2 py-1 font-mono">2024.07.03</span>
+                                </CardMeta>
+                                <CardTitle className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter mt-4">
+                                    The Empty Space
+                                </CardTitle>
+                                <CardExcerpt className="mt-6 text-base lg:text-lg text-[#88888D]">
+                                    Silence is not the absence of sound, but the canvas it demands. How contemporary ambient artists use massive reverb algorithms to construct cathedrals of nothingness.
+                                </CardExcerpt>
+                                <CardDataPoints
+                                    data={[
+                                        { label: "STYLE", value: "DRONE" },
+                                        { label: "READ TIME", value: "6 MIN" },
+                                    ]}
+                                />
+                            </div>
+                        </div>
                     </ArticleCard>
                 </div>
 
             </div>
         </main>
+
+        <div class="border-t border-white/10 bg-[#060606] pt-16">
+            <WaveformSection client:load />
+        </div>
     </div>
+
+    <style>
+        /* Add custom marquee animations for the ticker */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
+        @keyframes marquee2 {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(0%); }
+        }
+    </style>
 </BaseLayout>
