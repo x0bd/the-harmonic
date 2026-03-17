@@ -61,7 +61,7 @@ export const WaveformSection = () => {
   };
 
   return (
-    <section className="relative z-10 bg-[#030303] max-w-7xl mx-auto w-full px-4 md:px-16 pb-32 flex flex-col gap-12 font-sans cursor-crosshair">
+    <section className="relative z-10 bg-[#030303] max-w-full mx-auto w-full px-4 md:px-16 pb-32 flex flex-col gap-12 font-sans cursor-crosshair">
       <div className="w-full flex justify-between font-mono text-[10px] text-[#88888D] uppercase tracking-[0.1em]">
         <span>L-CH // SPECTRAL ANALYSIS</span>
         <span>R-CH // 44.1kHz</span>
