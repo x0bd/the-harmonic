@@ -72,32 +72,34 @@ import { WaveformSection } from "../../components/audio/WaveformSection";
                 {/* 1. Lead Feature - Full Width */}
                 <div class="md:col-span-12 relative group">
                     <div class="absolute -top-4 -left-4 w-8 h-8 border-t border-l border-[#7b61ff]/0 group-hover:border-[#7b61ff]/50 transition-all duration-700 z-20 pointer-events-none"></div>
-                    <ArticleCard client:visible>
-                        <CardImage
-                            aspectRatio="aspect-[16/7]"
-                            src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2500&auto=format&fit=crop"
-                            alt="Abstract geometric monoliths"
-                        />
-                        <CardMeta>
-                            <span class="text-[#7b61ff] font-bold tracking-widest">
-                                <ScrambleText client:visible text="CRITICAL THEORY" trigger="hover" speed={15} />
-                            </span>
-                            <span class="text-white bg-white/10 px-2 py-1 font-mono text-[10px]">2024.10.12</span>
-                        </CardMeta>
-                        <CardTitle className="text-5xl md:text-7xl lg:text-[7rem] font-black uppercase tracking-tighter mt-4 max-w-5xl">
-                            The Architecture<br/>of Brutalism
-                        </CardTitle>
-                        <CardExcerpt className="mt-8 text-lg md:text-xl lg:text-2xl max-w-4xl text-[#88888D] leading-relaxed">
-                            How the post-war concrete movement shaped the sonic landscape of modern techno. We examine the spatial relationship between cold, uncompromising physical structures and the relentless kick drums of the Berlin underground.
-                        </CardExcerpt>
-                        <CardDataPoints
-                            data={[
-                                { label: "FOCUS", value: "ACOUSTICS" },
-                                { label: "ERA", value: "POST-WAR" },
-                                { label: "READ TIME", value: "12 MIN" },
-                            ]}
-                        />
-                    </ArticleCard>
+                    <a href="/essays/architecture-of-brutalism" class="block">
+                        <ArticleCard client:visible>
+                            <CardImage
+                                aspectRatio="aspect-[16/7]"
+                                src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2500&auto=format&fit=crop"
+                                alt="Abstract geometric monoliths"
+                            />
+                            <CardMeta>
+                                <span class="text-[#7b61ff] font-bold tracking-widest">
+                                    <ScrambleText client:visible text="CRITICAL THEORY" trigger="hover" speed={15} />
+                                </span>
+                                <span class="text-white bg-white/10 px-2 py-1 font-mono text-[10px]">2024.10.12</span>
+                            </CardMeta>
+                            <CardTitle className="text-5xl md:text-7xl lg:text-[7rem] font-black uppercase tracking-tighter mt-4 max-w-5xl">
+                                The Architecture<br/>of Brutalism
+                            </CardTitle>
+                            <CardExcerpt className="mt-8 text-lg md:text-xl lg:text-2xl max-w-4xl text-[#88888D] leading-relaxed">
+                                How the post-war concrete movement shaped the sonic landscape of modern techno. We examine the spatial relationship between cold, uncompromising physical structures and the relentless kick drums of the Berlin underground.
+                            </CardExcerpt>
+                            <CardDataPoints
+                                data={[
+                                    { label: "FOCUS", value: "ACOUSTICS" },
+                                    { label: "ERA", value: "POST-WAR" },
+                                    { label: "READ TIME", value: "12 MIN" },
+                                ]}
+                            />
+                        </ArticleCard>
+                    </a>
                 </div>
 
                 {/* 2. Secondary Feature - Left Aligned */}
