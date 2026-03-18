@@ -54,43 +54,46 @@ import { WaveformSection } from "../../components/audio/WaveformSection";
                 </div>
             </div>
 
-            {/* Brutalist Editorial Grid */}
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-x-8 lg:gap-x-12 gap-y-32 relative z-10">
+            {/* Structural Asymmetric Grid */}
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-x-8 lg:gap-x-16 gap-y-32 relative z-10">
 
-                {/* 1. Lead Feature - Full Width */}
+                {/* 1. Lead Feature - Massive Wide Hero */}
                 <div class="md:col-span-12 relative group">
-                    <div class="absolute -top-4 -left-4 w-8 h-8 border-t border-l border-[#7b61ff]/0 group-hover:border-[#7b61ff]/50 transition-all duration-700 z-20 pointer-events-none"></div>
                     <a href="/essays/architecture-of-brutalism" class="block">
                         <ArticleCard client:visible>
                             <CardImage
-                                aspectRatio="aspect-[16/7]"
+                                aspectRatio="aspect-[21/9]"
                                 src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2500&auto=format&fit=crop"
                                 alt="Abstract geometric monoliths"
                             />
-                            <CardMeta>
-                                <span class="text-[#7b61ff] font-bold tracking-widest">
-                                    <ScrambleText client:visible text="CRITICAL THEORY" trigger="hover" speed={15} />
-                                </span>
-                                <span class="text-white bg-white/10 px-2 py-1 font-mono text-[10px]">2024.10.12</span>
-                            </CardMeta>
-                            <CardTitle className="text-5xl md:text-7xl lg:text-[7rem] font-black uppercase tracking-tighter mt-4 max-w-5xl">
-                                The Architecture<br/>of Brutalism
-                            </CardTitle>
-                            <CardExcerpt className="mt-8 text-lg md:text-xl lg:text-2xl max-w-4xl text-[#88888D] leading-relaxed">
-                                How the post-war concrete movement shaped the sonic landscape of modern techno. We examine the spatial relationship between cold, uncompromising physical structures and the relentless kick drums of the Berlin underground.
-                            </CardExcerpt>
-                            <CardDataPoints
-                                data={[
-                                    { label: "FOCUS", value: "ACOUSTICS" },
-                                    { label: "ERA", value: "POST-WAR" },
-                                    { label: "READ TIME", value: "12 MIN" },
-                                ]}
-                            />
+                            <div class="mt-6 md:w-3/4 lg:w-2/3">
+                                <CardMeta>
+                                    <span class="text-[#b4b4b4] tracking-widest">
+                                        <ScrambleText client:visible text="CRITICAL THEORY" trigger="hover" speed={15} />
+                                    </span>
+                                    <span class="text-[#666666] font-mono text-[10px]">2024.10.12</span>
+                                </CardMeta>
+                                <CardTitle className="text-4xl md:text-5xl lg:text-7xl tracking-normal mt-4 mb-6">
+                                    The Architecture of Brutalism
+                                </CardTitle>
+                                <CardExcerpt className="text-base md:text-lg text-[#88888D] leading-relaxed max-w-3xl">
+                                    How the post-war concrete movement shaped the sonic landscape of modern techno. We examine the spatial relationship between cold, uncompromising physical structures and the relentless kick drums of the Berlin underground.
+                                </CardExcerpt>
+                                <div class="mt-8 max-w-sm">
+                                    <CardDataPoints
+                                        data={[
+                                            { label: "FOCUS", value: "ACOUSTICS" },
+                                            { label: "ERA", value: "POST-WAR" },
+                                            { label: "TIME", value: "12 MIN" },
+                                        ]}
+                                    />
+                                </div>
+                            </div>
                         </ArticleCard>
                     </a>
                 </div>
 
-                {/* 2. Secondary Feature - Left Aligned */}
+                {/* 2. Secondary Feature - Left Aligned Offset */}
                 <div class="md:col-span-12 lg:col-span-7 relative">
                     <ArticleCard client:visible>
                         <CardImage
@@ -99,28 +102,28 @@ import { WaveformSection } from "../../components/audio/WaveformSection";
                             alt="Microphone in studio"
                         />
                         <CardMeta>
-                            <span class="text-white tracking-widest">
+                            <span class="text-[#b4b4b4] tracking-widest">
                                 <ScrambleText client:visible text="CULTURE" trigger="hover" speed={15} />
                             </span>
-                            <span class="text-[#88888D] font-mono text-[10px]">2024.09.28</span>
+                            <span class="text-[#666666] font-mono text-[10px]">2024.09.28</span>
                         </CardMeta>
-                        <CardTitle className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter mt-4">
-                            Ghosts in the<br/>Machine
+                        <CardTitle className="text-3xl md:text-4xl lg:text-5xl tracking-normal mt-2">
+                            Ghosts in the Machine
                         </CardTitle>
-                        <CardExcerpt className="mt-6 text-base lg:text-lg text-[#88888D] max-w-xl">
+                        <CardExcerpt className="mt-4 text-base text-[#88888D] leading-relaxed">
                             Hauntology and the modern obsession with degrading formats. Why producers are spending thousands to make their digital tracks sound like forgotten cassette tapes from 1983.
                         </CardExcerpt>
                         <CardDataPoints
                             data={[
                                 { label: "GENRE", value: "AMBIENT" },
-                                { label: "READ TIME", value: "8 MIN" },
+                                { label: "TIME", value: "8 MIN" },
                             ]}
                         />
                     </ArticleCard>
                 </div>
 
-                {/* 3. Deep Dive - Right Aligned Offset */}
-                <div class="md:col-span-12 lg:col-span-5 lg:mt-48 relative">
+                {/* 3. Deep Dive - Right Aligned Offset Plunge */}
+                <div class="md:col-span-12 lg:col-span-4 lg:col-start-9 lg:mt-64 relative">
                     <ArticleCard client:visible>
                         <CardImage
                             aspectRatio="aspect-[3/4]"
@@ -128,27 +131,50 @@ import { WaveformSection } from "../../components/audio/WaveformSection";
                             alt="Synthesizer knobs and circuits"
                         />
                         <CardMeta>
-                            <span class="text-white tracking-widest">
+                            <span class="text-[#b4b4b4] tracking-widest">
                                 <ScrambleText client:visible text="HARDWARE" trigger="hover" speed={15} />
                             </span>
-                            <span class="text-[#88888D] font-mono text-[10px]">2024.08.15</span>
+                            <span class="text-[#666666] font-mono text-[10px]">2024.08.15</span>
                         </CardMeta>
-                        <CardTitle className="text-4xl md:text-5xl font-black uppercase tracking-tighter mt-4">
+                        <CardTitle className="text-3xl lg:text-4xl tracking-normal mt-2">
                             Circuit Bending God
                         </CardTitle>
-                        <CardExcerpt className="mt-4 text-base text-[#88888D]">
+                        <CardExcerpt className="mt-4 text-sm text-[#88888D] leading-relaxed">
                             The chaotic beauty of breaking machines to find new sounds. An interview with the pioneers of intentional hardware destruction.
                         </CardExcerpt>
-                        <CardDataPoints
-                            data={[
-                                { label: "TECH", value: "MODULAR" },
-                                { label: "READ TIME", value: "15 MIN" },
-                            ]}
-                        />
                     </ArticleCard>
                 </div>
 
-                {/* 4. Small Card - Left */}
+                {/* 4. Wide Panorama - Center Span */}
+                <div class="md:col-span-12 lg:col-span-10 lg:col-start-2 relative lg:-mt-24">
+                    <ArticleCard client:visible>
+                        <CardImage
+                            aspectRatio="aspect-[16/6]"
+                            src="https://images.unsplash.com/photo-1598387181032-a3103a2db5b3?q=80&w=1600&auto=format&fit=crop"
+                            alt="Hardware rack"
+                        />
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-6">
+                            <div>
+                                <CardMeta>
+                                    <span class="text-[#b4b4b4] tracking-widest">
+                                        <ScrambleText client:visible text="RETROSPECTIVE" trigger="hover" speed={15} />
+                                    </span>
+                                    <span class="text-[#666666] font-mono text-[10px]">2024.06.12</span>
+                                </CardMeta>
+                                <CardTitle className="text-3xl md:text-5xl tracking-normal mt-2">
+                                    The Prophet's Voice
+                                </CardTitle>
+                            </div>
+                            <div class="lg:mt-16">
+                                <CardExcerpt className="text-base text-[#88888D] leading-relaxed">
+                                    How Sequential Circuits defined the 1980s and why the Prophet-5 remains the most sought-after polyphonic synthesizer in contemporary industrial music.
+                                </CardExcerpt>
+                            </div>
+                        </div>
+                    </ArticleCard>
+                </div>
+
+                {/* 5. Small Card - Left Column */}
                 <div class="md:col-span-6 lg:col-span-4 relative">
                     <ArticleCard client:visible>
                         <CardImage
@@ -157,40 +183,20 @@ import { WaveformSection } from "../../components/audio/WaveformSection";
                             alt="Distorted amplifier"
                         />
                         <CardMeta>
-                            <span class="text-[#7b61ff] tracking-widest">ANALYSIS</span>
+                            <span class="text-[#b4b4b4] tracking-widest">ANALYSIS</span>
+                            <span class="text-[#666666] font-mono text-[10px]">2024.07.22</span>
                         </CardMeta>
-                        <CardTitle className="text-3xl lg:text-4xl font-black uppercase tracking-tighter mt-4">
+                        <CardTitle className="text-2xl lg:text-3xl tracking-normal mt-2">
                             Maximal Volume
                         </CardTitle>
-                        <CardExcerpt className="mt-4 text-sm text-[#88888D]">
-                            The loudness war never ended, it just changed frequencies. Examining the mastering techniques of modern hard techno.
+                        <CardExcerpt className="mt-3 text-sm text-[#88888D] leading-relaxed">
+                            The loudness war never ended, it just changed frequencies.
                         </CardExcerpt>
                     </ArticleCard>
                 </div>
 
-                {/* 5. Wide Card - Right Span */}
-                <div class="md:col-span-12 lg:col-span-8 relative">
-                    <ArticleCard client:visible>
-                        <CardImage
-                            aspectRatio="aspect-[16/9]"
-                            src="https://images.unsplash.com/photo-1598387181032-a3103a2db5b3?q=80&w=1600&auto=format&fit=crop"
-                            alt="Hardware rack"
-                        />
-                        <CardMeta>
-                            <span class="text-white tracking-widest">RETROSPECTIVE</span>
-                            <span class="text-[#88888D] font-mono text-[10px]">2024.06.12</span>
-                        </CardMeta>
-                        <CardTitle className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter mt-4">
-                            The Prophet's Voice
-                        </CardTitle>
-                        <CardExcerpt className="mt-4 text-base lg:text-lg text-[#88888D] max-w-2xl">
-                            How Sequential Circuits defined the 1980s and why the Prophet-5 remains the most sought-after polyphonic synthesizer in contemporary industrial music.
-                        </CardExcerpt>
-                    </ArticleCard>
-                </div>
-
-                {/* 6. Standard Portrait */}
-                <div class="md:col-span-6 relative">
+                {/* 6. Standard Portrait - Right Column */}
+                <div class="md:col-span-6 lg:col-span-5 lg:col-start-7 lg:mt-32 relative">
                     <ArticleCard client:visible>
                         <CardImage
                             aspectRatio="aspect-[4/5]"
@@ -198,69 +204,17 @@ import { WaveformSection } from "../../components/audio/WaveformSection";
                             alt="Desolate urban landscape"
                         />
                         <CardMeta>
-                            <span class="text-white tracking-widest">SCENE REPORT</span>
+                            <span class="text-[#b4b4b4] tracking-widest">
+                                <ScrambleText client:visible text="SCENE REPORT" trigger="hover" speed={15} />
+                            </span>
+                            <span class="text-[#666666] font-mono text-[10px]">2024.05.01</span>
                         </CardMeta>
-                        <CardTitle className="text-4xl font-black uppercase tracking-tighter mt-4">
+                        <CardTitle className="text-3xl lg:text-4xl tracking-normal mt-2">
                             Concrete & Steel
                         </CardTitle>
-                        <CardExcerpt className="mt-4 text-base text-[#88888D]">
+                        <CardExcerpt className="mt-4 text-base text-[#88888D] leading-relaxed">
                             Minimalist coldwave and the aesthetics of isolation. Analyzing the stark, algorithmic basslines of the Eastern European underground.
                         </CardExcerpt>
-                    </ArticleCard>
-                </div>
-
-                {/* 7. Standard Portrait Offset */}
-                <div class="md:col-span-6 lg:mt-24 relative">
-                    <ArticleCard client:visible>
-                        <CardImage
-                            aspectRatio="aspect-[4/5]"
-                            src="https://images.unsplash.com/photo-1574342267675-27a92fb02b21?q=80&w=1200&auto=format&fit=crop"
-                            alt="Dark warehouse club"
-                        />
-                        <CardMeta>
-                            <span class="text-white tracking-widest">SCENE REPORT</span>
-                        </CardMeta>
-                        <CardTitle className="text-4xl font-black uppercase tracking-tighter mt-4">
-                            The Vault
-                        </CardTitle>
-                        <CardExcerpt className="mt-4 text-base text-[#88888D]">
-                            Exploring the acoustic properties of a decommissioned bank vault and how physical constraints birth dense, relentless sound.
-                        </CardExcerpt>
-                    </ArticleCard>
-                </div>
-
-                {/* 8. Footer Feature - Split Layout */}
-                <div class="md:col-span-12 relative mt-16 pt-16 border-t border-white/10 group">
-                    <ArticleCard client:visible>
-                        <div class="flex flex-col md:flex-row gap-8 lg:gap-16 items-center">
-                            <div class="w-full md:w-1/2 flex-shrink-0">
-                                <CardImage
-                                    aspectRatio="aspect-[16/10]"
-                                    src="https://images.unsplash.com/photo-1615554851446-4dc113c4a22b?q=80&w=2000&auto=format&fit=crop"
-                                    alt="Dark empty warehouse"
-                                />
-                            </div>
-                            <div class="w-full md:w-1/2 flex flex-col justify-center">
-                                <CardMeta>
-                                    <span class="text-[#7b61ff] font-bold tracking-widest">
-                                        <ScrambleText client:visible text="ESSAY" trigger="hover" speed={15} />
-                                    </span>
-                                    <span class="text-white bg-white/10 px-2 py-1 font-mono text-[10px]">2024.05.01</span>
-                                </CardMeta>
-                                <CardTitle className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter mt-4">
-                                    The Empty Space
-                                </CardTitle>
-                                <CardExcerpt className="mt-6 text-base lg:text-lg text-[#88888D]">
-                                    Silence is not the absence of sound, but the canvas it demands. How contemporary ambient artists use massive reverb algorithms to construct cathedrals of nothingness.
-                                </CardExcerpt>
-                                <CardDataPoints
-                                    data={[
-                                        { label: "STYLE", value: "DRONE" },
-                                        { label: "READ TIME", value: "6 MIN" },
-                                    ]}
-                                />
-                            </div>
-                        </div>
                     </ArticleCard>
                 </div>
 

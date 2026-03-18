@@ -42,7 +42,7 @@ export const CardMeta: React.FC<{
   children: React.ReactNode;
   isHovered?: boolean;
 }> = ({ children, isHovered }) => (
-  <div className="flex justify-between mb-4 mt-8 font-mono text-[0.65rem] text-[#88888D] uppercase tracking-[0.2em] items-center border-b border-white/10 pb-4">
+  <div className="flex justify-between mb-4 mt-6 font-mono text-[0.65rem] text-[#88888D] uppercase tracking-[0.2em] items-center border-b border-white/5 pb-3">
     {React.Children.map(children, (child) =>
       React.isValidElement(child)
         ? React.cloneElement(child as React.ReactElement<any>, {
@@ -55,7 +55,7 @@ export const CardMeta: React.FC<{
 
 export const CardTag: React.FC<{ children: React.ReactNode }> = ({
   children,
-}) => <span className="text-white">{children}</span>;
+}) => <span className="text-[#a1a1a6]">{children}</span>;
 
 export const CardImage: React.FC<{
   src: string;
@@ -64,27 +64,27 @@ export const CardImage: React.FC<{
   aspectRatio?: string;
 }> = ({ src, alt, isHovered, aspectRatio = "aspect-[4/5]" }) => (
   <div
-    className={`w-full overflow-hidden relative bg-[#030303] border border-white/10 transition-colors duration-500 ${isHovered ? "border-[#7b61ff]/50" : ""} ${aspectRatio}`}
+    className={`w-full overflow-hidden relative bg-[#030303] border border-white/5 transition-colors duration-500 ${isHovered ? "border-white/20" : ""} ${aspectRatio}`}
   >
     {/* Embedded Crosshairs */}
     <div
-      className={`absolute top-4 left-4 text-[#7b61ff] text-xs font-mono z-20 transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}
+      className={`absolute top-4 left-4 text-white/50 text-xs font-mono z-20 transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}
     >
       +
     </div>
     <div
-      className={`absolute bottom-4 right-4 text-[#7b61ff] text-xs font-mono z-20 transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}
+      className={`absolute bottom-4 right-4 text-white/50 text-xs font-mono z-20 transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}
     >
       +
     </div>
 
     {/* CRT Scanline Overlay */}
-    <div className="absolute inset-0 z-10 pointer-events-none opacity-20 mix-blend-overlay bg-[linear-gradient(rgba(255,255,255,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%]"></div>
+    <div className="absolute inset-0 z-10 pointer-events-none opacity-[0.15] mix-blend-overlay bg-[linear-gradient(rgba(255,255,255,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%]"></div>
 
     <img
       src={src}
       alt={alt}
-      className={`w-full h-full object-cover transition-all duration-1000 ease-out ${isHovered ? "scale-105 grayscale-0 contrast-125 brightness-110" : "scale-100 grayscale contrast-150 brightness-75"}`}
+      className={`w-full h-full object-cover transition-all duration-1000 ease-out ${isHovered ? "scale-[1.02] grayscale-0 contrast-110 brightness-100" : "scale-100 grayscale contrast-125 brightness-75"}`}
     />
   </div>
 );
@@ -95,7 +95,7 @@ export const CardTitle: React.FC<{
   isHovered?: boolean;
 }> = ({ children, className = "", isHovered }) => (
   <h4
-    className={`font-sans font-black leading-[0.9] mb-4 transition-all duration-300 ${isHovered ? "text-white translate-x-2" : "text-[#E4E4E6]"} ${className}`}
+    className={`font-serif font-normal leading-tight mb-2 transition-all duration-500 ${isHovered ? "text-white" : "text-[#cccccc]"} ${className}`}
   >
     {children}
   </h4>
@@ -106,7 +106,7 @@ export const CardExcerpt: React.FC<{
   className?: string;
 }> = ({ children, className = "" }) => (
   <p
-    className={`text-sm text-[#88888D] font-sans font-light leading-relaxed transition-colors duration-300 ${className}`}
+    className={`text-sm text-[#777777] font-sans font-light leading-relaxed transition-colors duration-300 ${className}`}
   >
     {children}
   </p>
@@ -116,10 +116,10 @@ export const CardDataPoints: React.FC<{
   data: DataPoint[];
   isHovered?: boolean;
 }> = ({ data, isHovered }) => (
-  <div className="flex flex-wrap gap-x-8 gap-y-4 mt-8 pt-4 border-t border-dashed border-white/20">
+  <div className="flex flex-wrap gap-x-8 gap-y-4 mt-6 pt-4 border-t border-dashed border-white/10">
     {data.map((dp, i) => (
       <div key={i} className="flex flex-col">
-        <span className="font-mono text-[0.55rem] text-[#7b61ff] uppercase tracking-[0.2em]">
+        <span className="font-mono text-[0.55rem] text-[#666666] uppercase tracking-[0.2em]">
           <ScrambleText
             text={dp.label}
             trigger="controlled"
@@ -127,7 +127,9 @@ export const CardDataPoints: React.FC<{
             speed={20}
           />
         </span>
-        <span className="font-mono text-[0.7rem] text-white uppercase tracking-[0.1em] mt-1 font-bold">
+        <span
+          className={`font-mono text-[0.7rem] uppercase tracking-[0.1em] mt-1 transition-colors duration-300 ${isHovered ? "text-white" : "text-[#999999]"}`}
+        >
           <ScrambleText
             text={dp.value}
             trigger="controlled"
