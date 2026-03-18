@@ -24,22 +24,22 @@ import { WaveformSection } from "../../components/audio/WaveformSection";
             <div class="absolute top-0 bottom-0 left-[10%] w-[1px] bg-white/[0.03] pointer-events-none z-0 hidden lg:block"></div>
             <div class="absolute top-0 bottom-0 right-[10%] w-[1px] bg-white/[0.03] pointer-events-none z-0 hidden lg:block"></div>
 
-            {/* Header Section */}
-            <header class="relative w-full mb-24 flex flex-col justify-center items-center text-center border-b border-white/10 pb-24 z-10">
-                <div class="flex flex-col group cursor-crosshair relative">
-                    {/* Decorative Brackets */}
-                    <div class="absolute -left-12 top-0 bottom-0 w-4 border-l border-y border-white/20 hidden md:block"></div>
-                    <div class="absolute -right-12 top-0 bottom-0 w-4 border-r border-y border-white/20 hidden md:block"></div>
+            {/* Minimalist Header Section */}
+            <header class="flex justify-between items-start w-full text-[10px] font-mono uppercase tracking-widest leading-relaxed mb-24 z-10 relative">
+                <div class="flex flex-col gap-1 text-[#88888D]">
+                    <span>DIRECTORY // 001</span>
+                    <span class="text-white">ARCHIVE: ACTIVE</span>
+                </div>
 
-                    <div class="font-mono text-xs text-[#7b61ff] tracking-[0.4em] uppercase mb-8">
-                        <ScrambleText client:visible text="[ DIRECTORY / 001 ]" trigger="load" speed={20} delay={100} />
-                    </div>
-                    <h1 class="font-sans text-[clamp(4rem,10vw,10rem)] font-black leading-[0.75] tracking-tighter uppercase text-white relative z-10">
-                        <ScrambleText client:visible text="ESSAYS" trigger="load" speed={30} delay={200} />
+                <div class="hidden md:block text-center mt-4 group cursor-crosshair">
+                    <h1 class="font-serif text-2xl tracking-normal text-white capitalize mix-blend-difference">
+                        <ScrambleText client:visible text="Essays & Sonic Analysis" trigger="load" speed={30} delay={200} />
                     </h1>
-                    <p class="font-mono text-sm md:text-base text-[#88888D] uppercase tracking-[0.2em] mt-8 max-w-2xl mx-auto">
-                        Critical theory, sonic analysis, and cultural observation. The architecture of noise and the structures of sound.
-                    </p>
+                </div>
+
+                <div class="flex flex-col gap-1 text-right text-[#88888D]">
+                    <span>INDEX: ESSAYS</span>
+                    <span class="text-[#7b61ff]">SYS.ONLINE</span>
                 </div>
             </header>
 
