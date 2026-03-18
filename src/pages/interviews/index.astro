@@ -49,23 +49,11 @@ const interviews = [
 
         <main class="relative z-10 w-full max-w-screen-2xl mx-auto px-6 md:px-12 lg:px-24 pt-32 pb-64 flex flex-col min-h-screen">
 
-            {/* Top Minimalist Header */}
-            <header class="flex justify-between items-start w-full text-[10px] uppercase tracking-widest leading-relaxed mb-32">
-                <div class="flex flex-col gap-1">
-                    <span>SYS.REQ // 01</span>
-                    <span class="text-white">AUDIO: ACTIVE</span>
-                </div>
-
-                <div class="hidden md:block text-center mt-4">
-                    <h1 class="font-serif text-2xl tracking-normal text-white capitalize mix-blend-difference">
-                        <ScrambleText client:visible text="Conversations in the Void" trigger="load" speed={30} delay={200} />
-                    </h1>
-                </div>
-
-                <div class="flex flex-col gap-1 text-right">
-                    <span>VOL. 01</span>
-                    <span class="text-[#7b61ff]">UTC 14:02:00</span>
-                </div>
+            {/* Minimalist Header Section */}
+            <header class="w-full mb-32 z-10 relative flex justify-start">
+                <h1 class="font-serif text-3xl md:text-5xl tracking-normal text-white capitalize group cursor-crosshair">
+                    <ScrambleText client:visible text="Conversations in the Void" trigger="load" speed={30} delay={200} />
+                </h1>
             </header>
 
             {/* List Header */}
