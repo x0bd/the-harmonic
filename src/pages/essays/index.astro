@@ -25,22 +25,10 @@ import { WaveformSection } from "../../components/audio/WaveformSection";
             <div class="absolute top-0 bottom-0 right-[10%] w-[1px] bg-white/[0.03] pointer-events-none z-0 hidden lg:block"></div>
 
             {/* Minimalist Header Section */}
-            <header class="flex justify-between items-start w-full text-[10px] font-mono uppercase tracking-widest leading-relaxed mb-24 z-10 relative">
-                <div class="flex flex-col gap-1 text-[#88888D]">
-                    <span>DIRECTORY // 001</span>
-                    <span class="text-white">ARCHIVE: ACTIVE</span>
-                </div>
-
-                <div class="hidden md:block text-center mt-4 group cursor-crosshair">
-                    <h1 class="font-serif text-2xl tracking-normal text-white capitalize mix-blend-difference">
-                        <ScrambleText client:visible text="Essays & Sonic Analysis" trigger="load" speed={30} delay={200} />
-                    </h1>
-                </div>
-
-                <div class="flex flex-col gap-1 text-right text-[#88888D]">
-                    <span>INDEX: ESSAYS</span>
-                    <span class="text-[#7b61ff]">SYS.ONLINE</span>
-                </div>
+            <header class="w-full mb-24 z-10 relative flex justify-start">
+                <h1 class="font-serif text-3xl md:text-5xl tracking-normal text-white capitalize group cursor-crosshair">
+                    <ScrambleText client:visible text="Essays & Sonic Analysis" trigger="load" speed={30} delay={200} />
+                </h1>
             </header>
 
             {/* Navigation / Filters */}
