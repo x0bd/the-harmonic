@@ -85,7 +85,6 @@ export const Hero = () => {
           intensity={0.6}
           noise={0.6}
           speed={0}
-          animate={false}
           style={{ width: "100%", height: "100%", opacity: 0.8 }}
         />
       </div>
