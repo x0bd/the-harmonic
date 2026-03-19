@@ -9,54 +9,54 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #030303;
-  --foreground: #e4e4e6;
+  --background: #0f0f0f;
+  --foreground: #f0f0f0;
 
-  --card: #0a0a0c;
-  --card-foreground: #e4e4e6;
+  --card: #181818;
+  --card-foreground: #f0f0f0;
 
-  --popover: #0a0a0c;
-  --popover-foreground: #e4e4e6;
+  --popover: #181818;
+  --popover-foreground: #f0f0f0;
 
   --primary: #ffffff;
-  --primary-foreground: #030303;
+  --primary-foreground: #000000;
 
-  --secondary: #333336;
+  --secondary: #242424;
   --secondary-foreground: #ffffff;
 
-  --muted: #0a0a0c;
+  --muted: #181818;
   --muted-foreground: #88888d;
 
-  --accent: #7b61ff;
+  --accent: #ff6000;
   --accent-foreground: #ffffff;
 
   --destructive: oklch(0.396 0.141 25.723);
   --border: rgba(255, 255, 255, 0.1);
   --input: rgba(255, 255, 255, 0.1);
-  --ring: rgba(123, 97, 255, 0.4);
+  --ring: rgba(255, 96, 0, 0.4);
 
-  --radius: 0rem;
+  --radius: 1rem;
 }
 
 .dark {
-  --background: #030303;
-  --foreground: #e4e4e6;
-  --card: #0a0a0c;
-  --card-foreground: #e4e4e6;
-  --popover: #0a0a0c;
-  --popover-foreground: #e4e4e6;
+  --background: #0f0f0f;
+  --foreground: #f0f0f0;
+  --card: #181818;
+  --card-foreground: #f0f0f0;
+  --popover: #181818;
+  --popover-foreground: #f0f0f0;
   --primary: #ffffff;
-  --primary-foreground: #030303;
-  --secondary: #333336;
+  --primary-foreground: #000000;
+  --secondary: #242424;
   --secondary-foreground: #ffffff;
-  --muted: #0a0a0c;
+  --muted: #181818;
   --muted-foreground: #88888d;
-  --accent: #7b61ff;
+  --accent: #ff6000;
   --accent-foreground: #ffffff;
   --destructive: oklch(0.396 0.141 25.723);
   --border: rgba(255, 255, 255, 0.1);
   --input: rgba(255, 255, 255, 0.1);
-  --ring: rgba(123, 97, 255, 0.4);
+  --ring: rgba(255, 96, 0, 0.4);
 }
 
 @theme inline {
@@ -83,13 +83,13 @@
   --color-foreground: var(--foreground);
   --color-background: var(--background);
 
-  --radius-sm: var(--radius);
-  --radius-md: var(--radius);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
-  --radius-xl: var(--radius);
-  --radius-2xl: var(--radius);
-  --radius-3xl: var(--radius);
-  --radius-4xl: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
 }
 
 @layer base {
@@ -98,7 +98,6 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
-    cursor: crosshair;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

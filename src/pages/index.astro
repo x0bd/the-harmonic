@@ -11,291 +11,139 @@ import {
     CardDataPoints,
 } from "../components/article/ArticleCard";
 import { WaveformSection } from "../components/audio/WaveformSection";
-import { ScrambleText } from "../components/ui/ScrambleText";
 ---
 
 <BaseLayout>
-    <div class="min-h-screen flex flex-col font-sans">
-        {/* Negative Space Hero */}
+    <div class="min-h-screen flex flex-col font-sans bg-background selection:bg-accent selection:text-white">
         <Hero client:load />
 
-        {/* Editorial Section - Brutalist Staggered Grid */}
-        <main
-            class="relative z-10 bg-[#030303] max-w-[1600px] mx-auto w-full px-6 md:px-12 lg:px-24 pt-32 pb-64 overflow-hidden"
-        >
-            {/* Massive Structural Guide Lines */}
-            <div
-                class="absolute top-0 bottom-0 left-1/2 w-[1px] bg-white/[0.03] pointer-events-none z-0 hidden lg:block"
-            >
-            </div>
-            <div
-                class="absolute top-0 bottom-0 left-1/4 w-[1px] bg-white/[0.03] pointer-events-none z-0 hidden lg:block"
-            >
-            </div>
-            <div
-                class="absolute top-0 bottom-0 right-1/4 w-[1px] bg-white/[0.03] pointer-events-none z-0 hidden lg:block"
-            >
+        <main class="relative z-10 max-w-[1400px] mx-auto w-full px-6 md:px-12 pt-24 pb-32">
+            <div class="flex items-end justify-between mb-16 border-b border-white/10 pb-6">
+                <div>
+                    <h2 class="font-serif text-4xl md:text-5xl font-normal text-white mb-2">Latest Transmissions</h2>
+                    <p class="font-sans text-foreground/60">Curated essays and hardware analyses.</p>
+                </div>
+                <a href="/essays" class="hidden md:inline-flex items-center gap-2 font-sans font-semibold text-sm text-accent hover:text-white transition-colors">
+                    View Archive
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
             </div>
 
-            {/* Brutalist Section Header */}
-            <div
-                class="relative w-full mb-40 pt-24 flex flex-col items-center justify-center border-b border-white/10 pb-32"
-            >
-                <div class="relative w-full text-center group cursor-crosshair">
-                    <h2
-                        class="font-sans text-[clamp(4rem,13vw,13rem)] font-black leading-[0.75] tracking-tighter uppercase text-white/[0.04] absolute top-12 left-0 w-full select-none pointer-events-none transition-transform duration-700 group-hover:translate-x-4 group-hover:-translate-y-4"
-                    >
-                        <ScrambleText client:visible text="DISTORTED" trigger="load" speed={30} delay={200} />
-                    </h2>
-                    <h2
-                        class="font-sans text-[clamp(4rem,13vw,13rem)] font-black leading-[0.75] tracking-tighter uppercase text-transparent select-none z-10 relative"
-                        style={{ WebkitTextStroke: "1px rgba(255,255,255,0.9)" }}
-                    >
-                        <ScrambleText client:visible text="SIGNALS" trigger="load" speed={40} delay={400} />
-                    </h2>
-                </div>
-                <div
-                    class="absolute bottom-4 right-4 font-mono text-[10px] text-[#7b61ff] tracking-[0.3em] uppercase bg-[#030303] px-4 py-2 border border-white/10"
-                >
-                    <ScrambleText client:visible text="[ INDEX / 001 - 006 ]" trigger="hover" speed={20} />
-                </div>
-            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Card 1 */}
+                <ArticleCard className="lg:col-span-2">
+                    <CardImage
+                        aspectRatio="aspect-[16/9]"
+                        src="https://images.unsplash.com/photo-1574169208507-84376144848b?q=80&w=2000&auto=format&fit=crop"
+                        alt="Harsh lighting in a concrete room"
+                    />
+                    <CardMeta>
+                        <CardTag>Profile</CardTag>
+                        <span>Vol.01</span>
+                    </CardMeta>
+                    <CardTitle className="text-4xl md:text-5xl">Boy Harsher</CardTitle>
+                    <CardExcerpt>
+                        The relentless pulse of modern darkwave. Exploring the sweaty, desperate synthesis of 'Careful' and how they weaponize the Roland SH-101 to build cinematic dread in the club.
+                    </CardExcerpt>
+                    <CardDataPoints
+                        data={[
+                            { label: "Genre", value: "Darkwave" },
+                            { label: "Hardware", value: "SH-101" },
+                        ]}
+                    />
+                </ArticleCard>
 
-            <div
-                class="grid grid-cols-1 md:grid-cols-12 gap-x-8 lg:gap-x-16 gap-y-32 relative z-10"
-            >
-                {/* Item 1 - Boy Harsher (Hero Feature) */}
-                <div class="md:col-span-12 lg:col-span-8 relative">
-                    <ArticleCard client:visible>
-                        <CardImage
-                            aspectRatio="aspect-[16/7]"
-                            src="https://images.unsplash.com/photo-1574169208507-84376144848b?q=80&w=2000&auto=format&fit=crop"
-                            alt="Harsh lighting in a concrete room"
-                        />
-                        <CardMeta>
-                            <span
-                                class="text-[#7b61ff] font-bold tracking-widest"
-                                ><ScrambleText client:visible text="ARTIST PROFILE" trigger="hover" speed={15} /></span
-                            >
-                            <span class="text-white bg-white/10 px-2 py-1"
-                                ><ScrambleText client:visible text="VOL.01" trigger="hover" speed={30} /></span
-                            >
-                        </CardMeta>
-                        <CardTitle
-                            className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter mt-4"
-                            >Boy Harsher</CardTitle
-                        >
-                        <CardExcerpt
-                            className="mt-6 text-base md:text-lg lg:text-xl max-w-2xl text-[#88888d]"
-                        >
-                            The relentless pulse of modern darkwave. Exploring
-                            the sweaty, desperate synthesis of 'Careful' and how
-                            they weaponize the Roland SH-101 to build cinematic
-                            dread in the club.
-                        </CardExcerpt>
-                        <CardDataPoints
-                            data={[
-                                { label: "GENRE", value: "DARKWAVE" },
-                                { label: "LOC", value: "SAVANNAH, GA" },
-                                { label: "SYS.ID", value: "SH-101 / TR-505" },
-                            ]}
-                        />
-                    </ArticleCard>
-                </div>
+                {/* Card 2 */}
+                <ArticleCard>
+                    <CardImage
+                        aspectRatio="aspect-[4/3] lg:aspect-[3/4]"
+                        src="https://images.unsplash.com/photo-1520166986518-18e3ab039324?q=80&w=1200&auto=format&fit=crop"
+                        alt="Distorted amplifier"
+                    />
+                    <CardMeta>
+                        <CardTag>Retrospective</CardTag>
+                        <span>Vol.02</span>
+                    </CardMeta>
+                    <CardTitle>Yeah Yeah Yeahs</CardTitle>
+                    <CardExcerpt>
+                        Fever to Tell. The raw, unpolished energy of early 2000s New York post-punk revival. Deconstructing the jagged guitar tones.
+                    </CardExcerpt>
+                    <CardDataPoints
+                        data={[
+                            { label: "Era", value: "2003" },
+                            { label: "Style", value: "Post-Punk" },
+                        ]}
+                    />
+                </ArticleCard>
 
-                {/* Item 2 - Yeah Yeah Yeahs (Sidebar Feature) */}
-                <div class="md:col-span-12 lg:col-span-4 lg:mt-32 relative">
-                    <ArticleCard client:visible>
-                        <CardImage
-                            aspectRatio="aspect-[3/4]"
-                            src="https://images.unsplash.com/photo-1520166986518-18e3ab039324?q=80&w=1200&auto=format&fit=crop"
-                            alt="Distorted amplifier"
-                        />
-                        <CardMeta>
-                            <span
-                                class="text-[#7b61ff] font-bold tracking-widest"
-                                ><ScrambleText client:visible text="RETROSPECTIVE" trigger="hover" speed={15} /></span
-                            >
-                            <span class="text-white bg-white/10 px-2 py-1"
-                                ><ScrambleText client:visible text="VOL.02" trigger="hover" speed={30} /></span
-                            >
-                        </CardMeta>
-                        <CardTitle
-                            className="text-4xl md:text-5xl font-black uppercase tracking-tighter mt-4"
-                            >Yeah Yeah<br />Yeahs</CardTitle
-                        >
-                        <CardExcerpt
-                            className="mt-4 text-sm md:text-base text-[#88888d]"
-                        >
-                            Fever to Tell. The raw, unpolished energy of early
-                            2000s New York post-punk revival. Deconstructing the
-                            jagged guitar tones and visceral vocal delivery.
-                        </CardExcerpt>
-                        <CardDataPoints
-                            data={[
-                                { label: "ERA", value: "2003" },
-                                { label: "STYLE", value: "POST-PUNK" },
-                            ]}
-                        />
-                    </ArticleCard>
-                </div>
+                {/* Card 3 */}
+                <ArticleCard>
+                    <CardImage
+                        aspectRatio="aspect-[4/3]"
+                        src="https://images.unsplash.com/photo-1508608226992-069a19c36829?q=80&w=1600&auto=format&fit=crop"
+                        alt="Desolate urban landscape"
+                    />
+                    <CardMeta>
+                        <CardTag>Scene Report</CardTag>
+                        <span>Vol.03</span>
+                    </CardMeta>
+                    <CardTitle>Lebanon Hanover</CardTitle>
+                    <CardExcerpt>
+                        Minimalist coldwave and the aesthetics of isolation. Analyzing the stark, algorithmic basslines that soundtrack modern decay.
+                    </CardExcerpt>
+                    <CardDataPoints
+                        data={[
+                            { label: "Vibe", value: "Coldwave" },
+                            { label: "BPM", value: "115" },
+                        ]}
+                    />
+                </ArticleCard>
 
-                {/* Item 3 - Lebanon Hanover */}
-                <div class="md:col-span-12 lg:col-span-5 lg:mt-16 relative">
-                    <ArticleCard client:visible>
-                        <CardImage
-                            aspectRatio="aspect-[4/5]"
-                            src="https://images.unsplash.com/photo-1508608226992-069a19c36829?q=80&w=1600&auto=format&fit=crop"
-                            alt="Desolate urban landscape"
-                        />
-                        <CardMeta>
-                            <span
-                                class="text-[#7b61ff] font-bold tracking-widest"
-                                ><ScrambleText client:visible text="SCENE REPORT" trigger="hover" speed={15} /></span
-                            >
-                            <span class="text-white bg-white/10 px-2 py-1"
-                                ><ScrambleText client:visible text="VOL.03" trigger="hover" speed={30} /></span
-                            >
-                        </CardMeta>
-                        <CardTitle
-                            className="text-4xl md:text-6xl font-black uppercase tracking-tighter mt-4"
-                            >Lebanon<br />Hanover</CardTitle
-                        >
-                        <CardExcerpt
-                            className="mt-4 text-base md:text-lg text-[#88888d]"
-                        >
-                            Minimalist coldwave and the aesthetics of isolation.
-                            Analyzing the stark, algorithmic basslines and
-                            deadpan dual vocals that soundtrack the modern
-                            romanticized decay.
-                        </CardExcerpt>
-                        <CardDataPoints
-                            data={[
-                                { label: "VIBE", value: "COLDWAVE" },
-                                { label: "BPM", value: "115" },
-                            ]}
-                        />
-                    </ArticleCard>
-                </div>
+                {/* Card 4 */}
+                <ArticleCard>
+                    <CardImage
+                        aspectRatio="aspect-[4/3]"
+                        src="https://images.unsplash.com/photo-1598387846148-18d451a37c95?q=80&w=2000&auto=format&fit=crop"
+                        alt="Analog Synthesizer Patch Cables"
+                    />
+                    <CardMeta>
+                        <CardTag>Hardware Analysis</CardTag>
+                        <span>Sys.01</span>
+                    </CardMeta>
+                    <CardTitle>KORG MS-20</CardTitle>
+                    <CardExcerpt>
+                        Why the MS-20's notoriously aggressive high-pass and low-pass filter combination remains the gold standard for tearing through industrial mixes.
+                    </CardExcerpt>
+                    <CardDataPoints
+                        data={[
+                            { label: "Type", value: "Semi-Modular" },
+                            { label: "Release", value: "1978" },
+                        ]}
+                    />
+                </ArticleCard>
 
-                {/* Item 4 - Nine Inch Nails (Offset Wide) */}
-                <div class="md:col-span-12 lg:col-span-7 lg:-mt-24 relative">
-                    <ArticleCard client:visible>
-                        <CardImage
-                            aspectRatio="aspect-[16/9]"
-                            src="https://images.unsplash.com/photo-1598387181032-a3103a2db5b3?q=80&w=2000&auto=format&fit=crop"
-                            alt="Rack mounted hardware gear"
-                        />
-                        <CardMeta>
-                            <span
-                                class="text-[#7b61ff] font-bold tracking-widest"
-                                ><ScrambleText client:visible text="DEEP DIVE" trigger="hover" speed={15} /></span
-                            >
-                            <span class="text-white bg-white/10 px-2 py-1"
-                                ><ScrambleText client:visible text="VOL.04" trigger="hover" speed={30} /></span
-                            >
-                        </CardMeta>
-                        <CardTitle
-                            className="text-5xl md:text-7xl font-black uppercase tracking-tighter mt-4"
-                            >Nine Inch<br />Nails</CardTitle
-                        >
-                        <CardExcerpt
-                            className="mt-4 text-base md:text-lg text-[#88888d]"
-                        >
-                            The Downward Spiral and the mechanization of angst.
-                            How Trent Reznor merged the agonizing brutality of
-                            industrial metal with pop sensibilities, reshaping
-                            the landscape of heavy electronic music forever.
-                        </CardExcerpt>
-                        <CardDataPoints
-                            data={[
-                                { label: "FOCUS", value: "INDUSTRIAL" },
-                                { label: "ALBUM", value: "1994" },
-                                { label: "SYS.ID", value: "PROPHET-5" },
-                            ]}
-                        />
-                    </ArticleCard>
-                </div>
-
-                {/* Item 5 - Tresor / Berlin Club */}
-                <div class="md:col-span-12 lg:col-span-6 relative">
-                    <ArticleCard client:visible>
-                        <CardImage
-                            aspectRatio="aspect-[3/2]"
-                            src="https://images.unsplash.com/photo-1574342267675-27a92fb02b21?q=80&w=2000&auto=format&fit=crop"
-                            alt="Dark warehouse club"
-                        />
-                        <CardMeta>
-                            <span
-                                class="text-[#7b61ff] font-bold tracking-widest"
-                                ><ScrambleText client:visible text="SCENE REPORT" trigger="hover" speed={15} /></span
-                            >
-                            <span class="text-white bg-white/10 px-2 py-1"
-                                ><ScrambleText client:visible text="VOL.05" trigger="hover" speed={30} /></span
-                            >
-                        </CardMeta>
-                        <CardTitle
-                            className="text-4xl md:text-6xl font-black uppercase tracking-tighter mt-4"
-                            >TRESOR:<br />The Vault</CardTitle
-                        >
-                        <CardExcerpt
-                            className="mt-4 text-base md:text-lg text-[#88888d]"
-                        >
-                            Exploring the acoustic properties of a
-                            decommissioned bank vault. How the physical
-                            constraints of Tresor birthed the relentless, dense
-                            sound of early 90s Berlin techno.
-                        </CardExcerpt>
-                        <CardDataPoints
-                            data={[
-                                { label: "LOC", value: "BERLIN, DE" },
-                                { label: "BPM", value: "135+" },
-                            ]}
-                        />
-                    </ArticleCard>
-                </div>
-
-                {/* Item 6 - Korg MS-20 Case Study */}
-                <div
-                    class="md:col-span-12 lg:col-span-6 lg:mt-32 relative"
-                >
-                    <ArticleCard client:visible>
-                        <CardMeta>
-                            <span
-                                class="text-[#7b61ff] font-bold tracking-widest"
-                                ><ScrambleText client:visible text="HARDWARE ANALYSIS" trigger="hover" speed={15} /></span
-                            >
-                            <span class="text-white bg-white/10 px-2 py-1"
-                                ><ScrambleText client:visible text="SYS.01" trigger="hover" speed={30} /></span
-                            >
-                        </CardMeta>
-                        <CardTitle
-                            className="text-4xl md:text-6xl font-black uppercase tracking-tighter mt-4 text-[#7b61ff]"
-                            >KORG MS-20</CardTitle
-                        >
-                        <h3
-                            class="font-mono text-lg md:text-xl text-white uppercase tracking-widest mb-6"
-                        >
-                            The Screaming Filter
-                        </h3>
-                        <CardImage
-                            aspectRatio="aspect-[4/3]"
-                            src="https://images.unsplash.com/photo-1598387846148-18d451a37c95?q=80&w=2000&auto=format&fit=crop"
-                            alt="Analog Synthesizer Patch Cables"
-                        />
-                        <CardExcerpt className="mt-6 text-base md:text-lg text-[#88888d]">
-                            Why the MS-20's notoriously aggressive high-pass and
-                            low-pass filter combination remains the gold
-                            standard for tearing through industrial mixes.
-                        </CardExcerpt>
-                        <CardDataPoints
-                            data={[
-                                { label: "TYPE", value: "SEMI-MODULAR" },
-                                { label: "RELEASE", value: "1978" },
-                            ]}
-                        />
-                    </ArticleCard>
-                </div>
+                {/* Card 5 */}
+                <ArticleCard>
+                    <CardImage
+                        aspectRatio="aspect-[4/3]"
+                        src="https://images.unsplash.com/photo-1574342267675-27a92fb02b21?q=80&w=2000&auto=format&fit=crop"
+                        alt="Dark warehouse club"
+                    />
+                    <CardMeta>
+                        <CardTag>Scene Report</CardTag>
+                        <span>Vol.05</span>
+                    </CardMeta>
+                    <CardTitle>Tresor: The Vault</CardTitle>
+                    <CardExcerpt>
+                        Exploring the acoustic properties of a decommissioned bank vault and how its physical constraints birthed the dense sound of early 90s Berlin techno.
+                    </CardExcerpt>
+                    <CardDataPoints
+                        data={[
+                            { label: "Loc", value: "Berlin, DE" },
+                            { label: "BPM", value: "135+" },
+                        ]}
+                    />
+                </ArticleCard>
             </div>
         </main>
 

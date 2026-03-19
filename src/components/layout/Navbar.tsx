@@ -5,7 +5,6 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   const navLinks = ["Essays", "Interviews", "Releases", "Artists", "Scenes"];
 
@@ -13,19 +12,15 @@ export const Navbar = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Determine if scrolled past threshold for background change
       if (currentScrollY > 50) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
 
-      // Determine scroll direction for hide/reveal
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down & past top -> Hide
         setIsVisible(false);
       } else {
-        // Scrolling up -> Show
         setIsVisible(true);
       }
 
@@ -38,85 +33,56 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-[100] px-6 py-6 md:px-12 md:py-8 flex items-start justify-between text-white transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+      className={`fixed top-0 left-0 w-full z-[100] px-6 py-4 md:px-8 flex items-center justify-between text-foreground transition-all duration-500 ease-out ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       } ${
         isScrolled
-          ? "bg-[#030303]/80 backdrop-blur-xl border-b border-white/10 py-4 md:py-5 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
-          : "bg-transparent border-b border-transparent mix-blend-difference"
+          ? "bg-background/80 backdrop-blur-xl border-b border-white/5 py-4 shadow-sm"
+          : "bg-transparent border-b border-transparent py-6"
       }`}
     >
-      {/* Brand / System ID - Left */}
-      <div className="flex-1 flex flex-col gap-1.5 pointer-events-auto group">
+      {/* Brand */}
+      <div className="flex-1 flex items-center">
         <a
           href="/"
-          className="font-sans text-lg md:text-xl font-black tracking-widest uppercase flex items-center gap-3 transition-colors duration-300 group-hover:text-white"
+          className="font-sans text-xl font-bold tracking-tight flex items-center gap-2 hover:opacity-80 transition-opacity"
         >
+          <div className="w-4 h-4 bg-accent rounded-full"></div>
           The Harmonic
         </a>
-        <span
-          className={`font-mono text-[9px] tracking-[0.2em] uppercase transition-colors duration-300 ${isScrolled ? "text-[#88888D]" : "text-white/60"}`}
-        >
-          Vol. IV — Issue 042
-        </span>
       </div>
 
-      {/* Primary Nav - Center */}
-      <div className="hidden lg:flex flex-1 justify-center items-center pointer-events-auto">
-        <div className="flex gap-10">
+      {/* Primary Nav */}
+      <div className="hidden lg:flex flex-1 justify-center items-center">
+        <div className="flex gap-2 bg-white/5 backdrop-blur-md p-1 rounded-full border border-white/10">
           {navLinks.map((link) => (
             <a
               key={link}
               href={`/${link.toLowerCase()}`}
-              className={`relative font-mono text-[10px] uppercase tracking-[0.25em] transition-colors duration-300 py-2 group flex flex-col items-center ${isScrolled ? "text-[#88888d] hover:text-white" : "text-white/80 hover:text-white"}`}
-              onMouseEnter={() => setHoveredLink(link)}
-              onMouseLeave={() => setHoveredLink(null)}
+              className="relative font-sans text-sm font-medium px-4 py-2 rounded-full text-foreground/80 hover:text-foreground hover:bg-white/10 transition-all"
             >
-              <span>{link}</span>
-
-              {/* Animated purple underline growing from left to right */}
-              <span
-                className={`absolute bottom-0 left-0 h-[2px] bg-[#7b61ff] transform origin-left transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                  hoveredLink === link
-                    ? "scale-x-100 w-full"
-                    : "scale-x-0 w-full"
-                }`}
-              />
+              {link}
             </a>
           ))}
         </div>
       </div>
 
-      {/* Utilities - Right */}
-      <div className="flex-1 flex justify-end items-center pointer-events-auto">
-        <div
-          className={`flex items-center gap-8 font-mono text-[10px] uppercase tracking-[0.2em] transition-colors duration-300 ${isScrolled ? "text-[#88888d]" : "text-white/80"}`}
-        >
-          <button className="flex items-center gap-3 hover:text-white transition-colors group">
-            <span className="hidden md:inline relative overflow-hidden">
-              Search
-              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#7b61ff] -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
-            </span>
+      {/* Utilities */}
+      <div className="flex-1 flex justify-end items-center">
+        <div className="flex items-center gap-4">
+          <button className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-accent hover:border-accent hover:text-white transition-colors group">
             <MagnifyingGlass
-              size={16}
+              size={18}
               weight="bold"
-              className="text-white group-hover:text-[#7b61ff] group-hover:scale-110 transition-all duration-300"
+              className="text-foreground group-hover:text-white transition-colors"
             />
           </button>
-
-          <div className="w-[1px] h-3 bg-white/20 hidden md:block"></div>
-
-          <button className="hidden md:flex items-center gap-3 hover:text-white transition-colors group">
-            <span>Account</span>
+          <button className="hidden md:flex w-10 h-10 items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
             <User
-              size={16}
+              size={18}
               weight="bold"
-              className="text-[#7b61ff] group-hover:text-white group-hover:scale-110 transition-all duration-300"
+              className="text-foreground transition-colors"
             />
-          </button>
-
-          <button className="lg:hidden text-[#88888d] hover:text-white transition-colors flex items-center gap-2 group">
-            <span className="w-4 h-[1px] bg-current group-hover:bg-white relative before:absolute before:w-4 before:h-[1px] before:bg-current before:-top-1.5 before:group-hover:bg-white after:absolute after:w-4 after:h-[1px] after:bg-current after:top-1.5 after:group-hover:bg-white transition-all"></span>
           </button>
         </div>
       </div>
