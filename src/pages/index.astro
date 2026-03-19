@@ -17,29 +17,36 @@ import { WaveformSection } from "../components/audio/WaveformSection";
     <div class="min-h-screen flex flex-col font-sans bg-background selection:bg-accent selection:text-white">
         <Hero client:load />
 
-        <main class="relative z-10 max-w-[1600px] mx-auto w-full px-6 md:px-12 pt-32 pb-40">
+        <main class="relative z-10 max-w-[1600px] mx-auto w-full px-4 md:px-8 lg:px-12 pt-40 pb-40">
 
-            {/* Hard Hardware Header */}
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 pb-8 border-b-2 border-white/10 relative">
-                <div class="absolute -bottom-[2px] left-0 w-32 h-[2px] bg-accent"></div>
+            {/* Aggressive Hardware Header */}
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-24 pb-10 border-b border-white/[0.05] relative group">
+                {/* Glowing Base Line */}
+                <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-accent via-transparent to-transparent opacity-50"></div>
+                <div class="absolute -bottom-[2px] left-0 w-40 h-[3px] bg-accent shadow-[0_0_15px_#ff6000]"></div>
+
                 <div>
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="font-mono text-[10px] text-accent tracking-[0.3em] font-bold px-2 py-1 bg-accent/10 rounded-sm">SYS.OP.01</span>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="flex items-center gap-2 bg-[#111] border border-white/10 px-3 py-1.5 rounded-lg shadow-inner">
+                          <span class="w-2 h-2 bg-accent rounded-full animate-pulse shadow-[0_0_8px_#ff6000]"></span>
+                          <span class="font-mono text-[9px] text-white tracking-[0.3em] font-bold uppercase">SYS.OP.01</span>
+                        </div>
                         <span class="font-mono text-[10px] text-foreground/40 tracking-[0.2em] uppercase">Status: Online</span>
                     </div>
-                    <h2 class="font-serif text-5xl md:text-7xl font-normal text-white mb-2 tracking-tight">Transmissions</h2>
-                    <p class="font-sans text-lg text-foreground/50 font-medium mt-4">Curated research and hardware analyses.</p>
+                    <h2 class="font-serif text-6xl md:text-8xl lg:text-[6rem] font-normal text-white mb-2 tracking-tighter leading-none drop-shadow-lg">Transmissions</h2>
+                    <p class="font-sans text-xl text-foreground/50 font-medium mt-6 max-w-xl">Curated archival deep dives, underground scene reports, and structural hardware analyses.</p>
                 </div>
-                <a href="/essays" class="group hidden md:inline-flex items-center gap-3 font-sans font-bold text-sm text-foreground hover:text-accent transition-colors bg-white/5 px-6 py-3 rounded-full border border-white/10 hover:border-accent/30 shadow-lg">
+
+                <a href="/essays" class="mt-12 md:mt-0 group/btn inline-flex items-center gap-4 font-sans font-bold text-sm text-white transition-all bg-[#111] px-8 py-4 rounded-2xl border border-white/10 hover:border-accent shadow-[0_10px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(255,96,0,0.2)] hover:-translate-y-1">
                     Access Full Archive
-                    <div class="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent group-hover:text-black transition-colors">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover/btn:bg-accent group-hover/btn:text-black transition-colors border border-white/10 group-hover/btn:border-accent">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </div>
                 </a>
             </div>
 
             {/* Asymmetrical Bento Grid */}
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10">
 
                 {/* Feature 1 (Massive Span) */}
                 <div class="md:col-span-12 lg:col-span-8">
@@ -61,7 +68,7 @@ import { WaveformSection } from "../components/audio/WaveformSection";
                             data={[
                                 { label: "Subject", value: "Boy Harsher" },
                                 { label: "Genre", value: "Darkwave" },
-                                { label: "Primary Hardware", value: "Roland SH-101" },
+                                { label: "Hardware", value: "Roland SH-101" },
                             ]}
                         />
                     </ArticleCard>
@@ -104,7 +111,7 @@ import { WaveformSection } from "../components/audio/WaveformSection";
                             <CardTag>Retrospective</CardTag>
                             <span>Vol.02</span>
                         </CardMeta>
-                        <CardTitle className="text-3xl lg:text-4xl">Yeah Yeah Yeahs</CardTitle>
+                        <CardTitle className="text-4xl lg:text-[2.5rem]">Yeah Yeah Yeahs</CardTitle>
                         <CardExcerpt>
                             Fever to Tell. The raw, unpolished energy of early 2000s New York post-punk revival. Deconstructing the jagged guitar tones.
                         </CardExcerpt>
@@ -117,32 +124,36 @@ import { WaveformSection } from "../components/audio/WaveformSection";
                     </ArticleCard>
                 </div>
 
-                {/* Feature 4 (Wide) */}
+                {/* Feature 4 (Wide Split) */}
                 <div class="md:col-span-12 lg:col-span-8">
                     <ArticleCard className="h-full">
-                        <div class="flex flex-col md:flex-row h-full">
-                            <div class="w-full md:w-1/2">
+                        <div class="flex flex-col lg:flex-row h-full">
+                            <div class="w-full lg:w-1/2">
                                 <CardImage
-                                    aspectRatio="aspect-[4/3] md:aspect-square lg:aspect-auto md:h-full"
+                                    aspectRatio="aspect-[16/9] lg:aspect-auto lg:h-full"
                                     src="https://images.unsplash.com/photo-1574342267675-27a92fb02b21?q=80&w=2000&auto=format&fit=crop"
                                     alt="Dark warehouse club"
                                 />
                             </div>
-                            <div class="w-full md:w-1/2 flex flex-col">
-                                <CardMeta>
-                                    <CardTag>Scene Report</CardTag>
-                                    <span>Vol.05</span>
-                                </CardMeta>
-                                <CardTitle className="text-4xl md:text-5xl mt-2">Tresor:<br/>The Vault</CardTitle>
-                                <CardExcerpt className="flex-grow">
-                                    Exploring the acoustic properties of a decommissioned bank vault and how its physical constraints birthed the dense sound of early 90s Berlin techno.
-                                </CardExcerpt>
-                                <CardDataPoints
-                                    data={[
-                                        { label: "Loc", value: "Berlin, DE" },
-                                        { label: "BPM", value: "135+" },
-                                    ]}
-                                />
+                            <div class="w-full lg:w-1/2 flex flex-col justify-between bg-[#08080a] lg:border-l border-white/[0.03]">
+                                <div>
+                                    <CardMeta>
+                                        <CardTag>Scene Report</CardTag>
+                                        <span>Vol.05</span>
+                                    </CardMeta>
+                                    <CardTitle className="text-4xl md:text-5xl mt-2 lg:mt-6">Tresor:<br/>The Vault</CardTitle>
+                                    <CardExcerpt className="mt-2">
+                                        Exploring the acoustic properties of a decommissioned bank vault and how its physical constraints birthed the dense sound of early 90s Berlin techno.
+                                    </CardExcerpt>
+                                </div>
+                                <div class="mt-auto">
+                                    <CardDataPoints
+                                        data={[
+                                            { label: "Loc", value: "Berlin, DE" },
+                                            { label: "BPM", value: "135+" },
+                                        ]}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </ArticleCard>
