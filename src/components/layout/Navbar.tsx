@@ -9,6 +9,11 @@ export const Navbar = () => {
   const navLinks = ["Essays", "Interviews", "Releases", "Hardware", "Archive"];
 
   useEffect(() => {
+    // Force dark mode always
+    if (typeof window !== "undefined") {
+      document.documentElement.classList.add("dark");
+    }
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 

@@ -21,7 +21,7 @@ export const WaveformSection = () => {
 
   const generatePath = (isGlow: boolean) => {
     let path = "M0,50 ";
-    const segments = 40; // Increased segments for smoother, higher-fidelity wave
+    const segments = 40;
     const width = 1000;
     const segmentWidth = width / segments;
 
@@ -30,19 +30,16 @@ export const WaveformSection = () => {
     for (let i = 1; i <= segments; i++) {
       const x = i * segmentWidth;
 
-      // More aggressive, synthetic math for a harder "hardware" feel
       let yOffset = Math.sin(effectiveTime * 1.5 + i * 0.3) * 12;
       yOffset += Math.cos(effectiveTime * 2.2 + i * 0.8) * 8;
 
-      // Sharp square-ish noise injection
       if (i % 2 === 0) yOffset += Math.sin(effectiveTime * 4) * 10;
       if (i % 5 === 0) yOffset -= Math.cos(effectiveTime * 5) * 15;
 
-      // Taper ends sharply
       if (i < 4 || i > segments - 4) yOffset *= 0.1;
 
       if (isGlow) {
-        yOffset *= 1.4; // Stronger glow variance
+        yOffset *= 1.4;
       }
 
       const y = 50 + yOffset;
@@ -107,10 +104,10 @@ export const WaveformSection = () => {
                   Systems
                 </h4>
                 <div className="flex flex-col gap-2">
-                  {["Artists", "Scenes", "Archive"].map((link) => (
+                  {["Hardware", "Archive"].map((link) => (
                     <a
                       key={link}
-                      href="#"
+                      href={`/${link.toLowerCase()}`}
                       className="font-sans text-sm font-semibold text-foreground/80 hover:text-accent hover:translate-x-1 transition-all duration-300 w-fit"
                     >
                       {link}
@@ -243,8 +240,8 @@ export const WaveformSection = () => {
           </div>
 
           {/* Legal / Social Grid */}
-          <div className="flex items-center gap-8">
-            <div className="flex gap-6 font-mono text-[10px] text-foreground/40 uppercase tracking-[0.2em] font-bold">
+          <div className="flex items-center gap-6 md:gap-8">
+            <div className="flex gap-4 md:gap-6 font-mono text-[10px] text-foreground/40 uppercase tracking-[0.2em] font-bold">
               <a
                 href="#"
                 className="hover:text-accent transition-colors flex items-center gap-2"
