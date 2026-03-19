@@ -17,133 +17,137 @@ import { WaveformSection } from "../components/audio/WaveformSection";
     <div class="min-h-screen flex flex-col font-sans bg-background selection:bg-accent selection:text-white">
         <Hero client:load />
 
-        <main class="relative z-10 max-w-[1400px] mx-auto w-full px-6 md:px-12 pt-24 pb-32">
-            <div class="flex items-end justify-between mb-16 border-b border-white/10 pb-6">
+        <main class="relative z-10 max-w-[1600px] mx-auto w-full px-6 md:px-12 pt-32 pb-40">
+
+            {/* Hard Hardware Header */}
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 pb-8 border-b-2 border-white/10 relative">
+                <div class="absolute -bottom-[2px] left-0 w-32 h-[2px] bg-accent"></div>
                 <div>
-                    <h2 class="font-serif text-4xl md:text-5xl font-normal text-white mb-2">Latest Transmissions</h2>
-                    <p class="font-sans text-foreground/60">Curated essays and hardware analyses.</p>
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="font-mono text-[10px] text-accent tracking-[0.3em] font-bold px-2 py-1 bg-accent/10 rounded-sm">SYS.OP.01</span>
+                        <span class="font-mono text-[10px] text-foreground/40 tracking-[0.2em] uppercase">Status: Online</span>
+                    </div>
+                    <h2 class="font-serif text-5xl md:text-7xl font-normal text-white mb-2 tracking-tight">Transmissions</h2>
+                    <p class="font-sans text-lg text-foreground/50 font-medium mt-4">Curated research and hardware analyses.</p>
                 </div>
-                <a href="/essays" class="hidden md:inline-flex items-center gap-2 font-sans font-semibold text-sm text-accent hover:text-white transition-colors">
-                    View Archive
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                <a href="/essays" class="group hidden md:inline-flex items-center gap-3 font-sans font-bold text-sm text-foreground hover:text-accent transition-colors bg-white/5 px-6 py-3 rounded-full border border-white/10 hover:border-accent/30 shadow-lg">
+                    Access Full Archive
+                    <div class="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent group-hover:text-black transition-colors">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </div>
                 </a>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/* Card 1 */}
-                <ArticleCard className="lg:col-span-2">
-                    <CardImage
-                        aspectRatio="aspect-[16/9]"
-                        src="https://images.unsplash.com/photo-1574169208507-84376144848b?q=80&w=2000&auto=format&fit=crop"
-                        alt="Harsh lighting in a concrete room"
-                    />
-                    <CardMeta>
-                        <CardTag>Profile</CardTag>
-                        <span>Vol.01</span>
-                    </CardMeta>
-                    <CardTitle className="text-4xl md:text-5xl">Boy Harsher</CardTitle>
-                    <CardExcerpt>
-                        The relentless pulse of modern darkwave. Exploring the sweaty, desperate synthesis of 'Careful' and how they weaponize the Roland SH-101 to build cinematic dread in the club.
-                    </CardExcerpt>
-                    <CardDataPoints
-                        data={[
-                            { label: "Genre", value: "Darkwave" },
-                            { label: "Hardware", value: "SH-101" },
-                        ]}
-                    />
-                </ArticleCard>
+            {/* Asymmetrical Bento Grid */}
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8">
 
-                {/* Card 2 */}
-                <ArticleCard>
-                    <CardImage
-                        aspectRatio="aspect-[4/3] lg:aspect-[3/4]"
-                        src="https://images.unsplash.com/photo-1520166986518-18e3ab039324?q=80&w=1200&auto=format&fit=crop"
-                        alt="Distorted amplifier"
-                    />
-                    <CardMeta>
-                        <CardTag>Retrospective</CardTag>
-                        <span>Vol.02</span>
-                    </CardMeta>
-                    <CardTitle>Yeah Yeah Yeahs</CardTitle>
-                    <CardExcerpt>
-                        Fever to Tell. The raw, unpolished energy of early 2000s New York post-punk revival. Deconstructing the jagged guitar tones.
-                    </CardExcerpt>
-                    <CardDataPoints
-                        data={[
-                            { label: "Era", value: "2003" },
-                            { label: "Style", value: "Post-Punk" },
-                        ]}
-                    />
-                </ArticleCard>
+                {/* Feature 1 (Massive Span) */}
+                <div class="md:col-span-12 lg:col-span-8">
+                    <ArticleCard className="h-full">
+                        <CardImage
+                            aspectRatio="aspect-[16/10] lg:aspect-[21/9]"
+                            src="https://images.unsplash.com/photo-1574169208507-84376144848b?q=80&w=2000&auto=format&fit=crop"
+                            alt="Harsh lighting in a concrete room"
+                        />
+                        <CardMeta>
+                            <CardTag>Cover Story</CardTag>
+                            <span>Vol.01</span>
+                        </CardMeta>
+                        <CardTitle className="text-5xl md:text-6xl lg:text-7xl mt-2">Boy Harsher</CardTitle>
+                        <CardExcerpt className="text-lg md:text-xl max-w-3xl">
+                            The relentless pulse of modern darkwave. Exploring the sweaty, desperate synthesis of 'Careful' and how they weaponize the Roland SH-101 to build cinematic dread in the club.
+                        </CardExcerpt>
+                        <CardDataPoints
+                            data={[
+                                { label: "Subject", value: "Boy Harsher" },
+                                { label: "Genre", value: "Darkwave" },
+                                { label: "Primary Hardware", value: "Roland SH-101" },
+                            ]}
+                        />
+                    </ArticleCard>
+                </div>
 
-                {/* Card 3 */}
-                <ArticleCard>
-                    <CardImage
-                        aspectRatio="aspect-[4/3]"
-                        src="https://images.unsplash.com/photo-1508608226992-069a19c36829?q=80&w=1600&auto=format&fit=crop"
-                        alt="Desolate urban landscape"
-                    />
-                    <CardMeta>
-                        <CardTag>Scene Report</CardTag>
-                        <span>Vol.03</span>
-                    </CardMeta>
-                    <CardTitle>Lebanon Hanover</CardTitle>
-                    <CardExcerpt>
-                        Minimalist coldwave and the aesthetics of isolation. Analyzing the stark, algorithmic basslines that soundtrack modern decay.
-                    </CardExcerpt>
-                    <CardDataPoints
-                        data={[
-                            { label: "Vibe", value: "Coldwave" },
-                            { label: "BPM", value: "115" },
-                        ]}
-                    />
-                </ArticleCard>
+                {/* Feature 2 (Tall Sidebar) */}
+                <div class="md:col-span-6 lg:col-span-4">
+                    <ArticleCard className="h-full">
+                        <CardImage
+                            aspectRatio="aspect-[4/3] md:aspect-[3/4]"
+                            src="https://images.unsplash.com/photo-1598387846148-18d451a37c95?q=80&w=2000&auto=format&fit=crop"
+                            alt="Analog Synthesizer Patch Cables"
+                        />
+                        <CardMeta>
+                            <CardTag>Hardware Analysis</CardTag>
+                            <span>Sys.01</span>
+                        </CardMeta>
+                        <CardTitle className="text-4xl md:text-5xl">KORG MS-20</CardTitle>
+                        <CardExcerpt>
+                            Why the MS-20's notoriously aggressive high-pass and low-pass filter combination remains the gold standard for tearing through industrial mixes.
+                        </CardExcerpt>
+                        <CardDataPoints
+                            data={[
+                                { label: "Type", value: "Semi-Modular" },
+                                { label: "Release", value: "1978" },
+                            ]}
+                        />
+                    </ArticleCard>
+                </div>
 
-                {/* Card 4 */}
-                <ArticleCard>
-                    <CardImage
-                        aspectRatio="aspect-[4/3]"
-                        src="https://images.unsplash.com/photo-1598387846148-18d451a37c95?q=80&w=2000&auto=format&fit=crop"
-                        alt="Analog Synthesizer Patch Cables"
-                    />
-                    <CardMeta>
-                        <CardTag>Hardware Analysis</CardTag>
-                        <span>Sys.01</span>
-                    </CardMeta>
-                    <CardTitle>KORG MS-20</CardTitle>
-                    <CardExcerpt>
-                        Why the MS-20's notoriously aggressive high-pass and low-pass filter combination remains the gold standard for tearing through industrial mixes.
-                    </CardExcerpt>
-                    <CardDataPoints
-                        data={[
-                            { label: "Type", value: "Semi-Modular" },
-                            { label: "Release", value: "1978" },
-                        ]}
-                    />
-                </ArticleCard>
+                {/* Feature 3 (Standard) */}
+                <div class="md:col-span-6 lg:col-span-4">
+                    <ArticleCard className="h-full">
+                        <CardImage
+                            aspectRatio="aspect-[4/3] lg:aspect-[1/1]"
+                            src="https://images.unsplash.com/photo-1520166986518-18e3ab039324?q=80&w=1200&auto=format&fit=crop"
+                            alt="Distorted amplifier"
+                        />
+                        <CardMeta>
+                            <CardTag>Retrospective</CardTag>
+                            <span>Vol.02</span>
+                        </CardMeta>
+                        <CardTitle className="text-3xl lg:text-4xl">Yeah Yeah Yeahs</CardTitle>
+                        <CardExcerpt>
+                            Fever to Tell. The raw, unpolished energy of early 2000s New York post-punk revival. Deconstructing the jagged guitar tones.
+                        </CardExcerpt>
+                        <CardDataPoints
+                            data={[
+                                { label: "Era", value: "2003" },
+                                { label: "Style", value: "Post-Punk" },
+                            ]}
+                        />
+                    </ArticleCard>
+                </div>
 
-                {/* Card 5 */}
-                <ArticleCard>
-                    <CardImage
-                        aspectRatio="aspect-[4/3]"
-                        src="https://images.unsplash.com/photo-1574342267675-27a92fb02b21?q=80&w=2000&auto=format&fit=crop"
-                        alt="Dark warehouse club"
-                    />
-                    <CardMeta>
-                        <CardTag>Scene Report</CardTag>
-                        <span>Vol.05</span>
-                    </CardMeta>
-                    <CardTitle>Tresor: The Vault</CardTitle>
-                    <CardExcerpt>
-                        Exploring the acoustic properties of a decommissioned bank vault and how its physical constraints birthed the dense sound of early 90s Berlin techno.
-                    </CardExcerpt>
-                    <CardDataPoints
-                        data={[
-                            { label: "Loc", value: "Berlin, DE" },
-                            { label: "BPM", value: "135+" },
-                        ]}
-                    />
-                </ArticleCard>
+                {/* Feature 4 (Wide) */}
+                <div class="md:col-span-12 lg:col-span-8">
+                    <ArticleCard className="h-full">
+                        <div class="flex flex-col md:flex-row h-full">
+                            <div class="w-full md:w-1/2">
+                                <CardImage
+                                    aspectRatio="aspect-[4/3] md:aspect-square lg:aspect-auto md:h-full"
+                                    src="https://images.unsplash.com/photo-1574342267675-27a92fb02b21?q=80&w=2000&auto=format&fit=crop"
+                                    alt="Dark warehouse club"
+                                />
+                            </div>
+                            <div class="w-full md:w-1/2 flex flex-col">
+                                <CardMeta>
+                                    <CardTag>Scene Report</CardTag>
+                                    <span>Vol.05</span>
+                                </CardMeta>
+                                <CardTitle className="text-4xl md:text-5xl mt-2">Tresor:<br/>The Vault</CardTitle>
+                                <CardExcerpt className="flex-grow">
+                                    Exploring the acoustic properties of a decommissioned bank vault and how its physical constraints birthed the dense sound of early 90s Berlin techno.
+                                </CardExcerpt>
+                                <CardDataPoints
+                                    data={[
+                                        { label: "Loc", value: "Berlin, DE" },
+                                        { label: "BPM", value: "135+" },
+                                    ]}
+                                />
+                            </div>
+                        </div>
+                    </ArticleCard>
+                </div>
+
             </div>
         </main>
 
