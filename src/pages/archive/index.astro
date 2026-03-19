@@ -1,0 +1,191 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { WaveformSection } from "../../components/audio/WaveformSection";
+
+const archiveData = [
+  { id: "IDX-001", type: "ESSAY", title: "Architecture of Brutalism", year: "2024", tags: ["Acoustics", "Berlin"] },
+  { id: "IDX-002", type: "INTERVIEW", title: "Rrose: Silence as Velocity", year: "2023", tags: ["Techno", "Psychoacoustics"] },
+  { id: "IDX-003", type: "HARDWARE", title: "KORG MS-20 Analysis", year: "2024", tags: ["Analog", "Filter"] },
+  { id: "IDX-004", type: "RELEASE", title: "Phase Fatale - Scanning Backwards", year: "2020", tags: ["Industrial", "Ostgut Ton"] },
+  { id: "IDX-005", type: "ESSAY", title: "Ghosts in the Machine", year: "2024", tags: ["Hauntology", "Cassette"] },
+  { id: "IDX-006", type: "INTERVIEW", title: "Boy Harsher: Synthesis", year: "2023", tags: ["Darkwave", "SH-101"] },
+  { id: "IDX-007", type: "HARDWARE", title: "Roland Space Echo RE-201", year: "2023", tags: ["Tape Delay", "Effects"] },
+  { id: "IDX-008", type: "RELEASE", title: "Wata Igarashi - WIP", year: "2022", tags: ["Deep Techno", "Kompakt"] },
+  { id: "IDX-009", type: "ESSAY", title: "Maximal Volume", year: "2024", tags: ["Mastering", "Loudness"] },
+  { id: "IDX-010", type: "INTERVIEW", title: "Tokyo Underground", year: "2023", tags: ["Scene", "Japan"] },
+  { id: "IDX-011", type: "HARDWARE", title: "Roland TR-909", year: "2024", tags: ["Drum Machine", "House"] },
+  { id: "IDX-012", type: "RELEASE", title: "Alessandro Cortini - Volume Massimo", year: "2019", tags: ["Experimental", "Mute"] },
+  { id: "IDX-013", type: "ESSAY", title: "Concrete & Steel", year: "2024", tags: ["Coldwave", "Minimalism"] },
+  { id: "IDX-014", type: "INTERVIEW", title: "Circuit Bending God", year: "2024", tags: ["Modding", "Noise"] },
+  { id: "IDX-015", type: "HARDWARE", title: "Prophet-5", year: "2024", tags: ["Polyphonic", "Sequential"] },
+  { id: "IDX-016", type: "RELEASE", title: "Lebanon Hanover - Tomb for Two", year: "2013", tags: ["Post-Punk", "Fabrika"] }
+];
+
+const getTypeColor = (type: string) => {
+    switch (type) {
+        case 'ESSAY': return 'text-accent';
+        case 'INTERVIEW': return 'text-[#00ffcc]';
+        case 'HARDWARE': return 'text-[#ff00ff]';
+        case 'RELEASE': return 'text-[#ffff00]';
+        default: return 'text-white';
+    }
+};
+
+const getTypeBg = (type: string) => {
+    switch (type) {
+        case 'ESSAY': return 'bg-accent/10';
+        case 'INTERVIEW': return 'bg-[#00ffcc]/10';
+        case 'HARDWARE': return 'bg-[#ff00ff]/10';
+        case 'RELEASE': return 'bg-[#ffff00]/10';
+        default: return 'bg-white/10';
+    }
+};
+
+const getTypeBorder = (type: string) => {
+    switch (type) {
+        case 'ESSAY': return 'border-accent/20';
+        case 'INTERVIEW': return 'border-[#00ffcc]/20';
+        case 'HARDWARE': return 'border-[#ff00ff]/20';
+        case 'RELEASE': return 'border-[#ffff00]/20';
+        default: return 'border-white/20';
+    }
+};
+---
+
+<BaseLayout title="Archive | The Harmonic">
+    <div class="min-h-screen flex flex-col font-sans bg-background selection:bg-accent selection:text-white relative">
+
+        <main class="relative z-10 w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 pt-40 pb-40 overflow-hidden flex-grow">
+
+            {/* Aggressive Hardware Header */}
+            <header class="w-full mb-12 relative">
+                <div class="absolute top-1/2 left-0 w-full h-[1px] bg-white/5 -translate-y-1/2 -z-10 hidden md:block"></div>
+
+                <div class="inline-block bg-background pr-8 relative z-10">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-2 h-2 bg-accent rounded-sm shadow-[0_0_12px_#ff6000] rotate-45 animate-pulse"></div>
+                        <span class="font-mono text-[10px] text-foreground/40 uppercase tracking-[0.3em] font-bold">Directory // 00</span>
+                    </div>
+                    <h1 class="font-serif text-6xl md:text-8xl lg:text-[7rem] tracking-tighter text-white leading-none drop-shadow-lg">
+                        Master <span class="text-accent italic">&</span> <br class="hidden md:block" /> Archive
+                    </h1>
+                </div>
+            </header>
+
+            {/* Massive Terminal Command Line Interface */}
+            <div class="w-full bg-[#050505] rounded-[2rem] border border-white/[0.05] p-6 md:p-8 shadow-[inset_0_0_40px_rgba(0,0,0,0.8),0_20px_40px_rgba(0,0,0,0.5)] mb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden">
+                <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none"></div>
+
+                <div class="flex-grow w-full md:w-auto relative z-10">
+                    <div class="flex items-center gap-4 bg-[#0a0a0c] border border-white/10 rounded-xl px-6 py-4 shadow-inner">
+                        <span class="font-mono text-accent font-bold text-lg">{">"}</span>
+                        <input
+                            type="text"
+                            placeholder="QUERY_DATABASE..."
+                            class="w-full bg-transparent border-none outline-none font-mono text-sm md:text-base text-white placeholder:text-white/20 focus:outline-none"
+                        />
+                        <span class="font-mono text-[10px] text-foreground/30 uppercase tracking-[0.2em] font-bold bg-white/5 px-2 py-1 rounded">CMD+F</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-6 relative z-10 w-full md:w-auto">
+                    <div class="flex flex-col gap-1 w-full md:w-auto">
+                        <div class="flex items-center justify-between md:justify-start gap-4 font-mono text-[9px] text-foreground/40 uppercase tracking-[0.2em]">
+                            <span>Status</span>
+                            <span class="text-accent">Indexing</span>
+                        </div>
+                        <div class="w-full md:w-32 h-[2px] bg-white/10 rounded-full overflow-hidden">
+                            <div class="h-full bg-accent w-[85%] shadow-[0_0_8px_#ff6000] relative">
+                                <div class="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-r from-transparent to-white/50 animate-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Filter Dashboard */}
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+                {['TYPE', 'YEAR', 'TAG', 'SORT'].map((filter, i) => (
+                    <button key={i} class="bg-[#0c0c0e] border border-white/5 rounded-xl p-4 flex justify-between items-center hover:bg-white/5 hover:border-white/10 transition-colors group">
+                        <span class="font-mono text-[10px] text-foreground/50 uppercase tracking-[0.2em] font-bold group-hover:text-white transition-colors">{filter}</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-foreground/30 group-hover:text-accent transition-colors"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                ))}
+            </div>
+
+            {/* The Raw Data Ledger */}
+            <div class="w-full bg-[#08080a] border border-white/[0.05] rounded-[2rem] shadow-[0_30px_60px_rgba(0,0,0,0.5)] overflow-hidden relative">
+
+                {/* Header Row */}
+                <div class="hidden lg:grid grid-cols-12 gap-4 px-8 py-5 border-b border-white/[0.08] bg-[#0c0c0e] font-mono text-[9px] text-foreground/40 uppercase tracking-[0.3em] font-bold sticky top-0 z-20">
+                    <div class="col-span-1">ID</div>
+                    <div class="col-span-2">Type</div>
+                    <div class="col-span-5">File Designation</div>
+                    <div class="col-span-3">Parameters</div>
+                    <div class="col-span-1 text-right">Year</div>
+                </div>
+
+                {/* Ledger Rows */}
+                <div class="flex flex-col relative z-10">
+                    {archiveData.map((item, index) => (
+                        <a href="#" class="group grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-4 px-6 lg:px-8 py-5 lg:py-6 border-b border-white/[0.02] hover:bg-white/[0.02] transition-colors duration-300 relative items-center">
+
+                            {/* Hover Tracking Line */}
+                            <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-accent scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-center shadow-[0_0_12px_#ff6000]"></div>
+
+                            {/* Mobile Layout -> Flex Column. Desktop Layout -> Grid Columns */}
+                            <div class="col-span-1 flex justify-between lg:block">
+                                <span class="lg:hidden font-mono text-[9px] text-foreground/40 uppercase tracking-[0.2em]">ID</span>
+                                <span class="font-mono text-[10px] text-foreground/30 tracking-[0.2em] group-hover:text-white transition-colors">{item.id}</span>
+                            </div>
+
+                            <div class="col-span-2 flex justify-between lg:block">
+                                <span class="lg:hidden font-mono text-[9px] text-foreground/40 uppercase tracking-[0.2em]">Type</span>
+                                <span class={`inline-block font-mono text-[9px] font-bold uppercase tracking-[0.2em] px-2 py-1 rounded border ${getTypeBg(item.type)} ${getTypeBorder(item.type)} ${getTypeColor(item.type)} shadow-[inset_0_1px_2px_rgba(255,255,255,0.05)]`}>
+                                    {item.type}
+                                </span>
+                            </div>
+
+                            <div class="col-span-5 py-2 lg:py-0">
+                                <span class="font-serif text-xl lg:text-2xl text-foreground/80 group-hover:text-accent transition-colors duration-300 tracking-tight">
+                                    {item.title}
+                                </span>
+                            </div>
+
+                            <div class="col-span-3 flex justify-start gap-2 flex-wrap">
+                                {item.tags.map(tag => (
+                                    <span class="font-mono text-[9px] uppercase tracking-[0.1em] text-foreground/50 bg-[#111] border border-white/5 px-2 py-1 rounded group-hover:border-white/20 transition-colors">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+
+                            <div class="col-span-1 flex justify-between lg:justify-end items-center mt-2 lg:mt-0">
+                                <span class="lg:hidden font-mono text-[9px] text-foreground/40 uppercase tracking-[0.2em]">Year</span>
+                                <span class="font-mono text-[10px] text-foreground/40 tracking-[0.2em] group-hover:text-white transition-colors">
+                                    {item.year}
+                                </span>
+                            </div>
+
+                        </a>
+                    ))}
+                </div>
+
+                {/* Footer Status */}
+                <div class="bg-[#050505] border-t border-white/[0.05] p-6 flex justify-between items-center">
+                    <span class="font-mono text-[9px] text-foreground/40 uppercase tracking-[0.3em] font-bold">End of Index</span>
+                    <span class="font-mono text-[9px] text-accent uppercase tracking-[0.3em] font-bold flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 bg-accent rounded-sm animate-pulse shadow-[0_0_8px_#ff6000]"></span>
+                        Database Synced
+                    </span>
+                </div>
+
+            </div>
+
+        </main>
+
+        <div class="relative z-10 w-full max-w-[1600px] mx-auto pb-8">
+            <WaveformSection client:load />
+        </div>
+    </div>
+</BaseLayout>
