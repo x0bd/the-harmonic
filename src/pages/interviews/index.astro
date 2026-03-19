@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { ScrambleText } from "../../components/ui/ScrambleText";
+import { WaveformSection } from "../../components/audio/WaveformSection";
 
 const interviews = [
   {
@@ -8,100 +8,161 @@ const interviews = [
     tag: "CONVERSATION",
     title: "Silence as Velocity: The Space Between Kicks",
     date: "24.10.23",
-    url: "/interviews/silence-as-velocity"
+    url: "/interviews/silence-as-velocity",
+    subject: "Rrose"
   },
   {
     id: "003",
     tag: "STUDIO VISIT",
-    title: "Granular Synthesis Patterns with Boy Harsher",
+    title: "Granular Synthesis Patterns",
     date: "18.09.23",
-    url: "/interviews/granular-synthesis-patterns"
+    url: "/interviews/granular-synthesis-patterns",
+    subject: "Boy Harsher"
   },
   {
     id: "002",
     tag: "PROFILE",
     title: "Rhythm and Void: Tokyo Underground",
     date: "02.08.23",
-    url: "/interviews/tokyo-underground"
+    url: "/interviews/tokyo-underground",
+    subject: "Wata Igarashi"
   },
   {
     id: "001",
     tag: "MANIFESTO",
     title: "Frequencies of Resistance",
     date: "14.07.23",
-    url: "/interviews/frequencies-of-resistance"
+    url: "/interviews/frequencies-of-resistance",
+    subject: "Phase Fatale"
   },
   {
     id: "000",
     tag: "ARCHIVE",
     title: "The Architecture of Brutalism",
     date: "01.05.23",
-    url: "/interviews/architecture-of-brutalism"
+    url: "/interviews/architecture-of-brutalism",
+    subject: "Regis"
   }
 ];
 ---
 
 <BaseLayout title="Interviews | The Harmonic">
-    <div class="min-h-screen flex flex-col font-mono bg-[#030303] selection:bg-[#7b61ff] selection:text-white relative text-[#88888D]">
+    <div class="min-h-screen flex flex-col font-sans bg-background selection:bg-accent selection:text-white relative">
 
-        {/* Grain/Noise Overlay */}
-        <div class="pointer-events-none fixed inset-0 z-50 opacity-[0.03] mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"></div>
+        <main class="relative z-10 w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 pt-40 pb-40 overflow-hidden flex-grow">
 
-        <main class="relative z-10 w-full max-w-screen-2xl mx-auto px-6 md:px-12 lg:px-24 pt-32 pb-64 flex flex-col min-h-screen">
+            {/* Aggressive Hardware Header */}
+            <header class="w-full mb-20 relative">
+                {/* Background Track */}
+                <div class="absolute top-1/2 left-0 w-full h-[1px] bg-white/5 -translate-y-1/2 -z-10 hidden md:block"></div>
 
-            {/* Minimalist Header Section */}
-            <header class="w-full mb-32 z-10 relative flex justify-start">
-                <h1 class="font-serif text-3xl md:text-5xl tracking-normal text-white capitalize group cursor-crosshair">
-                    <ScrambleText client:visible text="Conversations in the Void" trigger="load" speed={30} delay={200} />
-                </h1>
+                <div class="inline-block bg-background pr-8 relative z-10">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-2 h-2 bg-accent rounded-sm shadow-[0_0_12px_#ff6000] rotate-45"></div>
+                        <span class="font-mono text-[10px] text-foreground/40 uppercase tracking-[0.3em] font-bold">Directory // 02</span>
+                    </div>
+                    <h1 class="font-serif text-6xl md:text-8xl lg:text-[7rem] tracking-tighter text-white leading-none drop-shadow-lg">
+                        Dialogues <span class="text-accent italic">&</span> <br class="hidden md:block" /> Interviews
+                    </h1>
+                </div>
             </header>
 
-            {/* List Header */}
-            <div class="flex justify-between items-end border-b border-white/10 pb-4 mb-4 text-[10px] md:text-xs uppercase tracking-[0.2em] mt-auto md:mt-0">
-                <h2 class="text-white">
-                    <ScrambleText client:visible text="ARCHIVE INDEX" trigger="load" speed={20} delay={400} />
-                </h2>
-                <span>[ SORT: CHRONOLOGICAL ]</span>
+            {/* Hardware Filter / Status Bar */}
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-12 relative bg-[#0c0c0e] p-6 md:p-8 rounded-[2rem] border border-white/[0.05] shadow-[0_20px_40px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.05)]">
+
+                <div class="flex flex-wrap gap-3 font-mono text-[10px] tracking-[0.2em] uppercase font-bold">
+                    <button class="bg-accent text-black px-6 py-3 rounded-xl shadow-[0_0_15px_rgba(255,96,0,0.3),inset_0_2px_4px_rgba(255,255,255,0.4)] transition-all">
+                        Recent
+                    </button>
+                    <button class="bg-[#151515] text-foreground/50 border border-white/10 px-6 py-3 rounded-xl hover:bg-white/5 hover:text-white transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.5)]">
+                        Profiles
+                    </button>
+                    <button class="bg-[#151515] text-foreground/50 border border-white/10 px-6 py-3 rounded-xl hover:bg-white/5 hover:text-white transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.5)]">
+                        Studio Visits
+                    </button>
+                </div>
+
+                {/* Technical Readout */}
+                <div class="flex flex-col items-end gap-2 font-mono text-[9px] text-foreground/40 tracking-[0.25em] uppercase">
+                    <div class="flex items-center gap-3">
+                        <span>Display: List</span>
+                        <div class="flex gap-1 flex-col justify-center">
+                            <span class="w-4 h-[2px] bg-accent shadow-[0_0_8px_#ff6000]"></span>
+                            <span class="w-4 h-[2px] bg-white/20"></span>
+                            <span class="w-4 h-[2px] bg-white/20"></span>
+                        </div>
+                    </div>
+                    <span>Signals_Found: {interviews.length < 10 ? `0${interviews.length}` : interviews.length}</span>
+                </div>
             </div>
 
-            {/* Interactive List */}
-            <div class="flex flex-col w-full">
-                {interviews.map((item) => (
-                    <a href={item.url} class="group flex flex-col border-b border-white/5 hover:border-white/20 transition-colors duration-500 py-6 md:py-10 cursor-crosshair">
-                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-8 w-full">
+            {/* High-End List Container */}
+            <div class="w-full bg-[#050505] rounded-[2.5rem] border border-white/[0.04] p-4 md:p-8 shadow-[inset_0_0_60px_rgba(0,0,0,0.8),0_20px_40px_rgba(0,0,0,0.6)] relative overflow-hidden">
 
-                            {/* Meta Left */}
-                            <div class="flex items-center gap-8 md:gap-16 md:w-1/4 flex-shrink-0">
-                                <span class="text-[10px] tracking-widest text-[#555555] group-hover:text-white transition-colors duration-300">
-                                    {item.id}
-                                </span>
-                                <span class="text-[10px] tracking-[0.2em] text-[#88888D] group-hover:text-white transition-colors duration-300">
+                {/* Background Tech Grid */}
+                <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
+
+                <div class="relative z-10 flex flex-col gap-3">
+                    {/* Header Row */}
+                    <div class="hidden md:flex items-center px-8 py-4 font-mono text-[9px] text-foreground/30 uppercase tracking-[0.3em] font-bold border-b border-white/[0.05] mb-2">
+                        <div class="w-[10%]">ID</div>
+                        <div class="w-[20%]">Subject</div>
+                        <div class="w-[45%]">Transmission Title</div>
+                        <div class="w-[15%] text-right">Tag</div>
+                        <div class="w-[10%] text-right">Date</div>
+                    </div>
+
+                    {/* List Items */}
+                    {interviews.map((item) => (
+                        <a href={item.url} class="group flex flex-col md:flex-row md:items-center px-6 md:px-8 py-6 md:py-8 bg-[#111] border border-white/[0.03] rounded-2xl hover:bg-[#18181a] hover:border-accent/40 transition-all duration-500 shadow-[inset_0_1px_2px_rgba(255,255,255,0.02)] hover:shadow-[inset_0_1px_2px_rgba(255,255,255,0.05),0_10px_20px_rgba(0,0,0,0.4)] relative overflow-hidden">
+
+                            {/* Hover Indicator LED */}
+                            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-accent rounded-r-md opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-[0_0_15px_#ff6000]"></div>
+
+                            <div class="w-full md:w-[10%] font-mono text-[10px] text-foreground/40 tracking-[0.2em] mb-4 md:mb-0">
+                                {item.id}
+                            </div>
+
+                            <div class="w-full md:w-[20%] font-sans text-sm font-semibold text-foreground/70 group-hover:text-accent transition-colors duration-300 mb-2 md:mb-0">
+                                {item.subject}
+                            </div>
+
+                            <div class="w-full md:w-[45%] font-serif text-2xl md:text-3xl text-white group-hover:text-white transition-colors duration-300 tracking-tight leading-tight mb-4 md:mb-0 pr-4">
+                                {item.title}
+                            </div>
+
+                            <div class="w-full md:w-[15%] flex justify-start md:justify-end mb-4 md:mb-0">
+                                <span class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg font-mono text-[9px] uppercase tracking-[0.2em] text-foreground/60 group-hover:border-accent/30 group-hover:bg-accent/5 group-hover:text-accent transition-colors">
+                                    <span class="w-1.5 h-1.5 bg-white/20 group-hover:bg-accent rounded-sm transition-colors group-hover:shadow-[0_0_8px_#ff6000]"></span>
                                     {item.tag}
                                 </span>
                             </div>
 
-                            {/* Title - Center */}
-                            <div class="flex-grow">
-                                <h3 class="font-serif text-xl md:text-2xl lg:text-3xl text-[#cccccc] group-hover:text-white transition-colors duration-300 font-normal tracking-wide">
-                                    {item.title}
-                                </h3>
+                            <div class="w-full md:w-[10%] font-mono text-[10px] text-foreground/40 tracking-[0.2em] text-left md:text-right flex items-center md:justify-end gap-4">
+                                <span>{item.date}</span>
+                                <div class="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-accent group-hover:text-black group-hover:border-accent transition-all duration-300">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                </div>
                             </div>
+                        </a>
+                    ))}
+                </div>
+            </div>
 
-                            {/* Meta Right */}
-                            <div class="flex items-center justify-between md:justify-end gap-8 md:gap-16 md:w-1/4 flex-shrink-0 mt-4 md:mt-0">
-                                <span class="text-[10px] tracking-widest text-[#555555] group-hover:text-white transition-colors duration-300">
-                                    {item.date}
-                                </span>
-                                <span class="text-xs text-[#555555] group-hover:text-white transition-colors duration-300 font-mono">
-                                    [+]
-                                </span>
-                            </div>
-
-                        </div>
-                    </a>
-                ))}
+            {/* Hardware Load More Trigger */}
+            <div class="w-full flex justify-center mt-20 relative z-10">
+                <button class="group/btn relative overflow-hidden bg-[#111] border border-white/10 rounded-2xl px-10 py-5 flex items-center gap-4 transition-all duration-300 hover:border-accent shadow-[0_10px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(255,96,0,0.2)] hover:-translate-y-1">
+                    <div class="absolute inset-0 bg-gradient-to-b from-white/[0.05] to-transparent pointer-events-none"></div>
+                    <span class="w-2 h-2 bg-accent rounded-full shadow-[0_0_8px_#ff6000] group-hover/btn:animate-ping"></span>
+                    <span class="font-mono text-xs text-white uppercase tracking-[0.2em] font-bold">Initialize More</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-foreground/50 group-hover/btn:text-accent transition-colors group-hover/btn:translate-y-1 duration-300"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                </button>
             </div>
 
         </main>
+
+        <div class="relative z-10 w-full max-w-[1600px] mx-auto pb-8">
+            <WaveformSection client:load />
+        </div>
     </div>
 </BaseLayout>
