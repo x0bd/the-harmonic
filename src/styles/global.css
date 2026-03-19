@@ -3,6 +3,8 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource-variable/inter";
+@import "@fontsource/instrument-serif";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -58,9 +60,9 @@
 }
 
 @theme inline {
-  --font-sans: "JetBrains Mono Variable", monospace;
+  --font-sans: "Inter Variable", sans-serif;
   --font-mono: "JetBrains Mono Variable", monospace;
-  --font-serif: "JetBrains Mono Variable", monospace;
+  --font-serif: "Instrument Serif", serif;
 
   --color-ring: var(--ring);
   --color-input: var(--input);
@@ -104,5 +106,14 @@
   ::selection {
     background-color: var(--accent);
     color: #ffffff;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif font-normal;
   }
 }
