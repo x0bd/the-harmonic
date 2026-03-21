@@ -20,26 +20,26 @@ Rule: do not start Phase 4+ until Phases 1-3 are approved.
   - feature branches `codex/<phase>-<topic>`
 
 ## Phase 1 - Frontend Architecture Cleanup (UI-Only)
-- [ ] Create missing planned directories:
+- [x] Create missing planned directories:
   - `src/components/artist/`
   - `src/components/release/`
   - `src/types/`
   - `src/data/`
   - `src/lib/api/` (placeholder only)
   - `src/lib/queries/` (placeholder only)
-- [ ] Move page-level inline mock arrays into reusable data modules:
+- [x] Move page-level inline mock arrays into reusable data modules:
   - `src/data/interviews.ts`
   - `src/data/releases.ts`
   - `src/data/hardware.ts`
   - `src/data/archive.ts`
-- [ ] Add TypeScript types:
+- [x] Add TypeScript types:
   - `src/types/article.ts`
   - `src/types/interview.ts`
   - `src/types/release.ts`
   - `src/types/hardware.ts`
   - `src/types/archive.ts`
-- [ ] Type all data imports in pages and eliminate `any` usage.
-- [ ] Confirm global style tokens and fonts are consistent in `src/styles/global.css`.
+- [x] Type all data imports in pages and eliminate `any` usage.
+- [x] Confirm global style tokens and fonts are consistent in `src/styles/global.css`.
 
 Definition of done:
 - No route defines large inline data arrays.

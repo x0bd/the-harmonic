@@ -1,7 +1,7 @@
 # The Harmonic
 
 ## Current Status
-- **Phase 0 (Baseline and Guardrails):** Completed. Ready to proceed with Phase 1.
+- **Phase 1 (Frontend Architecture Cleanup):** Completed. Ready to proceed with Phase 2.
 
 ## Branch Strategy
 - `master` branch stays stable

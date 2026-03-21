@@ -1,0 +1,79 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { WaveformSection } from "../../../components/audio/WaveformSection";
+import { interviews } from "../../../data/interviews";
+import { AudioPlayer } from "../../../components/audio/AudioPlayer";
+import { InterviewDialogue } from "../../../components/article/InterviewDialogue";
+
+export function getStaticPaths() {
+    return interviews.map(interview => ({
+        params: { slug: interview.slug },
+        props: { interview },
+    }));
+}
+
+const { interview } = Astro.props;
+---
+
+<BaseLayout title={`${interview.title} | The Harmonic`}>
+    <div class="min-h-screen flex flex-col font-sans bg-background selection:bg-accent selection:text-white relative">
+        <main class="relative z-10 w-full max-w-[1200px] mx-auto px-4 md:px-8 lg:px-12 pt-32 pb-40 flex-grow">
+            
+            <a href="/interviews" class="inline-flex items-center gap-2 font-mono text-[10px] text-foreground/40 uppercase tracking-[0.2em] hover:text-white transition-colors mb-12">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Return to Directory
+            </a>
+
+            {/* Editorial Hero */}
+            <header class="mb-16">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
+                        <span class="w-1.5 h-1.5 bg-accent rounded-sm shadow-[0_0_8px_#ff6000]"></span>
+                        {interview.tag}
+                    </span>
+                    <span class="font-mono text-[10px] text-foreground/40 tracking-[0.2em]">{interview.date}</span>
+                </div>
+                
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-[6rem] tracking-tighter text-white leading-[0.95] drop-shadow-lg mb-8">
+                    {interview.title}
+                </h1>
+                
+                <div class="flex items-center gap-4 py-4 border-y border-white/5">
+                    <div class="w-12 h-12 rounded-full bg-[#111] border border-white/10 overflow-hidden flex items-center justify-center">
+                        <span class="font-serif text-xl text-foreground/50">{interview.subject.charAt(0)}</span>
+                    </div>
+                    <div>
+                        <div class="font-mono text-[9px] uppercase tracking-[0.2em] text-foreground/40 font-bold mb-1">Subject</div>
+                        <div class="font-sans text-sm text-white font-semibold">{interview.subject}</div>
+                    </div>
+                </div>
+            </header>
+
+            {/* Audio Listen Mode Segment */}
+            <AudioPlayer client:load title={`Listen: ${interview.title}`} duration={interview.audioDuration} />
+
+            {/* Transcription / Content */}
+            <article class="w-full">
+                <div class="mb-12 max-w-3xl">
+                    <h2 class="font-mono text-[10px] uppercase tracking-[0.3em] font-bold text-accent mb-4">Transcription Log</h2>
+                    <p class="font-serif text-xl md:text-2xl text-foreground/60 leading-relaxed">
+                        The following dialogue was recorded in situ, preserving the structural anomalies and ambient frequencies present during the exchange. Listening protocol is recommended for full atmospheric immersion.
+                    </p>
+                </div>
+                
+                {interview.dialogue && interview.dialogue.length > 0 ? (
+                    <InterviewDialogue dialogue={interview.dialogue} />
+                ) : (
+                    <div class="p-8 border border-white/5 rounded-2xl bg-[#08080a] text-center mt-12">
+                        <span class="font-mono text-xs text-foreground/30 uppercase tracking-[0.2em]">Transmission data pending decryption.</span>
+                    </div>
+                )}
+            </article>
+
+        </main>
+        
+        <div class="relative z-10 w-full max-w-[1600px] mx-auto pb-8">
+            <WaveformSection client:load />
+        </div>
+    </div>
+</BaseLayout>
