@@ -10,12 +10,12 @@ Rule: do not start Phase 4+ until Phases 1-3 are approved.
 
 ## Phase 0 - Baseline and Guardrails
 - [x] Confirm stack: Astro + React + TypeScript + Tailwind v4 + shadcn/ui + MDX.
-- [ ] Add `README` section called "Current Status" and keep it updated after each phase.
-- [ ] Add script aliases for quality checks in `package.json`:
+- [x] Add `README` section called "Current Status" and keep it updated after each phase.
+- [x] Add script aliases for quality checks in `package.json`:
   - `check`: `astro check`
   - `typecheck`: `astro check`
   - `lint` (if linter is introduced)
-- [ ] Define branch strategy:
+- [x] Define branch strategy:
   - `master` stays stable
   - feature branches `codex/<phase>-<topic>`
 

@@ -1,4 +1,11 @@
-# Astro Starter Kit: Minimal
+# The Harmonic
+
+## Current Status
+- **Phase 0 (Baseline and Guardrails):** Completed. Ready to proceed with Phase 1.
+
+## Branch Strategy
+- `master` branch stays stable
+- Feature branches use the convention `codex/<phase>-<topic>`
 
 ```sh
 npm create astro@latest -- --template minimal

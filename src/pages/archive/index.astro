@@ -2,24 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { WaveformSection } from "../../components/audio/WaveformSection";
 
-const archiveData = [
-  { id: "IDX-001", type: "ESSAY", title: "Architecture of Brutalism", year: "2024", tags: ["Acoustics", "Berlin"] },
-  { id: "IDX-002", type: "INTERVIEW", title: "Rrose: Silence as Velocity", year: "2023", tags: ["Techno", "Psychoacoustics"] },
-  { id: "IDX-003", type: "HARDWARE", title: "KORG MS-20 Analysis", year: "2024", tags: ["Analog", "Filter"] },
-  { id: "IDX-004", type: "RELEASE", title: "Phase Fatale - Scanning Backwards", year: "2020", tags: ["Industrial", "Ostgut Ton"] },
-  { id: "IDX-005", type: "ESSAY", title: "Ghosts in the Machine", year: "2024", tags: ["Hauntology", "Cassette"] },
-  { id: "IDX-006", type: "INTERVIEW", title: "Boy Harsher: Synthesis", year: "2023", tags: ["Darkwave", "SH-101"] },
-  { id: "IDX-007", type: "HARDWARE", title: "Roland Space Echo RE-201", year: "2023", tags: ["Tape Delay", "Effects"] },
-  { id: "IDX-008", type: "RELEASE", title: "Wata Igarashi - WIP", year: "2022", tags: ["Deep Techno", "Kompakt"] },
-  { id: "IDX-009", type: "ESSAY", title: "Maximal Volume", year: "2024", tags: ["Mastering", "Loudness"] },
-  { id: "IDX-010", type: "INTERVIEW", title: "Tokyo Underground", year: "2023", tags: ["Scene", "Japan"] },
-  { id: "IDX-011", type: "HARDWARE", title: "Roland TR-909", year: "2024", tags: ["Drum Machine", "House"] },
-  { id: "IDX-012", type: "RELEASE", title: "Alessandro Cortini - Volume Massimo", year: "2019", tags: ["Experimental", "Mute"] },
-  { id: "IDX-013", type: "ESSAY", title: "Concrete & Steel", year: "2024", tags: ["Coldwave", "Minimalism"] },
-  { id: "IDX-014", type: "INTERVIEW", title: "Circuit Bending God", year: "2024", tags: ["Modding", "Noise"] },
-  { id: "IDX-015", type: "HARDWARE", title: "Prophet-5", year: "2024", tags: ["Polyphonic", "Sequential"] },
-  { id: "IDX-016", type: "RELEASE", title: "Lebanon Hanover - Tomb for Two", year: "2013", tags: ["Post-Punk", "Fabrika"] }
-];
+import { archiveData } from "../../data/archive";
 
 const getTypeColor = (type: string) => {
     switch (type) {
@@ -106,7 +89,7 @@ const getTypeBorder = (type: string) => {
             {/* Filter Dashboard */}
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
                 {['TYPE', 'YEAR', 'TAG', 'SORT'].map((filter, i) => (
-                    <button key={i} class="bg-[#0c0c0e] border border-white/5 rounded-xl p-4 flex justify-between items-center hover:bg-white/5 hover:border-white/10 transition-colors group">
+                    <button class="bg-[#0c0c0e] border border-white/5 rounded-xl p-4 flex justify-between items-center hover:bg-white/5 hover:border-white/10 transition-colors group">
                         <span class="font-mono text-[10px] text-foreground/50 uppercase tracking-[0.2em] font-bold group-hover:text-white transition-colors">{filter}</span>
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-foreground/30 group-hover:text-accent transition-colors"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
