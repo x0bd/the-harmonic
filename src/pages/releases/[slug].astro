@@ -26,6 +26,15 @@ const { release } = Astro.props;
             </a>
 
             <ReleaseHero client:load release={release} />
+            
+            {release.description && (
+                <article class="w-full max-w-3xl mt-12 mb-16">
+                    <p class="font-serif text-xl md:text-2xl text-foreground/80 leading-relaxed">
+                        {release.description}
+                    </p>
+                </article>
+            )}
+
             <TrackList client:load tracks={release.tracks || []} />
 
         </main>

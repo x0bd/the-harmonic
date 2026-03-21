@@ -11,6 +11,7 @@ export const releases: Release[] = [
     genre: "Techno / Ambient",
     cover: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
     url: "/releases/please-touch",
+    description: "An immaculate display of restraint and physical tension, Please Touch marks a high plateau for modern psychedelic techno. The sound design bridges the microscopic and the tectonic, shifting the listener's awareness directly onto the frequency characteristics of room acoustics.",
     tracks: [
       { title: "Joy of the Worm", duration: "06:12" },
       { title: "The Illuminating Gaze", duration: "05:41" },
@@ -27,7 +28,15 @@ export const releases: Release[] = [
     year: "2019",
     genre: "Darkwave",
     cover: "https://images.unsplash.com/photo-1574169208507-84376144848b?q=80&w=800&auto=format&fit=crop",
-    url: "/releases/careful"
+    url: "/releases/careful",
+    description: "Cold synthesizers meet anguished pop sensibilities. Careful leans into industrial rhythms framed by cinematic sorrow, offering a visceral sonic catalog powered almost exclusively by Roland sequencers and suffocating atmospherics.",
+    tracks: [
+      { title: "Keep Driving", duration: "03:22" },
+      { title: "Face the Fire", duration: "04:10" },
+      { title: "Fate", duration: "04:31" },
+      { title: "LA", duration: "03:59" },
+      { title: "Come Closer", duration: "03:20" }
+    ]
   },
   {
     id: "RLS-040",
@@ -49,7 +58,13 @@ export const releases: Release[] = [
     year: "2020",
     genre: "Industrial",
     cover: "https://images.unsplash.com/photo-1508608226992-069a19c36829?q=80&w=800&auto=format&fit=crop",
-    url: "/releases/scanning-backwards"
+    url: "/releases/scanning-backwards",
+    description: "Mastering the crossover between EBM structures and severe Berghain-style techno logic, Phase Fatale outputs an unrelenting array of syncopated basslines and weaponized drum hits wrapped in metallic reverb.",
+    tracks: [
+      { title: "Velvet Braille", duration: "06:01" },
+      { title: "Binding By Oath", duration: "05:44" },
+      { title: "Reverse Fall", duration: "06:33" }
+    ]
   },
   {
     id: "RLS-038",

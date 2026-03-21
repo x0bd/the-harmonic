@@ -9,4 +9,5 @@ export interface HardwareItem {
   filter: string;
   image: string;
   url: string;
+  description?: string;
 }

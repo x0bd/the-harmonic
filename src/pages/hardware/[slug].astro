@@ -64,9 +64,15 @@ const { item } = Astro.props;
             </div>
 
             <article class="w-full max-w-3xl border-t border-white/10 pt-16">
-                <p class="font-serif text-xl md:text-2xl text-foreground/70 leading-relaxed mb-6">
-                    Documentation for the {item.name} has not been fully digitized yet. Archive records indicate significant structural presence in early analog sequences. 
-                </p>
+                {item.description ? (
+                    <p class="font-serif text-xl md:text-2xl text-foreground/80 leading-relaxed mb-6">
+                        {item.description}
+                    </p>
+                ) : (
+                    <p class="font-serif text-xl md:text-2xl text-foreground/70 leading-relaxed mb-6">
+                        Documentation for the {item.name} has not been fully digitized yet. Archive records indicate significant structural presence in early analog sequences. 
+                    </p>
+                )}
                 <div class="p-8 border border-accent/20 rounded-2xl bg-accent/5 text-center">
                     <span class="font-mono text-[10px] text-accent uppercase tracking-[0.3em] font-bold flex items-center justify-center gap-3">
                         <span class="w-2 h-2 bg-accent shadow-[0_0_8px_#ff6000] animate-pulse"></span>

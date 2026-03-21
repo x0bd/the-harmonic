@@ -13,5 +13,6 @@ export interface Release {
   genre: string;
   cover: string;
   url: string;
+  description?: string;
   tracks?: Track[];
 }
