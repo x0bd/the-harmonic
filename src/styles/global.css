@@ -116,3 +116,11 @@
     @apply font-serif font-normal;
   }
 }
+
+.listening-mode {
+  --background: #040404;
+  --card: #08080a;
+  --popover: #08080a;
+  --muted: #111111;
+  --accent: #ff3300;
+}

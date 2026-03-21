@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { MagnifyingGlass, User } from "@phosphor-icons/react";
+import { MagnifyingGlass, User, Headphones } from "@phosphor-icons/react";
+import { toggleSearch } from "../../store/uiStore";
+import { isListeningMode, toggleListeningMode } from "../../store/audioStore";
+import { useStore } from "@nanostores/react";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const $isListeningMode = useStore(isListeningMode);
 
   const navLinks = ["Essays", "Interviews", "Releases", "Hardware", "Archive"];
 
@@ -92,15 +96,15 @@ export const Navbar = () => {
 
         <div className="hidden lg:block w-[1px] h-6 bg-white/10 mr-2"></div>
 
-        <button className="w-11 h-11 rounded-full bg-black/50 border border-white/10 flex items-center justify-center text-foreground/60 hover:text-accent hover:border-accent/50 transition-all duration-300 shadow-[inset_0_1px_2px_rgba(255,255,255,0.05)] group/btn">
+        <button onClick={toggleSearch} className="w-11 h-11 rounded-full bg-black/50 border border-white/10 flex items-center justify-center text-foreground/60 hover:text-accent hover:border-accent/50 transition-all duration-300 shadow-[inset_0_1px_2px_rgba(255,255,255,0.05)] group/btn">
           <MagnifyingGlass
             size={18}
             weight="bold"
             className="group-hover/btn:scale-110 transition-transform duration-300"
           />
         </button>
-        <button className="hidden sm:flex w-11 h-11 rounded-full bg-black/50 border border-white/10 items-center justify-center text-foreground/60 hover:text-accent hover:border-accent/50 transition-all duration-300 shadow-[inset_0_1px_2px_rgba(255,255,255,0.05)] group/btn">
-          <User
+        <button onClick={toggleListeningMode} className={`hidden sm:flex w-11 h-11 rounded-full border items-center justify-center transition-all duration-500 shadow-[inset_0_1px_2px_rgba(255,255,255,0.05)] group/btn ${$isListeningMode ? 'bg-accent/10 border-accent/50 text-accent shadow-[0_0_20px_rgba(255,96,0,0.2)]' : 'bg-black/50 border-white/10 text-foreground/60 hover:text-accent hover:border-accent/50'}`}>
+          <Headphones
             size={18}
             weight="bold"
             className="group-hover/btn:scale-110 transition-transform duration-300"

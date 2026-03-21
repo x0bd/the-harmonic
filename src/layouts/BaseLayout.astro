@@ -1,7 +1,9 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import "../styles/global.css";
 import { Navbar } from "../components/layout/Navbar";
+import { SearchOverlay } from "../components/layout/SearchOverlay";
+import { ThemeManager } from "../components/layout/ThemeManager";
 
 interface Props {
     title?: string;
@@ -23,10 +25,12 @@ const {
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
         <meta name="description" content={description} />
-        <ViewTransitions />
+        <ClientRouter />
     </head>
-    <body class="bg-background text-foreground min-h-screen flex flex-col">
+    <body class="bg-background text-foreground min-h-screen flex flex-col transition-colors duration-1000">
+        <ThemeManager client:load />
         <Navbar client:load />
+        <SearchOverlay client:load />
         <slot />
     </body>
 </html>

@@ -39,7 +39,7 @@ export const SearchOverlay = () => {
                     initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
                     animate={{ opacity: 1, backdropFilter: 'blur(16px)' }}
                     exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-                    transition={{ duration: 0.4, ease: [0.19, 1, 0.22, 1] }}
+                    transition={{ duration: 0.3, ease: [0.19, 1, 0.22, 1] }}
                     className="fixed inset-0 z-[200] bg-[#0a0a0c]/90 flex flex-col items-center pt-24 lg:pt-32 px-4"
                 >
                     <button 
@@ -53,7 +53,7 @@ export const SearchOverlay = () => {
                         <motion.div 
                             initial={{ y: 20, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: 0.1, duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
+                            transition={{ delay: 0.1, duration: 0.4, ease: [0.19, 1, 0.22, 1] }}
                             className="relative"
                         >
                             <span className="absolute left-6 top-1/2 -translate-y-1/2 text-accent">
@@ -74,7 +74,7 @@ export const SearchOverlay = () => {
                         <motion.div 
                             initial={{ y: 20, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: 0.2, duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
+                            transition={{ delay: 0.15, duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
                             className="mt-12 flex flex-col gap-2"
                         >
                             <div className="font-mono text-[10px] uppercase text-accent tracking-[0.3em] font-bold mb-4 flex items-center gap-3">
