@@ -1,0 +1,84 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { WaveformSection } from "../../components/audio/WaveformSection";
+import { hardwareItems } from "../../data/hardware";
+import type { HardwareItem } from "../../types/hardware";
+
+export function getStaticPaths() {
+    return hardwareItems.map((item: HardwareItem) => ({
+        params: { slug: item.slug },
+        props: { item },
+    }));
+}
+
+const { item } = Astro.props;
+---
+
+<BaseLayout title={`${item.name} | Hardware Archive | The Harmonic`}>
+    <div class="min-h-screen flex flex-col font-sans bg-background selection:bg-accent selection:text-white relative">
+        <main class="relative z-10 w-full max-w-[1200px] mx-auto px-4 md:px-8 lg:px-12 pt-32 pb-40 flex-grow">
+            
+            <a href="/hardware" class="inline-flex items-center gap-2 font-mono text-[10px] text-foreground/40 uppercase tracking-[0.2em] hover:text-white transition-colors mb-12">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Return to Schematics
+            </a>
+
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 mb-20 relative z-10">
+                <div class="w-full lg:w-[45%]">
+                    <div class="w-full bg-[#030303] aspect-[4/3] p-3 rounded-[1.5rem] border border-white/5 shadow-[0_20px_40px_rgba(0,0,0,0.6)]">
+                         <div class="w-full h-full rounded-[1.2rem] overflow-hidden relative shadow-[inset_0_0_20px_rgba(0,0,0,0.8)]">
+                              <img src={item.image} alt={item.name} class="w-full h-full object-cover filter brightness-90" />
+                              <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none mix-blend-overlay z-20"></div>
+                         </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-[55%] flex flex-col justify-center">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="font-mono text-[10px] text-accent font-bold tracking-[0.3em] uppercase">{item.id}</span>
+                        <span class="w-2 h-2 rounded-full border border-white/20"></span>
+                        <span class="font-mono text-[10px] text-foreground/40 uppercase tracking-[0.3em]">{item.era}</span>
+                    </div>
+                    <h1 class="font-serif text-5xl md:text-7xl lg:text-[5rem] tracking-tighter text-white leading-[0.95] drop-shadow-lg mb-4">
+                        {item.name}
+                    </h1>
+                    <div class="font-sans text-xl font-medium text-foreground/60 mb-10 flex items-center gap-3">
+                        <span class="w-1.5 h-1.5 bg-white/30 rounded-full"></span>
+                        {item.type}
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8 pt-8 border-t border-white/[0.05]">
+                        <div>
+                            <div class="font-mono text-[9px] uppercase tracking-[0.2em] text-foreground/40 font-bold mb-1">Manufacturer</div>
+                            <div class="font-sans text-base text-white">{item.manufacturer}</div>
+                        </div>
+                        <div>
+                            <div class="font-mono text-[9px] uppercase tracking-[0.2em] text-foreground/40 font-bold mb-1">Synthesis Engine</div>
+                            <div class="font-sans text-base text-white">{item.synthesis}</div>
+                        </div>
+                        <div>
+                            <div class="font-mono text-[9px] uppercase tracking-[0.2em] text-foreground/40 font-bold mb-1">Filter Type</div>
+                            <div class="font-sans text-base text-white">{item.filter}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <article class="w-full max-w-3xl border-t border-white/10 pt-16">
+                <p class="font-serif text-xl md:text-2xl text-foreground/70 leading-relaxed mb-6">
+                    Documentation for the {item.name} has not been fully digitized yet. Archive records indicate significant structural presence in early analog sequences. 
+                </p>
+                <div class="p-8 border border-accent/20 rounded-2xl bg-accent/5 text-center">
+                    <span class="font-mono text-[10px] text-accent uppercase tracking-[0.3em] font-bold flex items-center justify-center gap-3">
+                        <span class="w-2 h-2 bg-accent shadow-[0_0_8px_#ff6000] animate-pulse"></span>
+                        Scanning Microfiche Data...
+                    </span>
+                </div>
+            </article>
+
+        </main>
+        
+        <div class="relative z-10 w-full max-w-[1600px] mx-auto pb-8">
+            <WaveformSection client:load />
+        </div>
+    </div>
+</BaseLayout>

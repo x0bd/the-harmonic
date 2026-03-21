@@ -1,0 +1,216 @@
+
+> the-harmonic@0.0.1 check
+> astro check
+
+[2m12:03:20[22m [34m[content][39m Syncing content
+[2m12:03:20[22m [34m[content][39m Synced content
+[2m12:03:20[22m [34m[types][39m Generated [2m515ms[22m
+[2m12:03:20[22m [34m[check][39m Getting diagnostics for Astro files in C:\Users\HP\dev\experiments\the-harmonic...
+[96mpublic/inspo/hard-2.js[0m:[93m545[0m:[93m22[0m - [93mwarning[0m[90m ts(6133): [0m'setNavHovered' is declared but its value is never read.
+
+[7m545[0m   const [navHovered, setNavHovered] = useState(null);
+[7m   [0m [93m                     ~~~~~~~~~~~~~[0m
+[96mpublic/inspo/hard-2.js[0m:[93m545[0m:[93m10[0m - [93mwarning[0m[90m ts(6133): [0m'navHovered' is declared but its value is never read.
+
+[7m545[0m   const [navHovered, setNavHovered] = useState(null);
+[7m   [0m [93m         ~~~~~~~~~~[0m
+[96mpublic/inspo/hard-2.js[0m:[93m1[0m:[93m38[0m - [93mwarning[0m[90m ts(6133): [0m'useRef' is declared but its value is never read.
+
+[7m1[0m import React, { useState, useEffect, useRef } from 'react';
+[7m [0m [93m                                     ~~~~~~[0m
+[96mpublic/inspo/hard-2.js[0m:[93m1[0m:[93m8[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m1[0m import React, { useState, useEffect, useRef } from 'react';
+[7m [0m [93m       ~~~~~[0m
+
+[96mpublic/inspo/inspo-4.js[0m:[93m20[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'WaveformMini' is declared but its value is never read.
+
+[7m20[0m const WaveformMini = ({ bars = [] }) => (
+[7m  [0m [93m      ~~~~~~~~~~~~[0m
+[96mpublic/inspo/inspo-4.js[0m:[93m3[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'customStyles' is declared but its value is never read.
+
+[7m3[0m const customStyles = {
+[7m [0m [93m      ~~~~~~~~~~~~[0m
+[96mpublic/inspo/inspo-4.js[0m:[93m1[0m:[93m8[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m1[0m import React, { useState, useEffect } from 'react';
+[7m [0m [93m       ~~~~~[0m
+
+[96mpublic/inspo/inspo-5.js[0m:[93m254[0m:[93m70[0m - [93mwarning[0m[90m ts(6133): [0m'featured' is declared but its value is never read.
+
+[7m254[0m const Card = ({ imgSrc, imgAlt, metaLabel, metaCode, title, excerpt, featured, titleSize }) => {
+[7m   [0m [93m                                                                     ~~~~~~~~[0m
+[96mpublic/inspo/inspo-5.js[0m:[93m64[0m:[93m25[0m - [93mwarning[0m[90m ts(6133): [0m'id' is declared but its value is never read.
+
+[7m64[0m   const navLinkStyle = (id) => ({
+[7m  [0m [93m                        ~~[0m
+[96mpublic/inspo/inspo-5.js[0m:[93m4[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'styles' is declared but its value is never read.
+
+[7m4[0m const styles = {
+[7m [0m [93m      ~~~~~~[0m
+[96mpublic/inspo/inspo-5.js[0m:[93m1[0m:[93m8[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m1[0m import React, { useState, useEffect } from 'react';
+[7m [0m [93m       ~~~~~[0m
+
+[96mpublic/inspo/spctrum.js[0m:[93m545[0m:[93m22[0m - [93mwarning[0m[90m ts(6133): [0m'setNavHovered' is declared but its value is never read.
+
+[7m545[0m   const [navHovered, setNavHovered] = useState(null);
+[7m   [0m [93m                     ~~~~~~~~~~~~~[0m
+[96mpublic/inspo/spctrum.js[0m:[93m545[0m:[93m10[0m - [93mwarning[0m[90m ts(6133): [0m'navHovered' is declared but its value is never read.
+
+[7m545[0m   const [navHovered, setNavHovered] = useState(null);
+[7m   [0m [93m         ~~~~~~~~~~[0m
+[96mpublic/inspo/spctrum.js[0m:[93m1[0m:[93m38[0m - [93mwarning[0m[90m ts(6133): [0m'useRef' is declared but its value is never read.
+
+[7m1[0m import React, { useState, useEffect, useRef } from 'react';
+[7m [0m [93m                                     ~~~~~~[0m
+[96mpublic/inspo/spctrum.js[0m:[93m1[0m:[93m8[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m1[0m import React, { useState, useEffect, useRef } from 'react';
+[7m [0m [93m       ~~~~~[0m
+
+[96msrc/content.config.ts[0m:[93m15[0m:[93m19[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m15[0m     tags: z.array(z.string()).optional(),
+[7m  [0m [93m                  ~[0m
+[96msrc/content.config.ts[0m:[93m15[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m15[0m     tags: z.array(z.string()).optional(),
+[7m  [0m [93m          ~[0m
+[96msrc/content.config.ts[0m:[93m14[0m:[93m20[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m14[0m     coverImageAlt: z.string().optional(),
+[7m  [0m [93m                   ~[0m
+[96msrc/content.config.ts[0m:[93m13[0m:[93m17[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m13[0m     coverImage: z.string(),
+[7m  [0m [93m                ~[0m
+[96msrc/content.config.ts[0m:[93m12[0m:[93m15[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m12[0m     category: z.string(),
+[7m  [0m [93m              ~[0m
+[96msrc/content.config.ts[0m:[93m11[0m:[93m18[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m11[0m     readingTime: z.string(),
+[7m  [0m [93m                 ~[0m
+[96msrc/content.config.ts[0m:[93m10[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m10[0m     date: z.coerce.date(),
+[7m  [0m [93m          ~[0m
+[96msrc/content.config.ts[0m:[93m9[0m:[93m13[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m9[0m     author: z.string(),
+[7m [0m [93m            ~[0m
+[96msrc/content.config.ts[0m:[93m8[0m:[93m15[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m8[0m     subtitle: z.string().optional(),
+[7m [0m [93m              ~[0m
+[96msrc/content.config.ts[0m:[93m7[0m:[93m12[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m7[0m     title: z.string(),
+[7m [0m [93m           ~[0m
+[96msrc/content.config.ts[0m:[93m6[0m:[93m11[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m6[0m   schema: z.object({
+[7m [0m [93m          ~[0m
+[96msrc/content.config.ts[0m:[93m1[0m:[93m10[0m - [93mwarning[0m[90m ts(6385): [0m'z' is deprecated.
+
+[7m1[0m import { z, defineCollection } from 'astro:content';
+[7m [0m [93m         ~[0m
+
+[96msrc/components/article/InterviewDialogue.tsx[0m:[93m1[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m1[0m import React from 'react';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/components/audio/AudioPlayer.tsx[0m:[93m1[0m:[93m8[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m1[0m import React, { useState } from 'react';
+[7m [0m [93m       ~~~~~[0m
+
+[96msrc/components/audio/WaveformSection.tsx[0m:[93m1[0m:[93m8[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m1[0m import React, { useState, useEffect, useRef } from "react";
+[7m [0m [93m       ~~~~~[0m
+
+[96msrc/components/layout/Hero.tsx[0m:[93m1[0m:[93m8[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m1[0m import React, { useEffect, useRef, useState } from "react";
+[7m [0m [93m       ~~~~~[0m
+
+[96msrc/components/layout/HeroPlayer.tsx[0m:[93m1[0m:[93m8[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m1[0m import React, { useEffect, useRef } from "react";
+[7m [0m [93m       ~~~~~[0m
+
+[96msrc/components/layout/Navbar.tsx[0m:[93m103[0m:[93m12[0m - [93mwarning[0m[90m ts(6385): [0m'User' is deprecated.
+
+[7m103[0m           <User
+[7m   [0m [93m           ~~~~[0m
+[96msrc/components/layout/Navbar.tsx[0m:[93m96[0m:[93m12[0m - [93mwarning[0m[90m ts(6385): [0m'MagnifyingGlass' is deprecated.
+
+[7m96[0m           <MagnifyingGlass
+[7m  [0m [93m           ~~~~~~~~~~~~~~~[0m
+[96msrc/components/layout/Navbar.tsx[0m:[93m2[0m:[93m27[0m - [93mwarning[0m[90m ts(6385): [0m'User' is deprecated.
+
+[7m2[0m import { MagnifyingGlass, User } from "@phosphor-icons/react";
+[7m [0m [93m                          ~~~~[0m
+[96msrc/components/layout/Navbar.tsx[0m:[93m2[0m:[93m10[0m - [93mwarning[0m[90m ts(6385): [0m'MagnifyingGlass' is deprecated.
+
+[7m2[0m import { MagnifyingGlass, User } from "@phosphor-icons/react";
+[7m [0m [93m         ~~~~~~~~~~~~~~~[0m
+[96msrc/components/layout/Navbar.tsx[0m:[93m1[0m:[93m8[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m1[0m import React, { useState, useEffect } from "react";
+[7m [0m [93m       ~~~~~[0m
+
+[96msrc/components/layout/ViewportFrame.tsx[0m:[93m1[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'React' is declared but its value is never read.
+
+[7m1[0m import React from "react";
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/pages/archive/index.astro[0m:[93m113[0m:[93m45[0m - [93mwarning[0m[90m ts(6133): [0m'index' is declared but its value is never read.
+
+[7m113[0m                     {archiveData.map((item, index) => (
+[7m   [0m [93m                                            ~~~~~[0m
+[96msrc/pages/archive/index.astro[0m:[93m91[0m:[93m63[0m - [93mwarning[0m[90m ts(6133): [0m'i' is declared but its value is never read.
+
+[7m91[0m                 {['TYPE', 'YEAR', 'TAG', 'SORT'].map((filter, i) => (
+[7m  [0m [93m                                                              ~[0m
+
+[96msrc/pages/essays/[slug].astro[0m:[93m4[0m:[93m1[0m - [93mwarning[0m[90m ts(6133): [0m'ScrambleText' is declared but its value is never read.
+
+[7m4[0m import { ScrambleText } from '../../components/ui/ScrambleText';
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/pages/interviews/[slug].astro[0m:[93m9[0m:[93m27[0m - [91merror[0m[90m ts(7006): [0mParameter 'interview' implicitly has an 'any' type.
+
+[7m9[0m     return interviews.map(interview => ({
+[7m [0m [91m                          ~~~~~~~~~[0m
+[96msrc/pages/interviews/[slug].astro[0m:[93m6[0m:[93m35[0m - [91merror[0m[90m ts(2307): [0mCannot find module '../../../components/article/InterviewDialogue' or its corresponding type declarations.
+
+[7m6[0m import { InterviewDialogue } from "../../../components/article/InterviewDialogue";
+[7m [0m [91m                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/interviews/[slug].astro[0m:[93m5[0m:[93m29[0m - [91merror[0m[90m ts(2307): [0mCannot find module '../../../components/audio/AudioPlayer' or its corresponding type declarations.
+
+[7m5[0m import { AudioPlayer } from "../../../components/audio/AudioPlayer";
+[7m [0m [91m                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/interviews/[slug].astro[0m:[93m4[0m:[93m28[0m - [91merror[0m[90m ts(2307): [0mCannot find module '../../../data/interviews' or its corresponding type declarations.
+
+[7m4[0m import { interviews } from "../../../data/interviews";
+[7m [0m [91m                           ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/interviews/[slug].astro[0m:[93m3[0m:[93m33[0m - [91merror[0m[90m ts(2307): [0mCannot find module '../../../components/audio/WaveformSection' or its corresponding type declarations.
+
+[7m3[0m import { WaveformSection } from "../../../components/audio/WaveformSection";
+[7m [0m [91m                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96msrc/pages/interviews/[slug].astro[0m:[93m2[0m:[93m24[0m - [91merror[0m[90m ts(2307): [0mCannot find module '../../../layouts/BaseLayout.astro' or its corresponding type declarations.
+
+[7m2[0m import BaseLayout from "../../../layouts/BaseLayout.astro";
+[7m [0m [91m                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+Result (43 files): 
+- 6 errors
+- 0 warnings
+- 41 hints
+

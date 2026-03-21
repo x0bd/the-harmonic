@@ -1,12 +1,13 @@
 ---
-import BaseLayout from "../../../layouts/BaseLayout.astro";
-import { WaveformSection } from "../../../components/audio/WaveformSection";
-import { interviews } from "../../../data/interviews";
-import { AudioPlayer } from "../../../components/audio/AudioPlayer";
-import { InterviewDialogue } from "../../../components/article/InterviewDialogue";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { WaveformSection } from "../../components/audio/WaveformSection";
+import { interviews } from "../../data/interviews";
+import { AudioPlayer } from "../../components/audio/AudioPlayer";
+import { InterviewDialogue } from "../../components/article/InterviewDialogue";
+import type { Interview } from "../../types/interview";
 
 export function getStaticPaths() {
-    return interviews.map(interview => ({
+    return interviews.map((interview: Interview) => ({
         params: { slug: interview.slug },
         props: { interview },
     }));

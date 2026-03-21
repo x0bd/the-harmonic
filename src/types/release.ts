@@ -1,5 +1,11 @@
+export interface Track {
+  title: string;
+  duration: string;
+}
+
 export interface Release {
   id: string;
+  slug: string;
   artist: string;
   title: string;
   label: string;
@@ -7,4 +13,5 @@ export interface Release {
   genre: string;
   cover: string;
   url: string;
+  tracks?: Track[];
 }

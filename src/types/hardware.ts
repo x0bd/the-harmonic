@@ -1,5 +1,6 @@
 export interface HardwareItem {
   id: string;
+  slug: string;
   type: string;
   name: string;
   era: string;
