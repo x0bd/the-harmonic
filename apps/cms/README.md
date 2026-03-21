@@ -1,61 +1,70 @@
-# 🚀 Getting started with Strapi
+# The Harmonic CMS (Strapi)
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+This directory contains the Phase 4 CMS setup for The Harmonic using Strapi v5.
 
-### `develop`
+## Implemented in Phase 4
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+- Strapi app scaffolded in `apps/cms`.
+- Content models created:
+  - `Article`
+  - `Interview`
+  - `Artist`
+  - `Release`
+  - `Track`
+  - `Scene`
+  - `Tag`
+- Core API files added per model:
+  - controller
+  - service
+  - router
+- Seed fixture added:
+  - `src/seed-data/initial-content.json`
 
+## Run locally
+
+Install dependencies (if needed):
+
+```bash
+npm install
 ```
+
+Start development server:
+
+```bash
 npm run develop
-# or
-yarn develop
 ```
 
-### `start`
+The admin UI will be shown in the terminal output (usually `http://localhost:1337/admin`).
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
+## Verify models were loaded
 
-```
-npm run start
-# or
-yarn start
-```
+Run:
 
-### `build`
-
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
-
-```
-npm run build
-# or
-yarn build
+```bash
+npm run strapi -- content-types:list
 ```
 
-## ⚙️ Deployment
+You should see `api::article.article`, `api::interview.interview`, `api::artist.artist`, `api::release.release`, `api::track.track`, `api::scene.scene`, and `api::tag.tag`.
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+## Seed fixture usage
 
-```
-yarn strapi deploy
-```
+The fixture file is intentionally seed-ready, not auto-seeded:
 
-## 📚 Learn more
+- `src/seed-data/initial-content.json`
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+Recommended load order in admin UI:
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
+1. `Tag`
+2. `Artist`
+3. `Scene`
+4. `Release` (then `Track`)
+5. `Article`
+6. `Interview`
 
-## ✨ Community
+This order keeps relations simple when entering records.
 
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+## Notes
 
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+- Media fields are configured but media assets are not preloaded.
+- Slugs are configured using `uid` fields generated from names/titles.
+- Draft/publish is enabled on all collection types.

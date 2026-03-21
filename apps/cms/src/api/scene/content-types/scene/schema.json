@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "scenes",
+  "info": {
+    "singularName": "scene",
+    "pluralName": "scenes",
+    "displayName": "Scene"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "city": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "artists": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::artist.artist",
+      "inversedBy": "scenes"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article",
+      "mappedBy": "scenes"
+    },
+    "releases": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::release.release",
+      "mappedBy": "scenes"
+    }
+  }
+}
+

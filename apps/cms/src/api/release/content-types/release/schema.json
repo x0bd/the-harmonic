@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "releases",
+  "info": {
+    "singularName": "release",
+    "pluralName": "releases",
+    "displayName": "Release"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "label": {
+      "type": "string"
+    },
+    "releaseDate": {
+      "type": "date"
+    },
+    "year": {
+      "type": "integer"
+    },
+    "format": {
+      "type": "enumeration",
+      "enum": [
+        "album",
+        "ep",
+        "single",
+        "compilation"
+      ],
+      "default": "album"
+    },
+    "genre": {
+      "type": "string"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "artist": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::artist.artist",
+      "inversedBy": "releases"
+    },
+    "tracks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::track.track",
+      "mappedBy": "release"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "releases"
+    },
+    "scenes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::scene.scene",
+      "inversedBy": "releases"
+    }
+  }
+}
+

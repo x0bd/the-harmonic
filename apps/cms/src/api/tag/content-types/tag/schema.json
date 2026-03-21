@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tags",
+  "info": {
+    "singularName": "tag",
+    "pluralName": "tags",
+    "displayName": "Tag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "colorHex": {
+      "type": "string"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article",
+      "mappedBy": "tags"
+    },
+    "interviews": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::interview.interview",
+      "mappedBy": "tags"
+    },
+    "releases": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::release.release",
+      "mappedBy": "tags"
+    }
+  }
+}
+

@@ -1,0 +1,124 @@
+{
+  "tags": [
+    { "name": "Techno", "colorHex": "#ff6000" },
+    { "name": "Darkwave", "colorHex": "#7b61ff" },
+    { "name": "Industrial", "colorHex": "#00ffcc" },
+    { "name": "Hardware", "colorHex": "#ffff00" },
+    { "name": "Berlin", "colorHex": "#ff00ff" },
+    { "name": "Acoustics", "colorHex": "#b3ff66" }
+  ],
+  "artists": [
+    {
+      "name": "Boy Harsher",
+      "location": "Northampton, US",
+      "genres": ["Darkwave", "Electronic"],
+      "shortBio": "Darkwave duo known for stark synth textures and cinematic tension."
+    },
+    {
+      "name": "Rrose",
+      "location": "Berlin, DE",
+      "genres": ["Techno", "Minimal"],
+      "shortBio": "Experimental techno producer focused on psychoacoustics and form."
+    },
+    {
+      "name": "Phase Fatale",
+      "location": "Berlin, DE",
+      "genres": ["Industrial", "EBM", "Techno"],
+      "shortBio": "Industrial-leaning producer with coldwave and club lineage."
+    }
+  ],
+  "scenes": [
+    {
+      "name": "Berlin Vault Techno",
+      "city": "Berlin",
+      "country": "Germany",
+      "description": "Dense, high-pressure club culture built around concrete acoustics."
+    },
+    {
+      "name": "North American Darkwave",
+      "city": "Multiple",
+      "country": "United States",
+      "description": "Post-punk revival scenes fused with modern electronic production."
+    }
+  ],
+  "releases": [
+    {
+      "title": "Careful",
+      "label": "Nude Club",
+      "releaseDate": "2019-02-01",
+      "year": 2019,
+      "format": "album",
+      "genre": "Darkwave",
+      "featured": true,
+      "artist": "Boy Harsher",
+      "tags": ["Darkwave"],
+      "scenes": ["North American Darkwave"],
+      "tracks": [
+        { "title": "Keep Driving", "trackNumber": 1, "durationSeconds": 254, "bpm": 118 },
+        { "title": "Face the Fire", "trackNumber": 2, "durationSeconds": 283, "bpm": 120 }
+      ]
+    },
+    {
+      "title": "Scanning Backwards",
+      "label": "Ostgut Ton",
+      "releaseDate": "2020-02-28",
+      "year": 2020,
+      "format": "album",
+      "genre": "Industrial",
+      "featured": true,
+      "artist": "Phase Fatale",
+      "tags": ["Industrial", "Techno"],
+      "scenes": ["Berlin Vault Techno"],
+      "tracks": [
+        { "title": "Binding by Oath", "trackNumber": 1, "durationSeconds": 385, "bpm": 132 },
+        { "title": "Transpose", "trackNumber": 2, "durationSeconds": 361, "bpm": 134 }
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "title": "The Architecture of Brutalism",
+      "excerpt": "How post-war concrete design influenced techno's sonic architecture.",
+      "body": "Long-form editorial content goes here.",
+      "readingTime": 12,
+      "category": "Critical Theory",
+      "publishedOn": "2024-10-12",
+      "featured": true,
+      "artist": "Rrose",
+      "tags": ["Acoustics", "Berlin", "Techno"],
+      "scenes": ["Berlin Vault Techno"]
+    },
+    {
+      "title": "Ghosts in the Machine",
+      "excerpt": "Why producers chase degraded tape textures in digital workflows.",
+      "body": "Long-form editorial content goes here.",
+      "readingTime": 8,
+      "category": "Culture",
+      "publishedOn": "2024-09-28",
+      "featured": false,
+      "artist": "Boy Harsher",
+      "tags": ["Darkwave", "Hardware"],
+      "scenes": ["North American Darkwave"]
+    }
+  ],
+  "interviews": [
+    {
+      "title": "Silence as Velocity: The Space Between Kicks",
+      "excerpt": "A conversation on pressure, spacing, and psychoacoustic tension.",
+      "body": "Interview transcript content goes here.",
+      "interviewDate": "2023-10-24",
+      "featured": true,
+      "subject": "Rrose",
+      "tags": ["Techno", "Acoustics", "Berlin"]
+    },
+    {
+      "title": "Granular Synthesis Patterns",
+      "excerpt": "Process notes on texture design, rhythm, and mood.",
+      "body": "Interview transcript content goes here.",
+      "interviewDate": "2023-09-18",
+      "featured": false,
+      "subject": "Boy Harsher",
+      "tags": ["Darkwave", "Hardware"]
+    }
+  ]
+}
