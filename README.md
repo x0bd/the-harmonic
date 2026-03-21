@@ -1,7 +1,7 @@
 # The Harmonic
 
 ## Current Status
-- **Phase 2 (Dynamic Pages):** Completed `interviews/[slug]`, `releases/[slug]`, and `hardware/[slug]` with specialized, highly detailed UI components.
+- **Phase 3 (Dynamic Frontend Behavior):** In Progress. Implementing client-side state and view transitions.
 
 ## Branch Strategy
 - `master` branch stays stable

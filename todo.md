@@ -46,23 +46,23 @@ Definition of done:
 - All mock content is typed and imported from `src/data`.
 
 ## Phase 2 - Complete Missing UI Routes and Components
-- [ ] Keep existing routes but complete missing planned dynamic pages:
-  - `src/pages/interviews/[slug].astro`
-  - `src/pages/releases/[slug].astro`
-  - `src/pages/hardware/[slug].astro` or `src/pages/artists/[slug].astro` (final IA decision)
-  - `src/pages/scenes/[slug].astro`
-- [ ] Add section components still missing from plan:
-  - `src/components/article/ArticleHero.tsx`
-  - `src/components/article/ArticleBody.tsx`
-  - `src/components/article/RelatedArticles.tsx`
-  - `src/components/release/ReleaseHero.tsx`
-  - `src/components/release/TrackList.tsx`
-  - `src/components/release/ReleasePlayer.tsx`
-  - `src/components/artist/ArtistHero.tsx`
-  - `src/components/artist/ArtistBio.tsx`
-  - `src/components/artist/ArtistDiscography.tsx`
-- [ ] Wire pages to these components using mock data only.
-- [ ] Add empty-state and not-found UX for each dynamic route.
+- [x] Keep existing routes but complete missing planned dynamic pages:
+  - [x] `src/pages/interviews/[slug].astro`
+  - [x] `src/pages/releases/[slug].astro`
+  - [x] `src/pages/hardware/[slug].astro` or `src/pages/artists/[slug].astro` (final IA decision)
+  - [x] `src/pages/scenes/[slug].astro`
+- [x] Add section components still missing from plan:
+  - [x] `src/components/article/ArticleHero.tsx`
+  - [x] `src/components/article/ArticleBody.tsx`
+  - [x] `src/components/article/RelatedArticles.tsx`
+  - [x] `src/components/release/ReleaseHero.tsx`
+  - [x] `src/components/release/TrackList.tsx`
+  - [x] `src/components/release/ReleasePlayer.tsx`
+  - [x] `src/components/artist/ArtistHero.tsx`
+  - [x] `src/components/artist/ArtistBio.tsx`
+  - [x] `src/components/artist/ArtistDiscography.tsx`
+- [x] Wire pages to these components using mock data only.
+- [x] Add empty-state and not-found UX for each dynamic route.
 
 Definition of done:
 - Every nav section has list and detail route coverage.
